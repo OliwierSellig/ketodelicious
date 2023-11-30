@@ -1,0 +1,36 @@
+"use client";
+
+import { useInView } from "react-intersection-observer";
+import { useState, useEffect } from "react";
+import CountUp from "react-countup";
+
+interface AchievementNumberProps {
+  number: number;
+}
+
+function AchievementNumber({ number }: AchievementNumberProps) {
+  const { ref: myRef, inView } = useInView();
+  const [hasCounted, setHasCounted] = useState<boolean>(false);
+
+  console.log(`In view: ${inView}, Has Counted: ${hasCounted}`);
+
+  useEffect(() => {
+    if (inView && !hasCounted) {
+      setHasCounted(true);
+    }
+  }, [inView, hasCounted]);
+  return (
+    <h3 className="text-4xl font-bold font-ubuntu mb-1" ref={myRef}>
+      {hasCounted ? (
+        <>
+          <CountUp end={number} separator="" />
+          <span>+</span>
+        </>
+      ) : (
+        0
+      )}
+    </h3>
+  );
+}
+
+export default AchievementNumber;

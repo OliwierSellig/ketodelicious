@@ -7,7 +7,9 @@ interface RecipeCardProps {
   children: ReactNode;
   cookingTime: number;
   calories: number;
-  active: boolean;
+  index: number;
+  pos: number;
+  iterator: number;
 }
 
 function RecipeCard({
@@ -15,15 +17,20 @@ function RecipeCard({
   children,
   cookingTime,
   calories,
-  active,
+  index,
+  pos,
+  iterator,
 }: RecipeCardProps) {
+  const active = iterator === index;
+
   return (
-    <li
-      className={`flex flex-col text-center px-7 pb-5 pt-36 bg-white-tint rounded-xl justify-between gap-4 relative ${
+    <div
+      style={{ left: active ? "50%" : `${pos}%` }}
+      className={`${pos} flex flex-col text-center px-7 pb-5 w-[360px] h-[360px] pt-36 bg-white-tint rounded-xl justify-between gap-4 absolute top-1/2 -translate-y-1/2   ${
         active
-          ? "scale-105"
-          : "grayscale-[80%] opacity-70 blur-[2px] scale-90 translate-y-6"
-      } `}
+          ? "scale-105 left-1/2 -translate-x-1/2 "
+          : "grayscale-[80%] opacity-70 blur-[2px] scale-90 "
+      }`}
     >
       <div className="absolute top-0 left-2/4 -translate-x-1/2 -translate-y-1/4">
         <Image
@@ -46,7 +53,7 @@ function RecipeCard({
           <p className="font-semibold">{calories} kcal</p>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 

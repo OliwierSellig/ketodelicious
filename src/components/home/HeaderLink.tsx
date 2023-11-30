@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ReactNode } from "react";
+import { Link } from "react-scroll";
 
 interface HeaderLinkProps {
   to: string;
@@ -9,8 +9,12 @@ interface HeaderLinkProps {
 function HeaderLink({ to, children }: HeaderLinkProps) {
   return (
     <Link
-      href={to}
-      className="text-xl font-medium hover:text-jade-normal focus:text-jade-normal transition-all duration-150 ease-linear hover:-translate-y-px focus:-translate-y-px"
+      to={to}
+      href="/"
+      smooth={true}
+      offset={-100}
+      duration={500}
+      className="text-xl font-medium hover:text-jade-normal focus:text-jade-normal transition-all duration-150 ease-linear hover:-translate-y-px focus:-translate-y-px cursor-pointer"
     >
       {children}
     </Link>

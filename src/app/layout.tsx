@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { inter, kalam, ubuntu } from "@/utils/fonts";
 import "../styles/globals.css";
-import { inter, kalam, nunito, playpen_sans, ubuntu } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "Crave Less, Live Longer | KetoDelicious",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ubuntu.variable} ${kalam.variable} ${inter.variable} ${nunito.variable} ${playpen_sans.variable}`}
+      className={`${ubuntu.variable} ${kalam.variable} ${inter.variable} `}
     >
       <body className="bg-almond-tint-li">{children}</body>
     </html>

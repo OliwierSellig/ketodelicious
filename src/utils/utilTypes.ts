@@ -9,4 +9,5 @@ export interface ButtonProps {
   destination?: string;
   handleClick?: Function;
   size?: "sm" | "md" | "lg" | "xl";
+  interPageLink?: boolean;
 }

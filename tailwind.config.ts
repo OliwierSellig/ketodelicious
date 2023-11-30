@@ -15,7 +15,6 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans-serif"],
         ubuntu: ["var(--font-ubuntu)", "sans-serif"],
         kalam: ["var(--font-kalam)", "sans-serif"],
-        playpen_sans: ["var(--font-playpen_sans)", "sans-serif"],
       },
       colors: {
         "almond-tint": "#FDFCFA",
@@ -31,6 +30,21 @@ const config: Config = {
       boxShadow: {
         "cta-top": "0px 20px 24px 0px rgba(130, 129, 126, 1)",
         "cta-bot": "0px -20px 24px 0px rgba(130, 129, 126, 1)",
+      },
+      keyframes: {
+        fadeFromTopHeader: {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-50%, -32px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%, 0)",
+          },
+        },
+      },
+      animation: {
+        animateScrollHeader: "fadeFromTopHeader 0.6s",
       },
     },
   },

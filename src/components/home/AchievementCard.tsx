@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+import AchievementNumber from "./AchievementNumber";
 
 interface AchievementCardProps {
   number: number;
@@ -13,7 +14,7 @@ function AchievementCard({ children, number, image }: AchievementCardProps) {
       <div>
         <Image src={image} alt="" />
       </div>
-      <h3 className="text-4xl font-bold font-ubuntu mb-1">{number}+</h3>
+      <AchievementNumber number={number} />
       <p className="text-lg font-medium w-4/5">{children}</p>
     </li>
   );

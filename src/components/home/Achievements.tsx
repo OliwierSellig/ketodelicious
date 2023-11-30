@@ -6,7 +6,7 @@ import ac3 from "../../../public/images/ac-3.png";
 
 function Achievements() {
   return (
-    <section className="fixed-container pt-14 pb-28">
+    <section id="achievements" className="fixed-container pt-14 pb-28">
       <SectionHeader subtitle="Achievements">
         What we've achieved so far
       </SectionHeader>

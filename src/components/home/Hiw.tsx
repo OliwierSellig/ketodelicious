@@ -6,7 +6,7 @@ import HiwStep from "./HiwStep";
 
 function Hiw() {
   return (
-    <section className="py-14 fixed-container">
+    <section id="hiw" className="py-14 fixed-container">
       <SectionHeader subtitle="How it works">
         From an idea, to a tasty pleasure
       </SectionHeader>
