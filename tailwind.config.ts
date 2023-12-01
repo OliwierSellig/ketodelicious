@@ -46,11 +46,19 @@ const config: Config = {
       animation: {
         animateScrollHeader: "fadeFromTopHeader 0.6s",
       },
+      aspectRatio: {
+        "22/7": "22 / 7",
+        "22/9": "22 / 9",
+        "16/9": "16 / 9",
+        "4/3": "4 / 3",
+      },
     },
     screens: {
       xl: { max: "1280px" },
 
       lg: { max: "1024px" },
+
+      mdl: { max: "900px" },
 
       md: { max: "760px" },
 

@@ -6,11 +6,11 @@ import HiwStep from "./HiwStep";
 
 function Hiw() {
   return (
-    <section id="hiw" className="py-14 fixed-container">
+    <section id="hiw" className="py-14 fixed-container md:py-12">
       <SectionHeader subtitle="How it works">
         From an idea, to a tasty pleasure
       </SectionHeader>
-      <ul className="flex flex-col">
+      <ul className="flex flex-col lg:gap-4 md:gap-12">
         <HiwStep
           reversed={false}
           image={hiw1}

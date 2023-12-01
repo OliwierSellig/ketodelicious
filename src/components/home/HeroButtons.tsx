@@ -6,9 +6,9 @@ import TextButton from "../global/TextButton";
 
 function HeroButtons() {
   return (
-    <nav className="flex gap-10 items-center">
+    <nav className="flex gap-10 items-center xsm:flex-col">
       <FilledButton size="lg" destination="/">
-        Visit the app
+        <span className="xsm:text-2xl px-6 xxsm:px-2">Visit the app</span>
       </FilledButton>
       <TextButton interPageLink={true} destination="cta">
         <span className="font-medium ">Learn more</span>

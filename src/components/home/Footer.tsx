@@ -10,9 +10,9 @@ const footerLinkClass =
 
 function Footer() {
   return (
-    <footer className="bg-almond-normal py-12 shadow-cta-bot">
-      <div className="fixed-container flex justify-around items-center">
-        <div className="flex flex-col items-center text-center">
+    <footer className="bg-almond-normal py-12 shadow-cta-bot w-screen">
+      <div className="fixed-container flex justify-around items-center mdl:grid mdl:grid-cols-7 mdl:gap-8 md:grid-cols-1 mdl:justify-items-center md:gap-12">
+        <div className="flex flex-col items-center text-center mdl:col-span-3 md:col-span-1">
           <Logo />
           <p className="text-sm mt-3 mb-4">
             KetoDelicious 2023 &copy;. All rights reserved
@@ -40,7 +40,7 @@ function Footer() {
             />
           </nav>
         </div>
-        <nav className="grid grid-cols-3 text-xl gap-x-8 gap-y-4">
+        <nav className="grid grid-cols-3 text-xl gap-x-8 gap-y-4 lg:grid-cols-2 mdl:col-span-4 mdl:gap-x-2 md:row-start-1 md:row-end-2 md:col-span-1 xsm:text-base xxsm:text-sm">
           <a className={footerLinkClass} href="/">
             About us
           </a>

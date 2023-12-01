@@ -60,7 +60,7 @@ body {
 }
 
 .cta-background {
-  aspect-ratio: 22/7;
+  /* aspect-ratio: 22/7; */
   background-image: linear-gradient(
       0deg,
       rgba(130, 129, 136, 0.8) 0%,

@@ -16,7 +16,7 @@ function FilledButton({
       ? "py-2 px-6"
       : size === "lg"
       ? "py-3 px-8"
-      : "py-4 px-14"
+      : "py-4 px-14 sm:px-12 sm:py-3 xsm:px-10"
   } bg-jade-normal rounded-2xl select-none cursor-pointer shadow-sm hover:bg-jade-shade focus:bg-jade-shade transition-normal hover:shadow hover:scale-[1.03] focus:scale-[1.03]`;
 
   if (destination) {

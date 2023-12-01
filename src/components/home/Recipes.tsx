@@ -3,11 +3,9 @@
 import RecipeCard from "./RecipeCard";
 import SectionHeader from "./SectionHeader";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
-// import dish1 from "../../../public/images/dish-1.jpg";
-// import dish2 from "../../../public/images/dish-2.jpg";
-// import dish3 from "../../../public/images/dish-3.jpg";
 import { recipeList } from "@/utils/dummyData";
 import { useState } from "react";
+import NavButton from "./NavButton";
 
 function Recipes() {
   const [iterator, setIterator] = useState<number>(
@@ -36,8 +34,6 @@ function Recipes() {
     }
   }
 
-  console.log(iterator);
-
   return (
     <section
       id="recipes"
@@ -47,14 +43,10 @@ function Recipes() {
         <SectionHeader subtitle="Recipes">
           So, what are we making today?
         </SectionHeader>
-        <nav className="relative grid grid-cols-3 gap-6 pt-16 h-[500px] overflow-hidden">
-          <button
-            aria-label="See Previous"
-            onClick={goPrev}
-            className="absolute top-1/2 left-0 z-20 bg-jade-normal p-1 rounded-full shadow-md hover:bg-jade-shade transition-all duration-100 ease-linear delay-0 focus:bg-jade-shade"
-          >
+        <nav className="relative grid grid-cols-3 gap-6 pt-16 h-[500px] overflow-hidden [&>button:first-child]:top-1/2 [&>button:last-child]:top-1/2 [&>button:last-child]:right-0 xsm:[&>button:first-child]:top-full xsm:[&>button:first-child]:-translate-y-full xsm:[&>button:last-child]:top-full xsm:[&>button:last-child]:-translate-y-full xsm:[&>button:last-child]:-translate-x-[150%] xsm:[&>button:first-child]:translate-x-[150%]">
+          <NavButton disabled={!canGoPrev()} handleClick={goPrev}>
             <ChevronLeftIcon className="w-10 h-10 fill-white-normal" />
-          </button>
+          </NavButton>
           {recipeList.map((recipe, index) => (
             <RecipeCard
               iterator={iterator}
@@ -67,13 +59,9 @@ function Recipes() {
               {recipe.name}
             </RecipeCard>
           ))}
-          <button
-            aria-label="See Next"
-            onClick={goNext}
-            className="absolute top-1/2 right-0 z-20 p-1 bg-jade-normal rounded-full shadow-md hover:bg-jade-shade transition-all duration-100 ease-linear delay-0 focus:bg-jade-shade"
-          >
+          <NavButton disabled={!canGoNext()} handleClick={goNext}>
             <ChevronRightIcon className="w-10 h-10 fill-white-normal" />
-          </button>
+          </NavButton>
         </nav>
       </div>
     </section>
