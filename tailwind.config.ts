@@ -47,6 +47,19 @@ const config: Config = {
         animateScrollHeader: "fadeFromTopHeader 0.6s",
       },
     },
+    screens: {
+      xl: { max: "1280px" },
+
+      lg: { max: "1024px" },
+
+      md: { max: "760px" },
+
+      sm: { max: "640px" },
+
+      xsm: { max: "440px" },
+
+      xxsm: { max: "340px" },
+    },
   },
   plugins: [],
 };

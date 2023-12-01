@@ -17,7 +17,7 @@ function FilledButton({
       : size === "lg"
       ? "py-3 px-8"
       : "py-4 px-14"
-  } bg-jade-normal rounded-2xl select-none cursor-pointer shadow-sm hover:bg-jade-shade focus:bg-jade-shade transition-normal hover:shadow`;
+  } bg-jade-normal rounded-2xl select-none cursor-pointer shadow-sm hover:bg-jade-shade focus:bg-jade-shade transition-normal hover:shadow hover:scale-[1.03] focus:scale-[1.03]`;
 
   if (destination) {
     return (

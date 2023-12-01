@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
 import { ClockIcon, FireIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 interface RecipeCardProps {
   image: StaticImageData;
@@ -8,7 +9,6 @@ interface RecipeCardProps {
   cookingTime: number;
   calories: number;
   index: number;
-  pos: number;
   iterator: number;
 }
 
@@ -18,18 +18,25 @@ function RecipeCard({
   cookingTime,
   calories,
   index,
-  pos,
   iterator,
 }: RecipeCardProps) {
   const active = iterator === index;
+  const pos = active
+    ? { left: "50%" }
+    : index < iterator
+    ? { left: `${(index + 1 - iterator) * 100}%` }
+    : {
+        left: `${(index - iterator) * 100}%`,
+        transform: "translate(-100%, -50%) scale(0.9)",
+      };
 
   return (
     <div
-      style={{ left: active ? "50%" : `${pos}%` }}
-      className={`${pos} flex flex-col text-center px-7 pb-5 w-[360px] h-[360px] pt-36 bg-white-tint rounded-xl justify-between gap-4 absolute top-1/2 -translate-y-1/2   ${
+      style={pos}
+      className={`flex flex-col text-center px-7 pb-5 w-[360px] min-h-[360px] pt-36 bg-white-tint rounded-xl justify-between gap-4 absolute top-1/2 -translate-y-1/2 transition-all duration-[1000ms] ease-in-out   ${
         active
-          ? "scale-105 left-1/2 -translate-x-1/2 "
-          : "grayscale-[80%] opacity-70 blur-[2px] scale-90 "
+          ? "scale-105 -translate-x-1/2 "
+          : "grayscale-[80%] opacity-70 blur-[2px] scale-90 select-none"
       }`}
     >
       <div className="absolute top-0 left-2/4 -translate-x-1/2 -translate-y-1/4">
@@ -39,7 +46,18 @@ function RecipeCard({
           className="object-cover w-44 h-44 border-solid border-[6px] shadow-sm border-white-tint rounded-full"
         />
       </div>
-      <h3 className="text-2xl font-medium font-ubuntu">{children}</h3>
+      <h3 className="text-2xl font-medium font-ubuntu">
+        {active ? (
+          <Link
+            href="/"
+            className="block hover:text-jade-normal focus:text-jade-normal hover:scale-105 focus:scale-105 transition-all ease-linear duration-150"
+          >
+            {children}
+          </Link>
+        ) : (
+          <span>{children}</span>
+        )}
+      </h3>
       <div className="flex gap-8 items-center justify-center">
         <div className="flex flex-col text-sm items-center font-medium">
           <ClockIcon className="w-10 h-10 mb-3" />

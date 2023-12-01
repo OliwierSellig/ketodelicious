@@ -47,7 +47,7 @@ function Recipes() {
         <SectionHeader subtitle="Recipes">
           So, what are we making today?
         </SectionHeader>
-        <div className="relative grid grid-cols-3 gap-6 pt-16 h-[460px] overflow-hidden">
+        <nav className="relative grid grid-cols-3 gap-6 pt-16 h-[500px] overflow-hidden">
           <button
             aria-label="See Previous"
             onClick={goPrev}
@@ -58,11 +58,6 @@ function Recipes() {
           {recipeList.map((recipe, index) => (
             <RecipeCard
               iterator={iterator}
-              pos={
-                index > iterator
-                  ? (index - (iterator + 1)) * 100
-                  : (index - (iterator + 1)) * 100
-              }
               key={index}
               image={recipe.image}
               cookingTime={recipe.cookingTime}
@@ -72,31 +67,6 @@ function Recipes() {
               {recipe.name}
             </RecipeCard>
           ))}
-          {/* <RecipeCard
-            image={dish1}
-            cookingTime={25}
-            calories={860}
-            active={false}
-          >
-            Grilled Chicken Ceaser Salad
-          </RecipeCard>
-          <RecipeCard
-            image={dish2}
-            cookingTime={30}
-            calories={920}
-            active={true}
-          >
-            Zucchini Noodles with Pesto and Tomatoes
-          </RecipeCard>
-          <RecipeCard
-            image={dish3}
-            cookingTime={15}
-            calories={745}
-            active={false}
-          >
-            Salmon with Roasted Vegetables
-          </RecipeCard> */}
-
           <button
             aria-label="See Next"
             onClick={goNext}
@@ -104,7 +74,7 @@ function Recipes() {
           >
             <ChevronRightIcon className="w-10 h-10 fill-white-normal" />
           </button>
-        </div>
+        </nav>
       </div>
     </section>
   );

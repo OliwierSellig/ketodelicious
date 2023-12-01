@@ -23,7 +23,7 @@ function AchievementNumber({ number }: AchievementNumberProps) {
     <h3 className="text-4xl font-bold font-ubuntu mb-1" ref={myRef}>
       {hasCounted ? (
         <>
-          <CountUp end={number} separator="" />
+          <CountUp delay={0} end={number} separator="" />
           <span>+</span>
         </>
       ) : (
