@@ -27,7 +27,7 @@ function Hero() {
         </p>
         <HeroButtons />
       </div>
-      <div className="col-span-3 md:row-start-1 md:row-end-2 md:w-4/5 md:justify-self-center sm:w-full animate-[fadeIn_1.6s]">
+      <div className="col-span-3 md:row-start-1 md:row-end-2 md:w-4/5 md:justify-self-center sm:w-full animate-[fadeBottom_1.2s]">
         <Image src={hero} alt="Woman ejnoying low-carb food" />
       </div>
     </section>

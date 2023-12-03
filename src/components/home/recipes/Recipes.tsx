@@ -43,7 +43,7 @@ function Recipes() {
         <SectionHeader subtitle="Recipes">
           So, what are we making today?
         </SectionHeader>
-        <nav className="relative grid grid-cols-3 gap-6 pt-16 h-[500px] overflow-hidden [&>button:first-child]:top-1/2 [&>button:last-child]:top-1/2 [&>button:last-child]:right-0 xsm:[&>button:first-child]:top-full xsm:[&>button:first-child]:-translate-y-full xsm:[&>button:last-child]:top-full xsm:[&>button:last-child]:-translate-y-full xsm:[&>button:last-child]:-translate-x-[150%] xsm:[&>button:first-child]:translate-x-[150%]">
+        <nav className="relative grid grid-cols-3 gap-6 pt-16 h-[500px] overflow-hidden [&>button:first-child]:top-1/2 [&>button:last-child]:top-1/2 [&>button:last-child]:right-0 xsm:[&>button:first-child]:top-full xsm:[&>button:first-child]:-translate-y-full xsm:[&>button:last-child]:top-full xsm:[&>button:last-child]:-translate-y-full xsm:[&>button:last-child]:-translate-x-[150%] xsm:[&>button:first-child]:translate-x-[150%] animate-[fadeBottom_1.2s]">
           <NavButton disabled={!canGoPrev()} handleClick={goPrev}>
             <ChevronLeftIcon className="w-10 h-10 fill-white-normal" />
           </NavButton>

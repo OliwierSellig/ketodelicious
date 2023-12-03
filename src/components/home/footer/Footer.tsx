@@ -10,7 +10,7 @@ const footerLinkClass =
 
 function Footer() {
   return (
-    <footer className="bg-almond-normal py-12 shadow-cta-bot w-screen">
+    <footer className="bg-almond-normal py-12 shadow-cta-bot w-screen animate-[fadeIn_1.2s]">
       <div className="fixed-container flex justify-around items-center mdl:grid mdl:grid-cols-7 mdl:gap-8 md:grid-cols-1 mdl:justify-items-center md:gap-12">
         <div className="flex flex-col items-center text-center mdl:col-span-3 md:col-span-1">
           <Logo />
