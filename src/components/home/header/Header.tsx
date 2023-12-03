@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import HeaderNav from "./HeaderNav";
-import Logo from "./Logo";
+import Logo from "../Logo";
 
 function Header() {
   const [isSticky, setIsSticky] = useState<boolean>(false);
@@ -30,9 +30,9 @@ function Header() {
 
   return (
     <header
-      className={` fixed-container left-1/2 -translate-x-1/2 w-full flex justify-between items-center py-3 gap-2 ${
+      className={` fixed-container left-1/2 -translate-x-1/2 w-full flex justify-between items-center py-3 gap-2 z-50 animate-[fadeIn_1s] ${
         isSticky
-          ? "fixed bg-almond-normal/90 rounded-3xl animate-animateScrollHeader z-50"
+          ? "fixed bg-almond-normal/90 rounded-3xl animate-animateScrollHeade"
           : "absolute"
       }`}
     >

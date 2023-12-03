@@ -1,12 +1,12 @@
 "use client";
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
-import FilledButton from "../global/FilledButton";
-import TextButton from "../global/TextButton";
+import FilledButton from "../../global/FilledButton";
+import TextButton from "../../global/TextButton";
 
 function HeroButtons() {
   return (
-    <nav className="flex gap-10 items-center xsm:flex-col">
+    <nav className="flex gap-10 items-center xsm:flex-col animate-[fadeLeft_1.4s]">
       <FilledButton size="lg" destination="/">
         <span className="xsm:text-2xl px-6 xxsm:px-2">Visit the app</span>
       </FilledButton>

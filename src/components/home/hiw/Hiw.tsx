@@ -1,7 +1,7 @@
-import SectionHeader from "./SectionHeader";
-import hiw1 from "../../../public/images/hiw-1.png";
-import hiw2 from "../../../public/images/hiw-2.png";
-import hiw3 from "../../../public/images/hiw-3.png";
+import SectionHeader from "../SectionHeader";
+import hiw1 from "../../../../public/images/hiw-1.png";
+import hiw2 from "../../../../public/images/hiw-2.png";
+import hiw3 from "../../../../public/images/hiw-3.png";
 import HiwStep from "./HiwStep";
 
 function Hiw() {

@@ -1,4 +1,4 @@
-import FilledButton from "../global/FilledButton";
+import FilledButton from "../../global/FilledButton";
 
 function Cta() {
   return (

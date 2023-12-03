@@ -1,8 +1,8 @@
 import AchievementCard from "./AchievementCard";
-import SectionHeader from "./SectionHeader";
-import ac1 from "../../../public/images/ac-1.png";
-import ac2 from "../../../public/images/ac-2.png";
-import ac3 from "../../../public/images/ac-3.png";
+import SectionHeader from "../SectionHeader";
+import ac1 from "../../../../public/images/ac-1.png";
+import ac2 from "../../../../public/images/ac-2.png";
+import ac3 from "../../../../public/images/ac-3.png";
 
 function Achievements() {
   return (

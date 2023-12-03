@@ -42,6 +42,30 @@ const config: Config = {
             transform: "translate(-50%, 0)",
           },
         },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": { opacity: "1" },
+        },
+        fadeLeft: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-30px)",
+          },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fadeRight: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(30px)",
+          },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        scaleUp: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)" },
+        },
       },
       animation: {
         animateScrollHeader: "fadeFromTopHeader 0.6s",

@@ -1,10 +1,10 @@
-import Achievements from "@/components/home/Achievements";
-import Cta from "@/components/home/Cta";
-import Footer from "@/components/home/Footer";
-import Header from "@/components/home/Header";
-import Hero from "@/components/home/Hero";
-import Hiw from "@/components/home/Hiw";
-import Recipes from "@/components/home/Recipes";
+import Achievements from "@/components/home/achievements/Achievements";
+import Cta from "@/components/home/cta/Cta";
+import Footer from "@/components/home/footer/Footer";
+import Header from "@/components/home/header/Header";
+import Hero from "@/components/home/hero/Hero";
+import Hiw from "@/components/home/hiw/Hiw";
+import Recipes from "@/components/home/recipes/Recipes";
 
 export default function Home() {
   return (
