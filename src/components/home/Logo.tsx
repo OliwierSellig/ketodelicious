@@ -6,14 +6,14 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="flex gap-4 items-center text-grey-normal hover:text-jade-normal focus:text-jade-normal transition-all duration-150 ease-linear sm:gap-2 md:gap-3"
+      className="text-grey-normal flex items-center gap-4 transition-all duration-150 ease-linear hover:text-jade-normal focus:text-jade-normal md:gap-3 sm:gap-2"
     >
       <Image
         src={logo}
-        className="w-20 h-20 md:w-16 md:h-16 sm:w-14 sm:h-14 xxsm:w-12 xxsm:h-12"
+        className="h-20 w-20 md:h-16 md:w-16 sm:h-14 sm:w-14 xxsm:h-12 xxsm:w-12"
         alt="KetoDelicious Logo"
       />
-      <p className="text-4xl tracking-wider block font-medium  font-kalam pt-2 underline-hover relative sm:text-2xl md:text-3xl xxsm:text-xl ">
+      <p className="underline-hover relative block pt-2  font-kalam text-4xl font-medium tracking-wider md:text-3xl sm:text-2xl xxsm:text-xl ">
         KetoDelicious
       </p>
     </Link>

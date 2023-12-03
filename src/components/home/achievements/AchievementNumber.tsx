@@ -19,7 +19,7 @@ function AchievementNumber({ number }: AchievementNumberProps) {
   }, [inView, hasCounted]);
   return (
     <h3
-      className="text-4xl font-bold font-ubuntu mb-1 mdl:text-3xl"
+      className="mb-1 font-ubuntu text-4xl font-bold mdl:text-3xl"
       ref={myRef}
     >
       {hasCounted ? (

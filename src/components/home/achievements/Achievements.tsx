@@ -8,12 +8,12 @@ function Achievements() {
   return (
     <section
       id="achievements"
-      className="fixed-container pt-14 pb-28 md:pb-20 md:pt-10"
+      className="fixed-container pb-28 pt-14 md:pb-20 md:pt-10"
     >
       <SectionHeader subtitle="Achievements">
         What we've achieved so far
       </SectionHeader>
-      <ul className="flex py-4 gap-4 md:flex-col md:px-6 md:gap-6 xsm:px-2">
+      <ul className="flex gap-4 py-4 md:flex-col md:gap-6 md:px-6 xsm:px-2">
         <AchievementCard number={100000} image={ac1}>
           Registered users from all around the world
         </AchievementCard>

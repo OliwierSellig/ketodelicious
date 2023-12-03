@@ -16,7 +16,7 @@ function HeaderLink({ to, children, handleClick }: HeaderLinkProps) {
       smooth={true}
       offset={-100}
       duration={500}
-      className={`text-xl font-medium hover:text-jade-normal focus:text-jade-normal transition-all duration-150 ease-linear hover:-translate-y-px focus:-translate-y-px cursor-pointer lg:text-3xl lg:text-white-normal lg:font-ubuntu lg:hover:translate-x-4 lg:hover:text-jade-normal lg:focus:text-jade-normal lg:focus:translate-x-4 lg:animate-[fadeLeft_600ms] sm:text-2xl`}
+      className={`cursor-pointer text-xl font-medium transition-all duration-150 ease-linear hover:-translate-y-px hover:text-jade-normal focus:-translate-y-px focus:text-jade-normal lg:animate-[fadeLeft_600ms] lg:font-ubuntu lg:text-3xl lg:text-white-normal lg:hover:translate-x-4 lg:hover:text-jade-normal lg:focus:translate-x-4 lg:focus:text-jade-normal sm:text-2xl`}
     >
       {children}
     </Link>

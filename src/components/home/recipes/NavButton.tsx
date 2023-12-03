@@ -14,7 +14,7 @@ function NavButton({ disabled, handleClick, children }: NavButtonProps) {
       aria-label="See Previous"
       disabled={disabled}
       onClick={() => handleClick()}
-      className={`absolute  bg-jade-normal p-1 rounded-full shadow-md hover:bg-jade-shade transition-all duration-100 ease-linear delay-0 focus:bg-jade-shade z-30 ${
+      className={`bg-jade-shade-1  absolute z-30 rounded-full p-1 shadow-md transition-all delay-0 duration-100 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
         disabled ? "opacity-30 grayscale-[80]" : ""
       }`}
     >

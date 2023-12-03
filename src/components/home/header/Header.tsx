@@ -30,9 +30,9 @@ function Header() {
 
   return (
     <header
-      className={`fixed-container left-1/2 -translate-x-1/2 w-full flex justify-between items-center py-3 gap-2 z-50   ${
+      className={`fixed-container left-1/2 z-50 flex w-full -translate-x-1/2 items-center justify-between gap-2 py-3   ${
         isSticky
-          ? "fixed bg-almond-normal/90 rounded-3xl animate-[fadeFromTopHeader_1.2s]"
+          ? "fixed animate-[fadeFromTopHeader_1.2s] rounded-3xl bg-almond-normal/90"
           : "absolute animate-[fadeIn_1s]"
       }`}
     >

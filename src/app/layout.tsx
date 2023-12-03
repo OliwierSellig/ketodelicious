@@ -18,7 +18,7 @@ export default function RootLayout({
       lang="en"
       className={`${ubuntu.variable} ${kalam.variable} ${inter.variable} `}
     >
-      <body className="bg-almond-tint-li">{children}</body>
+      <body className="bg-almond-tint">{children}</body>
     </html>
   );
 }

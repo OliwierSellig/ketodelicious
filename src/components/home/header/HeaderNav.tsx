@@ -24,16 +24,17 @@ function HeaderNav() {
   return (
     <>
       <button
+        aria-label="Open Mobile Navigation"
         onClick={() => setMobileOpen(true)}
-        className="p-2 mt-1 rounded-full hover:bg-jade-normal focus:bg-jade-normal transition-all duration-150 ease-linear focus:scale-105 hover:scale-105 hidden lg:block sm:p-[6px] [&:hover>svg]:fill-white-normal [&:focus>svg]:fill-white-normal"
+        className="mt-1 hidden rounded-full p-2 transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-normal focus:scale-105 focus:bg-jade-normal lg:block sm:p-[6px] [&:focus>svg]:fill-white-normal [&:hover>svg]:fill-white-normal"
       >
-        <Bars3Icon className="w-8 h-8 fill-gray-normal md:w-7 md:h-7 sm:w-6 sm:h-6" />
+        <Bars3Icon className="h-8 w-8 fill-gray-normal md:h-7 md:w-7 sm:h-6 sm:w-6" />
       </button>
       <nav
-        className={`flex gap-5 items-center pt-1 ${
+        className={`flex items-center gap-5 pt-1 ${
           !mobileOpen
             ? "lg:hidden"
-            : "lg:flex-col lg:gap-8 lg:fixed lg:top-0 lg:left-0 lg:w-screen lg:h-screen lg:bg-jade-shade/50 backdrop-blur-sm z-[99000] lg:justify-center lg:animate-[fadeIn_300ms]"
+            : "lg:bg-jade-shade-1/50 z-[99000] backdrop-blur-sm lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-screen lg:animate-[fadeIn_300ms] lg:flex-col lg:justify-center lg:gap-8"
         }  `}
       >
         <MobileCloseButton handleClick={() => setMobileOpen(false)} />
@@ -50,7 +51,7 @@ function HeaderNav() {
           Recipes
         </HeaderLink>
         <FilledButton size="md" destination="/">
-          <p className="lg:text-3xl lg:px-12 lg:py-1 lg:animate-[fadeIn_1s] sm:text-2xl">
+          <p className="lg:animate-[fadeIn_1s] lg:px-12 lg:py-1 lg:text-3xl sm:text-2xl">
             Account
           </p>
         </FilledButton>
