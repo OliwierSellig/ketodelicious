@@ -22,13 +22,13 @@ function Hero() {
           Explore a world where delicious meets nutritious, taking every bite
           closer to your health and wellness goals. Redefine your culinary
           journey with mouthwatering recipes, satisfying cravings without
-          compromising flavor. Embrace a lifestyle that's both delicious and
-          mindful.
+          compromising flavor. Embrace a lifestyle that&apos;s both delicious
+          and mindful.
         </p>
         <HeroButtons />
       </div>
       <div className="col-span-3 animate-[fadeBottom_1.2s] md:row-start-1 md:row-end-2 md:w-4/5 md:justify-self-center sm:w-full">
-        <Image src={hero} alt="Woman ejnoying low-carb food" />
+        <Image src={hero} priority={true} alt="Woman ejnoying low-carb food" />
       </div>
     </section>
   );

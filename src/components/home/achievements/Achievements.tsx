@@ -11,7 +11,7 @@ function Achievements() {
       className="fixed-container pb-28 pt-14 md:pb-20 md:pt-10"
     >
       <SectionHeader subtitle="Achievements">
-        What we've achieved so far
+        What we&apos;ve achieved so far
       </SectionHeader>
       <ul className="flex gap-4 py-4 md:flex-col md:gap-6 md:px-6 xsm:px-2">
         <AchievementCard number={100000} image={ac1}>

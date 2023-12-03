@@ -28,8 +28,8 @@ function Hiw() {
           title="Cook with a smile"
         >
           Follow our step-by-step instructions and clear guides to cook with
-          confidence and joy. Whether you're a seasoned chef or a kitchen
-          novice, enjoy the process of bringing your chosen recipe to life.
+          confidence and joy. Whether youre a seasoned chef or a kitchen novice,
+          enjoy the process of bringing your chosen recipe to life.
         </HiwStep>
         <HiwStep
           reversed={false}
