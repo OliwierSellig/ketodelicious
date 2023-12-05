@@ -26,15 +26,18 @@ const config: Config = {
         "jade-normal": "#00A86B",
         "jade-shade-1": "#008656",
         "jade-shade-2": "#00764b",
-        "gray-tint": "#555",
+        "gray-tint-2": "#777",
+        "gray-tint-1": "#555",
         "gray-normal": "#333",
         "gray-shade": "#222",
+        "red-normal": "#D23232",
       },
       boxShadow: {
         "cta-top": "0px 20px 24px 0px rgba(130, 129, 126, 1)",
         "cta-bot": "0px -20px 24px 0px rgba(130, 129, 126, 1)",
         "vertical-nav": "12px 0px 20px 0px rgba(85, 85, 85, 0.05)",
         "horizontal-nav": "0px 12px 20px 0px rgba(85, 85, 85, 0.05)",
+        "recipe-input": "0px 12px 20px 0px rgba(85, 85, 85, 0.05)",
       },
       keyframes: {
         fadeFromTopHeader: {

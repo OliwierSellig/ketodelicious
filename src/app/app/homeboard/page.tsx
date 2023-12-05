@@ -15,9 +15,9 @@ import Image from "next/image";
 function page() {
   return (
     <>
-      <main className="z-30 flex flex-col items-center justify-center gap-14 pb-20">
+      <main className="z-30 flex flex-col gap-14 pb-20">
         <header className="flex flex-col items-center">
-          <h1 className="mb-2 font-ubuntu text-6xl font-medium">
+          <h1 className="mb-2 font-ubuntu text-7xl font-medium">
             Welcome back <span className="text-jade-normal">Oliwier</span>
           </h1>
           <p className="text-xl font-medium">What&apos;s bringing you here?</p>
@@ -60,7 +60,7 @@ function page() {
       <Image
         src={homeImage}
         alt=""
-        className="absolute bottom-0 left-0 h-[680px] w-[680px]"
+        className="absolute bottom-0 left-0 aspect-square w-[50%] max-w-[800px]"
       />
     </>
   );

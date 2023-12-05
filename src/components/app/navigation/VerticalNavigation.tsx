@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "../home/Logo";
+import Logo from "../../home/Logo";
 import {
   HomeIcon,
   MagnifyingGlassIcon,
@@ -8,29 +8,29 @@ import {
   StarIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-import FilledButton from "../global/FilledButton";
+import FilledButton from "../../global/FilledButton";
 import NavLink from "./NavLink";
 
 function VerticalNavigation() {
   return (
-    <div className="bg-almond-tint-2 shadow-vertical-nav z-20 flex flex-col gap-16 p-8">
+    <div className="z-20 flex flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav">
       <Logo />
       <div className="flex grow flex-col items-center justify-between">
         <nav className="flex flex-col gap-4">
-          <NavLink href="/">
-            <HomeIcon className="stroke-gray-tint h-7 w-7" />
+          <NavLink href="/app/homeboard">
+            <HomeIcon className="h-7 w-7 stroke-gray-tint" />
             <span>Homeboard</span>
           </NavLink>
-          <NavLink href="/">
-            <MagnifyingGlassIcon className="stroke-gray-tint h-7 w-7" />
+          <NavLink href="/app/search">
+            <MagnifyingGlassIcon className="h-7 w-7 stroke-gray-tint" />
             <span>Search Recipes</span>
           </NavLink>
-          <NavLink href="/">
-            <StarIcon className="stroke-gray-tint h-7 w-7" />
+          <NavLink href="/favourites">
+            <StarIcon className="h-7 w-7 stroke-gray-tint" />
             <span>Our Favourites</span>
           </NavLink>
-          <NavLink href="/">
-            <ArrowPathIcon className="stroke-gray-tint h-7 w-7" />
+          <NavLink href="/random">
+            <ArrowPathIcon className="h-7 w-7 stroke-gray-tint" />
             <span>Random Recipe</span>
           </NavLink>
         </nav>
