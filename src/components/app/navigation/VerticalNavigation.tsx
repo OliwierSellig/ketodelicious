@@ -18,19 +18,19 @@ function VerticalNavigation() {
       <div className="flex grow flex-col items-center justify-between">
         <nav className="flex flex-col gap-4">
           <NavLink href="/app/homeboard">
-            <HomeIcon className="h-7 w-7 stroke-gray-tint" />
+            <HomeIcon className="stroke-gray-tint h-7 w-7" />
             <span>Homeboard</span>
           </NavLink>
           <NavLink href="/app/search">
-            <MagnifyingGlassIcon className="h-7 w-7 stroke-gray-tint" />
+            <MagnifyingGlassIcon className="stroke-gray-tint h-7 w-7" />
             <span>Search Recipes</span>
           </NavLink>
-          <NavLink href="/favourites">
-            <StarIcon className="h-7 w-7 stroke-gray-tint" />
+          <NavLink href="/app/favourites">
+            <StarIcon className="stroke-gray-tint h-7 w-7" />
             <span>Our Favourites</span>
           </NavLink>
-          <NavLink href="/random">
-            <ArrowPathIcon className="h-7 w-7 stroke-gray-tint" />
+          <NavLink href="/app/random">
+            <ArrowPathIcon className="stroke-gray-tint h-7 w-7" />
             <span>Random Recipe</span>
           </NavLink>
         </nav>
