@@ -7,8 +7,9 @@ const recipeName = "Salmon bowl with zuchinni and tomatoes";
 function RecipeCard() {
   return (
     <Link
+      draggable={false}
       href="/"
-      className=" focus-scale-[103%] flex w-full min-w-[300px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal "
+      className=" focus-scale-[103%] flex  w-full min-w-[300px]  max-w-[500px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal "
     >
       <div className="aspect-video w-full bg-white-tint">
         <div
