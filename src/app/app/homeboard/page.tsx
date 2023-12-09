@@ -15,7 +15,7 @@ import Image from "next/image";
 function page() {
   return (
     <>
-      <main className="z-30 flex flex-col gap-14 pb-20">
+      <div className="z-30 flex flex-col gap-14 pb-20">
         <header className="flex flex-col items-center">
           <h1 className="mb-2 font-ubuntu text-7xl font-medium">
             Welcome back <span className="text-jade-normal">Oliwier</span>
@@ -56,7 +56,7 @@ function page() {
             </p>
           </Link>
         </div>
-      </main>
+      </div>
       <Image
         src={homeImage}
         alt=""

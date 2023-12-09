@@ -6,13 +6,15 @@ import { ChildrenProp } from "@/utils/utilTypes";
 export default function RootLayout({ children }: ChildrenProp) {
   return (
     <>
-      <div className="grid min-h-screen max-w-[100vw] grid-cols-[max-content_1fr]">
+      <div className="grid h-screen min-h-0 max-w-[100vw] grid-cols-[max-content_1fr]">
         <VerticalNavigation />
-        <div className="flex min-w-0 flex-col">
+        <div className="flex  min-h-0 min-w-0 flex-col">
           <HorizontalNavigation />
-          <div className="items-cetner relative flex  w-full grow items-center justify-center overflow-x-clip overflow-y-scroll bg-almond-tint-1">
-            {children}
-          </div>
+          <main className="relative  grow overflow-x-clip overflow-y-scroll bg-almond-tint-1 p-12 ">
+            <div className="flex min-h-full flex-col items-center justify-center">
+              {children}
+            </div>
+          </main>
         </div>
       </div>
     </>
