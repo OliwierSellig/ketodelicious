@@ -11,7 +11,7 @@ export default function RootLayout({ children }: ChildrenProp) {
         <div className="flex  min-h-0 min-w-0 flex-col">
           <HorizontalNavigation />
           <main className="relative  grow overflow-x-clip overflow-y-scroll bg-almond-tint-1 p-12 ">
-            <div className="flex min-h-full flex-col items-center justify-center">
+            <div className="flex min-h-full flex-col items-start justify-center">
               {children}
             </div>
           </main>

@@ -1,16 +1,18 @@
 import PaginationNavigation from "@/components/app/PaginationNavigation";
+import SectionHeading from "@/components/app/SectionHeading";
 import SearchConfigurator from "@/components/app/search/SearchConfigurator";
 import SearchRecipeList from "@/components/app/search/SearchRecipeList";
 
 function page() {
   return (
     <>
-      <h1 className="section-header">
-        Search for <span className="text-jade-normal">recipes</span>
-      </h1>
+      <SectionHeading>
+        Search for <SectionHeading.Highlight>Recipes</SectionHeading.Highlight>
+      </SectionHeading>
       <SearchConfigurator />
       <SearchRecipeList />
       <PaginationNavigation
+        additionalClass="self-center"
         currentSite={1}
         maxSite={7}
         nextUrl="/"

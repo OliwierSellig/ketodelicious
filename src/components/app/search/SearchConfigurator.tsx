@@ -15,12 +15,12 @@ function SearchConfigurator() {
           type="text"
           id="name"
           placeholder="Write recipe name here"
-          className="shadow-recipe-input mb-8 w-full rounded-2xl bg-white-tint px-8 py-3 text-xl text-gray-normal"
+          className="mb-8 w-full rounded-2xl bg-white-tint px-8 py-3 text-xl text-gray-normal shadow-recipe-input"
         />
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-4">
             <SearchTextInput id="include" placeholder="Ex. Cinamon">
-              <ArchiveBoxArrowDownIcon className="h-7 w-7 stroke-gray-tint" />
+              <ArchiveBoxArrowDownIcon className="stroke-gray-tint h-7 w-7" />
               <span>Include</span>
             </SearchTextInput>
             <IngredientsList>
@@ -31,7 +31,7 @@ function SearchConfigurator() {
           </div>
           <div className="flex flex-col gap-4">
             <SearchTextInput id="exclude" placeholder="Ex. Eggs">
-              <ArchiveBoxXMarkIcon className="h-7 w-7 stroke-gray-tint" />
+              <ArchiveBoxXMarkIcon className="stroke-gray-tint h-7 w-7" />
               <span>Exclude</span>
             </SearchTextInput>
             <IngredientsList>

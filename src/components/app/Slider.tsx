@@ -114,12 +114,12 @@ function Slider({ children, gap = 1 }: SliderProps) {
 
   return (
     <>
-      <motion.div ref={containerRef} className="relative">
+      <motion.div ref={containerRef} className="relative mx-6">
         <motion.button
           disabled={!canDragLeft() || disabledButtons}
           onClick={dragLeft}
           aria-label="Swipe Left"
-          className={`absolute left-0 top-1/2 z-30 -translate-y-1/2  rounded-full bg-jade-shade-2 p-2 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
+          className={`absolute left-0 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2  rounded-full bg-jade-shade-2 p-2 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
             disabledButtons || !canDragLeft() ? "opacity-70" : ""
           }`}
         >
@@ -150,7 +150,7 @@ function Slider({ children, gap = 1 }: SliderProps) {
           aria-label="Swipe Left"
           disabled={!canDragRight() || disabledButtons}
           onClick={dragRight}
-          className={`absolute right-0 top-1/2 z-30 -translate-y-1/2 rounded-full bg-jade-shade-2 p-2 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
+          className={`absolute right-0 top-1/2 z-30 -translate-y-1/2 translate-x-1/2 rounded-full bg-jade-shade-2 p-2 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
             disabledButtons || !canDragRight() ? "opacity-70" : ""
           }`}
         >

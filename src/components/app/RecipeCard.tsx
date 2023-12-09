@@ -9,7 +9,7 @@ function RecipeCard() {
     <Link
       draggable={false}
       href="/"
-      className=" focus-scale-[103%] flex  w-full min-w-[300px]  max-w-[500px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal "
+      className=" focus-scale-[103%] flex  w-full min-w-[300px]  max-w-[600px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal "
     >
       <div className="aspect-video w-full bg-white-tint">
         <div
@@ -27,13 +27,13 @@ function RecipeCard() {
         </h2>
         <div className="flex items-center justify-center gap-8 xsm:gap-4">
           <div className="flex flex-col items-center text-sm font-medium">
-            <ClockIcon className="mb-1 h-10 w-10 stroke-gray-tint-1" />
-            <p className="font-semibold">25 min</p>
+            <ClockIcon className="mb-1 h-8 w-8 stroke-gray-tint-1" />
+            <p className="text-lg font-semibold">25 min</p>
           </div>
           <div className="h-20 w-[2px] rounded-[120px] bg-[#999]" />
           <div className="flex flex-col items-center text-sm font-medium">
-            <FireIcon className="mb-1 h-10 w-10 stroke-gray-tint-1" />
-            <p className="font-semibold">470 kcal</p>
+            <FireIcon className="mb-1 h-8 w-8 stroke-gray-tint-1" />
+            <p className="text-lg font-medium">470 kcal</p>
           </div>
         </div>
       </div>

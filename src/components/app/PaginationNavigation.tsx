@@ -8,9 +8,11 @@ interface PaginationNavigationProps {
   nextUrl: string;
   canGoNext: boolean;
   canGoPrev: boolean;
+  additionalClass?: string;
 }
 
 function PaginationNavigation({
+  additionalClass = "",
   currentSite,
   maxSite,
   prevUrl,
@@ -19,7 +21,7 @@ function PaginationNavigation({
   canGoPrev,
 }: PaginationNavigationProps) {
   return (
-    <nav className="flex items-center gap-3">
+    <nav className={`flex items-center gap-3 ${additionalClass}`}>
       <Link
         href={prevUrl}
         className={`rounded-full bg-jade-shade-1 p-1 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
