@@ -8,6 +8,7 @@ export interface ButtonProps {
   children: ReactNode;
   destination?: string;
   handleClick?: Function;
+  onClick?: Function;
   size?: "sm" | "md" | "lg" | "xl";
   interPageLink?: boolean;
   additionalClass?: string;

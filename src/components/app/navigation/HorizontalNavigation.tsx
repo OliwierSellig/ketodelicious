@@ -5,6 +5,7 @@ import Link from "next/link";
 import FilledButton from "../../global/FilledButton";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import myPhoto from "../../../../public/images/photo-me.png";
+import OpenRecipeCreator from "../createRecipe/OpenRecipeCreator";
 
 function HorizontalNavigation() {
   return (
@@ -22,10 +23,12 @@ function HorizontalNavigation() {
           Oliwier Sellig
         </p>
       </Link>
-      <FilledButton>
-        <PlusIcon className="h-7 w-7" />
-        <span>Create Recipe</span>
-      </FilledButton>
+      <OpenRecipeCreator>
+        <FilledButton>
+          <PlusIcon className="h-7 w-7" />
+          <span>Create Recipe</span>
+        </FilledButton>
+      </OpenRecipeCreator>
     </nav>
   );
 }

@@ -5,6 +5,7 @@ function FilledButton({
   children,
   destination,
   handleClick,
+  onClick,
   size = "md",
   additionalClass = "",
 }: ButtonProps) {
@@ -29,7 +30,13 @@ function FilledButton({
   }
 
   return (
-    <button onClick={() => handleClick?.()} className={buttonStyles}>
+    <button
+      onClick={() => {
+        handleClick?.();
+        onClick?.();
+      }}
+      className={buttonStyles}
+    >
       {children}
     </button>
   );

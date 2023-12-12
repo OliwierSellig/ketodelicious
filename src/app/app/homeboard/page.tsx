@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import myPhoto from "../../../../public/images/photo-me.png";
 import Image from "next/image";
+import OpenRecipeCreator from "@/components/app/createRecipe/OpenRecipeCreator";
 
 function page() {
   return (
@@ -35,10 +36,12 @@ function page() {
             <StarIcon className="h-7 w-7" />
             <span className="text-2xl">Random Recipe</span>
           </FilledButton>
-          <FilledButton size="xl">
-            <PlusIcon className="h-7 w-7" />
-            <span className="text-2xl">Create Recipe</span>
-          </FilledButton>
+          <OpenRecipeCreator>
+            <FilledButton size="xl">
+              <PlusIcon className="h-7 w-7" />
+              <span className="text-2xl">Create Recipe</span>
+            </FilledButton>
+          </OpenRecipeCreator>
         </nav>
         <div className="flex flex-col items-center gap-6">
           <p className="text-xl font-medium">Or, visit your profile:</p>

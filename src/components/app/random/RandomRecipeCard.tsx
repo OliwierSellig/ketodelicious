@@ -13,7 +13,7 @@ import RecipeCardDetails from "@/components/global/RecipeCardDetails";
 
 function RandomRecipeCard() {
   return (
-    <div className="mb-8 grid aspect-video w-3/4 grid-cols-5 overflow-hidden rounded-2xl shadow-recipe-input">
+    <div className="mb-8 grid aspect-video w-3/4 max-w-[1200px] grid-cols-5 overflow-hidden rounded-2xl shadow-recipe-input">
       <div className="after:random-recipe-bg relative z-10 col-span-3 h-full after:absolute after:left-0 after:top-0 after:z-20 after:h-full after:w-full  after:content-[''] ">
         <Image src={dish} alt="" className="h-full  object-cover " />
       </div>
