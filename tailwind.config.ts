@@ -90,6 +90,28 @@ const config: Config = {
           "0%": { transform: "scale(0)" },
           "100%": { transform: "scale(1)" },
         },
+
+        scaleUpModal: {
+          "0%": {
+            opactiy: "0",
+            transform: "translate(-50%, -50%) scale(0.9)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+        },
+
+        fadeLeftModal: {
+          "0%": {
+            opactiy: "0",
+            transform: "translate(-55%, -50%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%, -50%)",
+          },
+        },
       },
       animation: {
         animateScrollHeader: "fadeFromTopHeader 0.6s",

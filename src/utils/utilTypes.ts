@@ -29,3 +29,8 @@ export type IngredientItem = {
   textAmount?: string;
   gramAmount?: string;
 };
+
+export interface FullDescriptionProps {
+  fullDesc: string;
+  recipeName: string;
+}

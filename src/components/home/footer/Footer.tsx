@@ -1,4 +1,4 @@
-import Logo from "../Logo";
+import Logo from "../../global/Logo";
 import SocialIcon from "./SocialIcon";
 import youtube from "../../../../public/svg/youtube.svg";
 import instagram from "../../../../public/svg/instagram.svg";

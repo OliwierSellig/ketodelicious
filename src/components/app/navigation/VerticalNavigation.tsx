@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "../../home/Logo";
+import Logo from "../../global/Logo";
 import {
   HomeIcon,
   MagnifyingGlassIcon,

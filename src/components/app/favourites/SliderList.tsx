@@ -1,4 +1,4 @@
-import RecipeCard from "../RecipeCard";
+import RecipeCard from "../../global/RecipeCard";
 import FavouritesSlider from "./FavouritesSlider";
 
 function SliderList() {
@@ -9,7 +9,7 @@ function SliderList() {
         heading="For All The Busy Folks"
       >
         {Array.from({ length: 8 }, (_, i) => (
-          <div key={i}>
+          <div key={i} className="min-w-[360px]">
             <RecipeCard />
           </div>
         ))}
@@ -19,7 +19,7 @@ function SliderList() {
         heading="For Those Guilt-Free Feasts"
       >
         {Array.from({ length: 10 }, (_, i) => (
-          <div key={i}>
+          <div key={i} className="min-w-[360px]">
             <RecipeCard />
           </div>
         ))}
@@ -29,7 +29,7 @@ function SliderList() {
         heading="For The Most Strict Freaks"
       >
         {Array.from({ length: 6 }, (_, i) => (
-          <div key={i}>
+          <div key={i} className="min-w-[360px]">
             <RecipeCard />
           </div>
         ))}

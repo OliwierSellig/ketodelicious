@@ -4,8 +4,10 @@ import {
   NewspaperIcon,
   TagIcon,
 } from "@heroicons/react/24/outline";
+import OpenDescription from "./OpenDescription";
 
 interface MainSlideProps {
+  recipeName: string;
   desc: string;
   tagList: string[];
   cookingTime: number;
@@ -13,6 +15,7 @@ interface MainSlideProps {
 }
 
 function MainSlide({
+  recipeName,
   desc,
   tagList,
   cookingTime,
@@ -28,9 +31,7 @@ function MainSlide({
           </h2>
           <p className="text-lg">
             <span>{desc.slice(0, 400)}... </span>
-            <button className="text-jade-shade-2 transition-all duration-150 ease-linear hover:scale-105 hover:text-jade-normal focus:scale-105 focus:text-jade-normal">
-              Read more
-            </button>
+            <OpenDescription fullDesc={desc} recipeName={recipeName} />
           </p>
         </div>
         <div className="col-span-1">

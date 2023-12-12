@@ -7,7 +7,7 @@ import { BookmarkIcon } from "@heroicons/react/24/outline";
 
 function RecipeView() {
   return (
-    <div className="flex min-w-[1200px] flex-col self-center rounded-2xl bg-almond-tint-2 shadow-recipe-input [&>button:focus]:scale-100 [&>button:hover]:scale-100 [&>button]:justify-center [&>button]:rounded-t-none">
+    <div className="mb-28 flex w-4/5 min-w-[1200px] max-w-[1400px] flex-col self-center rounded-2xl bg-almond-tint-2 shadow-recipe-input [&>button:focus]:scale-100 [&>button:hover]:scale-100 [&>button]:justify-center [&>button]:rounded-t-none">
       <RecipeImage
         image="../../images/dish-1.jpg"
         recipeName="Grilled Salmon with Broccoli"

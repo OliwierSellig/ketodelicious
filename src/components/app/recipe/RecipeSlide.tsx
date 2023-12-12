@@ -1,16 +1,16 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface RecipeSlideProps {
-  index: number;
-  iterator: number;
   children: ReactNode;
+  index: number;
+  current: number;
 }
 
-function RecipeSlide({ index, iterator, children }: RecipeSlideProps) {
+function RecipeSlide({ children, index, current }: RecipeSlideProps) {
   return (
     <div
-      className="recipe-scroll absolute left-0 top-0 h-full w-full overflow-y-scroll px-12 pb-12 pt-8 transition-all duration-200 ease-linear"
-      style={{ transform: `translateX(${(iterator + index) * 100}%)` }}
+      className={`recipe-scroll absolute left-0 top-0 h-full w-full overflow-y-scroll px-12 pb-12 pt-8 transition-all duration-300 ease-linear `}
+      style={{ transform: `translateX(${(index - current) * 100}%)` }}
     >
       {children}
     </div>

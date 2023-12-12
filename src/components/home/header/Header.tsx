@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import HeaderNav from "./HeaderNav";
-import Logo from "../Logo";
+import Logo from "../../global/Logo";
 
 function Header() {
   const [isSticky, setIsSticky] = useState<boolean>(false);
