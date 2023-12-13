@@ -1,5 +1,5 @@
 function PreparationSlide() {
-  return <div className="bg-slate-400">Preparation</div>;
+  return <div className="">Preparation</div>;
 }
 
 export default PreparationSlide;

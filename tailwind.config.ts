@@ -10,6 +10,8 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "cta-image": "url('../../public/images/bckg.png')",
+        "add-recipe-background":
+          "radial-gradient(circle, rgba(221, 221, 221, 0.4) 0%, rgba(221, 221, 221, 0.2) 100%)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
@@ -27,6 +29,7 @@ const config: Config = {
         "jade-normal": "#00A86B",
         "jade-shade-1": "#008656",
         "jade-shade-2": "#00764b",
+        "gray-tint-3": "#CCC",
         "gray-tint-2": "#777",
         "gray-tint-1": "#555",
         "gray-normal": "#333",

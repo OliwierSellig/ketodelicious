@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer utilities {
+  .recipe-input {
+    @apply rounded-2xl border-[1px] border-gray-tint-3 bg-transparent;
+  }
+
+  .hideArrowInputNumber::-webkit-outer-spin-button,
+  .hideArrowInputNumber::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .recipe-image-clip {
     clip-path: polygon(
       0 0,

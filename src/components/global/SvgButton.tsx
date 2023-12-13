@@ -2,7 +2,7 @@ import { ReactNode, SVGProps } from "react";
 
 interface SvgButtonProps {
   children: ReactNode;
-  additionalClass: string;
+  additionalClass?: string;
   size?: 1 | 2 | 3 | 4 | 5;
   handleClick?: Function;
   label: string;
@@ -10,7 +10,7 @@ interface SvgButtonProps {
 
 function SvgButton({
   children,
-  additionalClass,
+  additionalClass = "",
   size = 2,
   handleClick,
   label,
