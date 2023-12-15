@@ -19,7 +19,7 @@ function SvgButton({
     <button
       aria-label={label}
       onClick={() => handleClick?.()}
-      className={`${additionalClass} rounded-full bg-jade-shade-2 shadow-sm p-${size} transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-normal focus:scale-110 focus:bg-jade-normal`}
+      className={` rounded-full bg-jade-shade-2 shadow-sm p-${size} transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-normal focus:scale-110 focus:bg-jade-normal ${additionalClass}`}
     >
       {children}
     </button>

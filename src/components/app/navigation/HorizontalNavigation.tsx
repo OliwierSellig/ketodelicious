@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FilledButton from "../../global/FilledButton";
-import { PlusIcon } from "@heroicons/react/24/outline";
+import { PlusIcon } from "@heroicons/react/20/solid";
 import myPhoto from "../../../../public/images/photo-me.png";
 import OpenRecipeCreator from "../createRecipe/OpenRecipeCreator";
 import { Bars3Icon } from "@heroicons/react/20/solid";
@@ -23,24 +23,24 @@ function HorizontalNavigation({ openNav }: HorizontalNavigatonProps) {
       >
         <Bars3Icon className="h-8 w-8 fill-gray-normal transition-all duration-150 ease-linear" />
       </button>
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-10 sm:gap-4">
         <Link
           href="/"
-          className="flex items-center gap-2 rounded-2xl px-6 py-2 transition-all duration-150 ease-linear hover:bg-jade-shade-2 focus:bg-jade-shade-2 [&:focus>p]:text-white [&:hover>p]:text-white"
+          className="flex items-center gap-2 rounded-2xl px-6 py-2 transition-all duration-150 ease-linear hover:bg-jade-shade-2 focus:bg-jade-shade-2 sm:rounded-full sm:p-0 sm:hover:scale-110  [&:focus>p]:text-white [&:hover>p]:text-white"
         >
           <Image
             src={myPhoto}
-            className="h-8 w-8 rounded-full"
+            className="h-8 w-8 rounded-full sm:h-10 sm:w-10"
             alt="User Photo"
           />
-          <p className="text-xl font-medium transition-all duration-150 ease-linear">
+          <p className="text-xl font-medium transition-all duration-150 ease-linear sm:hidden">
             Oliwier Sellig
           </p>
         </Link>
         <OpenRecipeCreator>
-          <FilledButton>
+          <FilledButton additionalClass="sm:p-2 sm:rounded-full">
             <PlusIcon className="h-7 w-7" />
-            <span>Create Recipe</span>
+            <span className="sm:hidden">Create Recipe</span>
           </FilledButton>
         </OpenRecipeCreator>
       </div>

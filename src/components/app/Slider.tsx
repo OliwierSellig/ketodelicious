@@ -119,11 +119,11 @@ function Slider({ children, gap = 1 }: SliderProps) {
           disabled={!canDragLeft() || disabledButtons}
           onClick={dragLeft}
           aria-label="Swipe Left"
-          className={`absolute left-0 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2  rounded-full bg-jade-shade-2 p-2 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
+          className={`absolute left-0  top-1/2 z-30 -translate-x-1/2 -translate-y-1/2  rounded-full bg-jade-shade-2 p-2 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
             disabledButtons || !canDragLeft() ? "opacity-70" : ""
           }`}
         >
-          <ChevronLeftIcon className="h-8 w-8 fill-white-normal" />
+          <ChevronLeftIcon className="h-8 w-8 fill-white-normal xsm:h-7 xsm:w-7" />
         </motion.button>
         <motion.div
           className="flex"
@@ -154,7 +154,7 @@ function Slider({ children, gap = 1 }: SliderProps) {
             disabledButtons || !canDragRight() ? "opacity-70" : ""
           }`}
         >
-          <ChevronRightIcon className="h-8 w-8 fill-white-normal" />
+          <ChevronRightIcon className="h-8 w-8 fill-white-normal xsm:h-7 xsm:w-7" />
         </motion.button>
       </motion.div>
     </>

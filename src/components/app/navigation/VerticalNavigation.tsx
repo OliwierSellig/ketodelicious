@@ -36,7 +36,7 @@ function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
     >
       <SvgButton
         size={2}
-        additionalClass="absolute top-4 right-4 hidden mdl:block animate-[fadeRight_0.6s] z-[5500]"
+        additionalClass="absolute top-4 right-4 hidden mdl:block animate-[fadeRight_0.6s] z-[5500] shadow-md"
         label="Close Mobile Navigation"
       >
         <XMarkIcon className="h-8 w-8 fill-white-normal" />

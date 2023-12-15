@@ -11,7 +11,7 @@ function SliderList() {
         {Array.from({ length: 8 }, (_, i) => (
           <RecipeCard
             key={i}
-            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px]"
+            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px] sm:min-w-[260px]"
           />
         ))}
       </FavouritesSlider>
@@ -22,7 +22,7 @@ function SliderList() {
         {Array.from({ length: 10 }, (_, i) => (
           <RecipeCard
             key={i}
-            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px]"
+            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px] sm:min-w-[260px]"
           />
         ))}
       </FavouritesSlider>
@@ -33,7 +33,7 @@ function SliderList() {
         {Array.from({ length: 6 }, (_, i) => (
           <RecipeCard
             key={i}
-            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px]"
+            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px] sm:min-w-[260px]"
           />
         ))}
       </FavouritesSlider>

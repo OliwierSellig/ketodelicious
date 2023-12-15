@@ -28,9 +28,9 @@ function PaginationNavigation({
           !canGoPrev ? "pointer-events-none opacity-20" : ""
         }`}
       >
-        <ChevronLeftIcon className="h-7 w-7 fill-white-normal" />
+        <ChevronLeftIcon className="h-7 w-7 fill-white-normal xxsm:h-6 xxsm:w-6" />
       </Link>
-      <p className="text-xl font-medium">
+      <p className="text-xl font-medium xsm:text-lg">
         {currentSite} of {maxSite}
       </p>
       <Link
@@ -40,7 +40,7 @@ function PaginationNavigation({
           !canGoNext ? "pointer-events-none opacity-20" : ""
         }`}
       >
-        <ChevronRightIcon className="h-7 w-7 fill-white-normal" />
+        <ChevronRightIcon className="h-7 w-7 fill-white-normal xxsm:h-6 xxsm:w-6" />
       </Link>
     </nav>
   );

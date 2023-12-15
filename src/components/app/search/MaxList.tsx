@@ -1,8 +1,16 @@
 import SearchTextInput from "./SearchTextInput";
 
-function MaxList() {
+interface MaxListProps {
+  isOpen: boolean;
+}
+
+function MaxList({ isOpen }: MaxListProps) {
   return (
-    <div className="flex flex-col gap-4 xxxl:grid xxxl:grid-cols-2 xxxl:gap-x-14">
+    <div
+      className={`flex flex-col gap-4 transition-all duration-200 ease-linear xxxl:grid xxxl:grid-cols-2 xxxl:gap-x-14  ${
+        !isOpen ? "md:hidden" : "md:animate-[fadeRight_1s]"
+      } md:flex md:flex-col`}
+    >
       <SearchTextInput between={true} unit="min" type="number" id="maxPrepare">
         Max Prepare Time
       </SearchTextInput>

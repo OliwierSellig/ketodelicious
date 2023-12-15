@@ -24,7 +24,7 @@ function RecipeCard({ additionalClass = "" }: RecipeCardProps) {
         ></div>
       </div>
       <div className="flex w-full grow flex-col items-center justify-center px-4 pb-4 pt-2 text-center">
-        <h2 className="mb-2 text-xl font-medium transition-all duration-150 ease-linear">
+        <h2 className="mb-2 text-xl font-medium transition-all duration-150 ease-linear xsm:text-lg">
           {recipeName.slice(0, 40) === recipeName
             ? recipeName
             : recipeName.slice(0, 40) + "..."}

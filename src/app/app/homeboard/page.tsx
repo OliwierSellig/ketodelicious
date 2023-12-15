@@ -16,16 +16,16 @@ import OpenRecipeCreator from "@/components/app/createRecipe/OpenRecipeCreator";
 function page() {
   return (
     <>
-      <div className="z-30 flex flex-col gap-14 self-center pb-20">
+      <div className="z-30 flex flex-col gap-14 self-center pb-20 sm:pb-6">
         <header className="flex flex-col items-center">
-          <h1 className="mb-2 font-ubuntu text-7xl font-medium xxl:text-6xl xl:text-5xl">
+          <h1 className="mb-2 font-ubuntu text-7xl font-medium xxl:text-6xl xl:text-5xl sm:text-center">
             Welcome back <span className="text-jade-normal">Oliwier</span>
           </h1>
           <p className="text-xl font-medium xl:text-lg">
             What&apos;s bringing you here?
           </p>
         </header>
-        <nav className="grid grid-cols-2 gap-8">
+        <nav className="grid grid-cols-2 gap-8 sm:flex sm:flex-col sm:items-center sm:[&>button]:w-full sm:[&>button]:justify-center">
           <FilledButton size="xl" additionalClass="xl:py-3 xl:px-8">
             <MagnifyingGlassIcon className="h-7 w-7" />
             <span className="text-2xl xl:text-xl">Search Recipe</span>
@@ -52,10 +52,10 @@ function page() {
           <p className="text-xl font-medium">Or, visit your profile:</p>
           <Link
             href="/"
-            className="flex items-center gap-4 rounded-2xl bg-white-tint px-10 py-2 shadow-md transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-shade-2 focus:scale-105 focus:bg-jade-shade-2 [&:focus>p]:text-white-normal [&:hover>p]:text-white-normal"
+            className="flex items-center gap-4 rounded-2xl bg-white-tint px-10 py-2 shadow-md transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-shade-2 focus:scale-105 focus:bg-jade-shade-2 xsm:px-6 [&:focus>p]:text-white-normal [&:hover>p]:text-white-normal"
           >
             <Image
-              className="h-16 w-16 rounded-full xl:h-12 xl:w-12"
+              className="h-16 w-16 rounded-full xl:h-12 xl:w-12 xsm:h-10 xsm:w-10"
               src={myPhoto}
               alt="User Photo"
             />
@@ -68,7 +68,7 @@ function page() {
       <Image
         src={homeImage}
         alt=""
-        className="absolute bottom-0 left-0 aspect-square w-[50%] max-w-[800px]"
+        className="absolute bottom-0 left-0 aspect-square w-[50%] max-w-[800px] sm:hidden"
       />
     </>
   );

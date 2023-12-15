@@ -18,8 +18,8 @@ export default function RootLayout({ children }: ChildrenProp) {
         />
         <div className="flex  min-h-0 min-w-0 flex-col mdl:h-full mdl:w-screen">
           <HorizontalNavigation openNav={() => setIsMobileOpen(true)} />
-          <main className="recipe-scroll  relative grow overflow-x-clip overflow-y-scroll bg-almond-tint-1 p-12 mdl:px-8 mdl:py-12 ">
-            <div className="flex min-h-full flex-col items-start justify-center">
+          <main className="recipe-scroll  relative grow overflow-x-clip overflow-y-scroll bg-almond-tint-1 p-12 mdl:px-8 mdl:py-12 xsm:px-4 xsm:py-8">
+            <div className="relative flex min-h-full flex-col items-start justify-center">
               {children}
             </div>
           </main>

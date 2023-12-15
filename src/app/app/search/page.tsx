@@ -1,4 +1,4 @@
-import PaginationNavigation from "@/components/app/PaginationNavigation";
+import PaginationNavigation from "@/components/app/search/PaginationNavigation";
 import SectionHeading from "@/components/app/SectionHeading";
 import SearchConfigurator from "@/components/app/search/SearchConfigurator";
 import SearchRecipeList from "@/components/app/search/SearchRecipeList";
