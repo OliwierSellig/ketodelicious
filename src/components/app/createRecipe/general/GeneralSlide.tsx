@@ -20,7 +20,7 @@ function GeneralSlide({
       <h2 className="mb-12 text-center font-ubuntu text-5xl font-medium">
         Create your <span className="text-jade-normal">Recipe</span>
       </h2>
-      <div className="mb-10 flex items-center justify-between">
+      <div className="mb-10 flex items-center justify-around gap-14">
         <div className="flex flex-col gap-4">
           <RecipeNameInput />
           <RecipeDescriptionInput />

@@ -11,7 +11,7 @@ const config: Config = {
       backgroundImage: {
         "cta-image": "url('../../public/images/bckg.png')",
         "add-recipe-background":
-          "radial-gradient(circle, rgba(221, 221, 221, 0.4) 0%, rgba(221, 221, 221, 0.2) 100%)",
+          "radial-gradient(circle, rgba(250, 252, 252, 0.4) 0%, rgba(250, 252, 252, 0.2) 100%)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

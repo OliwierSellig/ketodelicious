@@ -21,7 +21,7 @@ function InputRow({
     <div
       className={`flex items-center justify-between gap-${gap} ${additionalClass}  `}
     >
-      <label className={`flex-grow text-2xl font-medium`} htmlFor={id}>
+      <label className={`flex-grow text-xl font-medium`} htmlFor={id}>
         {label}
       </label>
       {children}

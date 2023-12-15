@@ -8,15 +8,40 @@ import FilledButton from "@/components/global/FilledButton";
 import SvgButton from "@/components/global/SvgButton";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import AddTag from "./general/AddTag";
+import { IngredientItem } from "@/utils/utilTypes";
+import AddIngredient from "./ingredients/AddIngredient";
+import AddToRecipeWindow from "./AddToRecipeWindow";
+import AddPrepStep from "./preparation/AddPrepStep";
 
 function MainContainer() {
   const [iterator, setIterator] = useState<number>(0);
   const [addTagWindow, setAddTagWindow] = useState<boolean>(false);
+  const [addIngredientWindow, setAddIngredientWindow] =
+    useState<boolean>(false);
+  const [addPrepStepWindow, setAddPrepStepWindow] = useState<boolean>(false);
   const [tags, setTags] = useState<string[]>([
     "green",
     "yellow",
     "blue",
     "sugar-free",
+  ]);
+  const [ingredients, setIngredients] = useState<IngredientItem[]>([
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+    { name: "Salted Butter", textAmount: "1 tablespoon", gramAmount: "12g" },
+  ]);
+  const [preparationSteps, setPreparationSteps] = useState<string[]>([
+    "Combine the butter and cream cheese together in a heat-safe container. Microwave the ingredients on high heat for 20 seconds until they’re melted. Stir the butter and cream cheese together into one mixture.",
+    "Combine the butter and cream cheese mixture with coconut flour, brown sugar substitute, and vanilla extract in the heat-safe dish. You may also wish to add a small pinch of salt. If necessary, you can mix the ingredients in a separate mixing bowl before adding it to your heat-safe dish or mug.",
+    "Mix the egg into the batter. Follow by folding the blueberries into the batter. It may help you to freeze the blueberries beforehand so they don’t break up and bleed in the batter.",
+    "Mix the egg into the batter. Follow by folding the blueberries into the batter. It may help you to freeze the blueberries beforehand so they don’t break up and bleed in the batter.",
+    "Mix the egg into the batter. Follow by folding the blueberries into the batter. It may help you to freeze the blueberries beforehand so they don’t break up and bleed in the batter.",
+    "Mix the egg into the batter. Follow by folding the blueberries into the batter. It may help you to freeze the blueberries beforehand so they don’t break up and bleed in the batter.",
+    "Mix the egg into the batter. Follow by folding the blueberries into the batter. It may help you to freeze the blueberries beforehand so they don’t break up and bleed in the batter.",
   ]);
 
   function removeTag(tag: string) {
@@ -26,10 +51,11 @@ function MainContainer() {
 
   function addTag(query: string) {
     setTags((prev) => [...prev, query]);
+    setAddTagWindow(false);
   }
 
   return (
-    <div className="absolute left-1/2 top-1/2 h-2/3 w-2/3 min-w-[1000px] max-w-[1200px] -translate-x-1/2 -translate-y-1/2 rounded-2xl  bg-almond-tint-2">
+    <div className="absolute left-1/2 top-1/2 h-2/3 w-2/3 min-w-[1000px] max-w-[1400px] -translate-x-1/2 -translate-y-1/2 rounded-2xl  bg-almond-tint-2">
       <div className="relative h-full w-full overflow-clip rounded-2xl">
         <SlideSkeleton index={0} iterator={iterator}>
           <GeneralSlide
@@ -39,21 +65,38 @@ function MainContainer() {
           />
         </SlideSkeleton>
         <SlideSkeleton index={1} iterator={iterator}>
-          <IngredientsSlide />
+          <IngredientsSlide
+            ingredientsList={ingredients}
+            openIngredientWindow={() => setAddIngredientWindow(true)}
+          />
         </SlideSkeleton>
         <SlideSkeleton index={2} iterator={iterator}>
-          <PreparationSlide />
+          <PreparationSlide
+            stepsList={preparationSteps}
+            openStepsAdd={() => setAddPrepStepWindow(true)}
+          />
         </SlideSkeleton>
       </div>
 
       {addTagWindow && (
-        <AddTag
-          handleAdd={addTag}
-          handleReturn={() => setAddTagWindow(false)}
-        />
+        <AddToRecipeWindow onClose={() => setAddTagWindow(false)}>
+          <AddTag handleAdd={addTag} />
+        </AddToRecipeWindow>
       )}
 
-      {iterator !== 0 && (
+      {addIngredientWindow && (
+        <AddToRecipeWindow onClose={() => setAddIngredientWindow(false)}>
+          <AddIngredient handleAdd={() => {}} />
+        </AddToRecipeWindow>
+      )}
+
+      {addPrepStepWindow && (
+        <AddToRecipeWindow onClose={() => setAddPrepStepWindow(false)}>
+          <AddPrepStep handleAdd={() => {}} />
+        </AddToRecipeWindow>
+      )}
+
+      {iterator !== 0 && !addIngredientWindow && !addPrepStepWindow && (
         <SvgButton
           label="Go to the previous frame"
           additionalClass="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2"
@@ -62,7 +105,7 @@ function MainContainer() {
           <ChevronUpIcon className="h-10 w-10 fill-white-normal" />
         </SvgButton>
       )}
-      {!addTagWindow ? (
+      {!addTagWindow && !addIngredientWindow && !addPrepStepWindow ? (
         iterator !== 2 ? (
           <SvgButton
             label="Go to the next frame"

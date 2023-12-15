@@ -3,11 +3,12 @@ import NutritionInputList from "./NutritionInputList";
 import { useState } from "react";
 
 function NutritionAccordion() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
 
   return (
-    <div>
+    <div className="flex flex-grow flex-col">
       <button
+        onClick={() => setIsOpen((prev) => !prev)}
         className="mb-6 flex items-center gap-2 [&:focus>p>span]:text-jade-normal [&:focus>svg]:fill-jade-normal [&:hover>p>span]:text-jade-normal [&:hover>svg]:fill-jade-normal"
         aria-label="Toggle Nutrition View"
       >
@@ -25,7 +26,7 @@ function NutritionAccordion() {
           }`}
         />
       </button>
-      <NutritionInputList />
+      <NutritionInputList open={isOpen} />
     </div>
   );
 }

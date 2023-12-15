@@ -1,10 +1,18 @@
 import AmountInput from "../AmountInput";
 import InputRow from "../InputRow";
 
-function NutritionInputList() {
+interface NutritionInputListProps {
+  open: boolean;
+}
+
+function NutritionInputList({ open }: NutritionInputListProps) {
   return (
-    <div className="recipe-scroll overflow-y-scroll">
-      <ul className="flex flex-col gap-4 pr-4">
+    <div
+      className={`recipe-scroll relative  overflow-y-scroll transition-all duration-150 ease-linear ${
+        !open ? "invisible h-0 max-h-none opacity-0" : "h-full"
+      }`}
+    >
+      <ul className="absolute left-0 top-0 flex h-full w-full flex-col gap-4 pr-4">
         <li>
           <InputRow label="Net Carbs" id="net-carbs">
             <AmountInput

@@ -28,7 +28,7 @@ function CreateElementsButton({
         </SvgButton>
       </div>
       <p
-        className={`text-xl text-gray-tint-2 transition-all duration-200 ease-linear ${
+        className={`text-lg text-gray-tint-2 transition-all duration-200 ease-linear ${
           currentNumber >= minReqNumber
             ? "invisible -translate-x-1/2 opacity-0"
             : ""

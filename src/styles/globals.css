@@ -4,7 +4,11 @@
 
 @layer utilities {
   .recipe-input {
-    @apply rounded-2xl border-[1px] border-gray-tint-3 bg-transparent;
+    @apply rounded-2xl border-[1px] bg-transparent;
+  }
+
+  .add-to-recipe {
+    @apply absolute left-0 top-0 z-50 h-full w-full animate-[fadeBottom_0.6s]  rounded-2xl bg-add-recipe-background backdrop-blur-[6px];
   }
 
   .hideArrowInputNumber::-webkit-outer-spin-button,
