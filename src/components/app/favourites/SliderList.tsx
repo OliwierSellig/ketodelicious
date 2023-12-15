@@ -9,9 +9,10 @@ function SliderList() {
         heading="For All The Busy Folks"
       >
         {Array.from({ length: 8 }, (_, i) => (
-          <div key={i} className="min-w-[360px]">
-            <RecipeCard />
-          </div>
+          <RecipeCard
+            key={i}
+            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px]"
+          />
         ))}
       </FavouritesSlider>
       <FavouritesSlider
@@ -19,9 +20,10 @@ function SliderList() {
         heading="For Those Guilt-Free Feasts"
       >
         {Array.from({ length: 10 }, (_, i) => (
-          <div key={i} className="min-w-[360px]">
-            <RecipeCard />
-          </div>
+          <RecipeCard
+            key={i}
+            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px]"
+          />
         ))}
       </FavouritesSlider>
       <FavouritesSlider
@@ -29,9 +31,10 @@ function SliderList() {
         heading="For The Most Strict Freaks"
       >
         {Array.from({ length: 6 }, (_, i) => (
-          <div key={i} className="min-w-[360px]">
-            <RecipeCard />
-          </div>
+          <RecipeCard
+            key={i}
+            additionalClass="xxl:min-w-[280px] xxxl:min-w-[320px] min-w-[360px]"
+          />
         ))}
       </FavouritesSlider>
     </ul>

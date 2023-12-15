@@ -22,14 +22,14 @@ function MainSlide({
   prepareTime,
 }: MainSlideProps) {
   return (
-    <div className="flexflex-col">
-      <div className="mb-20 grid grid-cols-2 items-start  justify-between gap-8">
+    <div className="flex h-full flex-col justify-between">
+      <div className=" grid grid-cols-2 items-start  justify-between gap-8">
         <div className="col-span-1">
           <h2 className="mb-2 flex gap-2 font-ubuntu text-2xl font-medium ">
             <NewspaperIcon className="h-8 w-8 stroke-gray-tint-1" />
             <span>Description:</span>
           </h2>
-          <p className="text-lg">
+          <p className="text-lg xxl:text-base">
             <span>{desc.slice(0, 400)}... </span>
             <OpenDescription fullDesc={desc} recipeName={recipeName} />
           </p>

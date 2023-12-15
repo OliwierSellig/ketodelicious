@@ -13,8 +13,11 @@ import NavLink from "./NavLink";
 
 function VerticalNavigation() {
   return (
-    <div className="z-20 flex flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav">
-      <Logo />
+    <div className="xxxl:py-8 z-20 flex flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav xxl:px-2">
+      <Logo
+        additionalClassLogo="xxl:w-14 xxl:h-14"
+        additionalClassName="xxl:text-3xl"
+      />
       <div className="flex grow flex-col items-center justify-between">
         <nav className="flex flex-col gap-4">
           <NavLink href="/app/homeboard">

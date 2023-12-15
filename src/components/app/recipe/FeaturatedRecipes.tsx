@@ -9,7 +9,7 @@ function FeaturatedRecipes() {
       </h2>
       <Slider>
         {Array.from({ length: 8 }, (_, i) => (
-          <div key={i} className="min-w-[420px]">
+          <div key={i} className="xxxl:min-w-[320px] min-w-[420px]">
             <RecipeCard />
           </div>
         ))}

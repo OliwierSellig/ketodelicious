@@ -127,7 +127,9 @@ const config: Config = {
       },
     },
     screens: {
-      xxl: { max: "1980px" },
+      xxxl: { max: "1800px" },
+
+      xxl: { max: "1580px" },
 
       xl: { max: "1280px" },
 

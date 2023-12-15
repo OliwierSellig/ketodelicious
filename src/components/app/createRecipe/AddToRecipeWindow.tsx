@@ -9,7 +9,7 @@ interface AddToRecipeWindowProps {
 
 function AddToRecipeWindow({ onClose, children }: AddToRecipeWindowProps) {
   return (
-    <div className=" add-to-recipe  flex flex-col items-center justify-center">
+    <div className=" add-to-recipe  flex flex-col items-center justify-center p-4">
       <SvgButton
         additionalClass="absolute top-4 right-4"
         label="Close this window"

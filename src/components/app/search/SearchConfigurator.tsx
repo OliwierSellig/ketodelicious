@@ -9,7 +9,7 @@ import MaxList from "./MaxList";
 
 function SearchConfigurator() {
   return (
-    <div className="mb-24 grid max-w-[1300px] grid-cols-[2fr_1fr] gap-12">
+    <div className="xxxl:flex xxxl:flex-col mb-24 grid max-w-[1300px] grid-cols-[2fr_1fr] gap-12">
       <div className="flex flex-col gap-4">
         <input
           type="text"

@@ -18,7 +18,7 @@ function page() {
     <>
       <div className="z-30 flex flex-col gap-14 self-center pb-20">
         <header className="flex flex-col items-center">
-          <h1 className="mb-2 font-ubuntu text-7xl font-medium">
+          <h1 className="mb-2 font-ubuntu text-7xl font-medium xxl:text-6xl">
             Welcome back <span className="text-jade-normal">Oliwier</span>
           </h1>
           <p className="text-xl font-medium">What&apos;s bringing you here?</p>

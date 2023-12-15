@@ -24,6 +24,7 @@ function AddPrepStep({ handleAdd }: AddPrepStepProps) {
             width="100%"
             height="400px"
             maxLength={250}
+            additionalClass="xxl:h-[300px]"
             id="prep-step-content"
             placeholder="Ex. Combine the butter and cream cheese together in a heat-safe container."
           />

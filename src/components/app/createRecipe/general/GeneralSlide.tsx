@@ -16,7 +16,7 @@ function GeneralSlide({
   removeTag,
 }: GeneralSlideProps) {
   return (
-    <div className="flex flex-col overflow-clip">
+    <div className="flex flex-col overflow-x-clip overflow-y-scroll">
       <h2 className="mb-12 text-center font-ubuntu text-5xl font-medium">
         Create your <span className="text-jade-normal">Recipe</span>
       </h2>
