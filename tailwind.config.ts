@@ -115,6 +115,17 @@ const config: Config = {
             transform: "translate(-50%, -50%)",
           },
         },
+
+        vertiNavMove: {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-100%)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
+        },
       },
       animation: {
         animateScrollHeader: "fadeFromTopHeader 0.6s",

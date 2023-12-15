@@ -2,7 +2,7 @@ import SearchTextInput from "./SearchTextInput";
 
 function MaxList() {
   return (
-    <div className="xxxl:grid xxxl:grid-cols-2 xxxl:gap-x-14 flex flex-col gap-4">
+    <div className="flex flex-col gap-4 xxxl:grid xxxl:grid-cols-2 xxxl:gap-x-14">
       <SearchTextInput between={true} unit="min" type="number" id="maxPrepare">
         Max Prepare Time
       </SearchTextInput>

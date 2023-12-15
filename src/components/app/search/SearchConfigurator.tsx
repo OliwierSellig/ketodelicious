@@ -9,13 +9,13 @@ import MaxList from "./MaxList";
 
 function SearchConfigurator() {
   return (
-    <div className="xxxl:flex xxxl:flex-col mb-24 grid max-w-[1300px] grid-cols-[2fr_1fr] gap-12">
+    <div className="mb-24 grid max-w-[1300px] grid-cols-[2fr_1fr] gap-12 xxxl:flex xxxl:flex-col">
       <div className="flex flex-col gap-4">
         <input
           type="text"
           id="name"
           placeholder="Write recipe name here"
-          className="mb-8 w-full rounded-2xl bg-white-tint px-8 py-3 text-xl text-gray-normal shadow-recipe-input"
+          className="mb-8 w-full rounded-2xl bg-white-tint px-8 py-3 text-xl text-gray-normal shadow-recipe-input xl:text-lg"
         />
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-4">

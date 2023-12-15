@@ -4,7 +4,7 @@ function RecipeImageInput() {
   return (
     <div>
       <p className="mb-3 text-2xl font-medium">Recipe Image</p>
-      <div className="flex aspect-square w-[420px] flex-col items-center justify-center rounded-2xl shadow-md">
+      <div className="flex aspect-square w-[420px] flex-col items-center justify-center rounded-2xl border-2 border-gray-tint-3 shadow-md xl:w-[360px]">
         <p className="mb-2 flex items-center gap-2">
           <DocumentArrowUpIcon className="h-6 w-6 stroke-gray-tint-1" />
           <span className="text-lg">Drop an image here</span>

@@ -3,7 +3,7 @@ import { NewspaperIcon } from "@heroicons/react/24/outline";
 
 function FullDescription({ fullDesc, recipeName }: FullDescriptionProps) {
   return (
-    <div className="max-w-1/4 absolute left-1/2 top-1/2 flex max-h-[600px] -translate-x-1/2 -translate-y-1/2 animate-[fadeLeftModal_0.6s] flex-col rounded-2xl bg-almond-tint-1 px-6 py-8">
+    <div className="max-w-1/4 absolute left-1/2 top-1/2 flex max-h-[600px] -translate-x-1/2 -translate-y-1/2 animate-[fadeLeftModal_0.6s] flex-col rounded-2xl bg-almond-tint-1 px-6 py-8 xxl:w-2/3 xl:w-3/4">
       <h2 className="mb-2 text-center font-kalam text-5xl font-bold text-jade-shade-1">
         {recipeName}
       </h2>

@@ -13,7 +13,7 @@ function AddPrepStep({ handleAdd }: AddPrepStepProps) {
       <p className="mb-8 font-ubuntu text-5xl font-medium">
         Add Prep <span className="text-jade-normal">Step</span>
       </p>
-      <form className="flex w-1/2 flex-col gap-12">
+      <form className="flex w-1/2 flex-col gap-12 xl:w-2/3">
         <InputCol
           label="Write the next step"
           id="prep-step-content"

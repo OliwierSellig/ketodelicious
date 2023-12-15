@@ -6,29 +6,44 @@ import FilledButton from "../../global/FilledButton";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import myPhoto from "../../../../public/images/photo-me.png";
 import OpenRecipeCreator from "../createRecipe/OpenRecipeCreator";
+import { Bars3Icon } from "@heroicons/react/20/solid";
 
-function HorizontalNavigation() {
+interface HorizontalNavigatonProps {
+  openNav: () => void;
+}
+
+function HorizontalNavigation({ openNav }: HorizontalNavigatonProps) {
   return (
-    <nav className="z-10 flex items-center justify-end gap-10 bg-almond-tint-2 px-8 py-4 shadow-horizontal-nav">
-      <Link
-        href="/"
-        className="flex items-center gap-2 rounded-2xl px-6 py-2 transition-all duration-150 ease-linear hover:bg-jade-shade-2 focus:bg-jade-shade-2 [&:focus>p]:text-white [&:hover>p]:text-white"
+    <nav
+      className={` z-10 flex items-center justify-end gap-10 bg-almond-tint-2 px-8 py-4 shadow-horizontal-nav mdl:justify-between`}
+    >
+      <button
+        onClick={openNav}
+        className="hidden mdl:block [&:focus>svg]:scale-110 [&:focus>svg]:fill-jade-normal [&:hover>svg]:scale-110 [&:hover>svg]:fill-jade-normal"
       >
-        <Image
-          src={myPhoto}
-          className="h-8 w-8 rounded-full"
-          alt="User Photo"
-        />
-        <p className="text-xl font-medium transition-all duration-150 ease-linear">
-          Oliwier Sellig
-        </p>
-      </Link>
-      <OpenRecipeCreator>
-        <FilledButton>
-          <PlusIcon className="h-7 w-7" />
-          <span>Create Recipe</span>
-        </FilledButton>
-      </OpenRecipeCreator>
+        <Bars3Icon className="h-8 w-8 fill-gray-normal transition-all duration-150 ease-linear" />
+      </button>
+      <div className="flex items-center gap-10">
+        <Link
+          href="/"
+          className="flex items-center gap-2 rounded-2xl px-6 py-2 transition-all duration-150 ease-linear hover:bg-jade-shade-2 focus:bg-jade-shade-2 [&:focus>p]:text-white [&:hover>p]:text-white"
+        >
+          <Image
+            src={myPhoto}
+            className="h-8 w-8 rounded-full"
+            alt="User Photo"
+          />
+          <p className="text-xl font-medium transition-all duration-150 ease-linear">
+            Oliwier Sellig
+          </p>
+        </Link>
+        <OpenRecipeCreator>
+          <FilledButton>
+            <PlusIcon className="h-7 w-7" />
+            <span>Create Recipe</span>
+          </FilledButton>
+        </OpenRecipeCreator>
+      </div>
     </nav>
   );
 }

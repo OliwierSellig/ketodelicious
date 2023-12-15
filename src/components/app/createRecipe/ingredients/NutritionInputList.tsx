@@ -17,8 +17,7 @@ function NutritionInputList({ open }: NutritionInputListProps) {
           <InputRow label="Net Carbs" id="net-carbs">
             <AmountInput
               py={2}
-              width="300px"
-              additionalClass="w-[300px]"
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
               unit="g"
               id="net-carbs"
             />
@@ -26,32 +25,62 @@ function NutritionInputList({ open }: NutritionInputListProps) {
         </li>
         <li>
           <InputRow label="Total Carbs" id="total-carbs">
-            <AmountInput py={2} width="300px" unit="g" id="total-carbs" />
+            <AmountInput
+              py={2}
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
+              unit="g"
+              id="total-carbs"
+            />
           </InputRow>
         </li>
         <li>
           <InputRow label="Sugar" id="sugar">
-            <AmountInput py={2} width="300px" unit="g" id="sugar" />
+            <AmountInput
+              py={2}
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
+              unit="g"
+              id="sugar"
+            />
           </InputRow>
         </li>
         <li>
           <InputRow label="Fiber" id="fiber">
-            <AmountInput py={2} width="300px" unit="g" id="fiber" />
+            <AmountInput
+              py={2}
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
+              unit="g"
+              id="fiber"
+            />
           </InputRow>
         </li>
         <li>
           <InputRow label="Protein" id="protein">
-            <AmountInput py={2} width="300px" unit="g" id="protein" />
+            <AmountInput
+              py={2}
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
+              unit="g"
+              id="protein"
+            />
           </InputRow>
         </li>
         <li>
           <InputRow label="Total Fat" id="total-fat">
-            <AmountInput py={2} width="300px" unit="g" id="total-fat" />
+            <AmountInput
+              py={2}
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
+              unit="g"
+              id="total-fat"
+            />
           </InputRow>
         </li>
         <li>
           <InputRow label="Trans Fat" id="trans-fat">
-            <AmountInput py={2} width="300px" unit="g" id="trans-fat" />
+            <AmountInput
+              py={2}
+              additionalClass="w-[300px] xl:w-[240px] lg:w-[200px]"
+              unit="g"
+              id="trans-fat"
+            />
           </InputRow>
         </li>
       </ul>

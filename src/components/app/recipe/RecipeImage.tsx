@@ -11,7 +11,7 @@ function RecipeImage({ image, recipeName }: RecipeImageProps) {
     <div className="mb-2 w-full">
       <Modal>
         <Modal.Open opens="recipe-image">
-          <button className="recipe-view-clip relative z-20 flex aspect-[3/1] h-full w-full items-center justify-center overflow-hidden  rounded-2xl px-12 py-4 [&:focus>div]:scale-110 [&:hover>div]:scale-110">
+          <button className="recipe-view-clip relative z-20 flex  aspect-[5/2] h-full w-full items-center justify-center overflow-hidden rounded-2xl  px-12 py-4 lg:aspect-[2/1] [&:focus>div]:scale-110 [&:hover>div]:scale-110">
             <div
               className="absolute left-0 top-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat transition-all duration-150 ease-linear"
               style={{

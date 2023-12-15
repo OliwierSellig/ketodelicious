@@ -30,10 +30,9 @@ function TextareaInput({
       id={id}
       maxLength={maxLength}
       placeholder={placeholder}
-      style={{ width: width }}
       className={`recipe-input border-${borderColor}  ${
         !resize ? "resize-none" : ""
-      } px-${px} py-${py} text-${textSize} placeholder:text-${textSize} ${additionalClass} h-[${height}]`}
+      } px-${px} py-${py} text-${textSize} w-[${width}] placeholder:text-${textSize} ${additionalClass} h-[${height}]`}
     />
   );
 }

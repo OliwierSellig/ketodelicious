@@ -14,7 +14,7 @@ function RelatedTags({
   openAddTagWindow,
 }: RelatedTagsProps) {
   return (
-    <div className="flex h-full flex-grow flex-col">
+    <div className="flex  flex-grow flex-col px-6 pb-4">
       <CreateElementsButton
         currentNumber={tags.length}
         additionalClass="mb-6"
@@ -26,8 +26,8 @@ function RelatedTags({
       </CreateElementsButton>
 
       {tags.length > 0 ? (
-        <div className="recipe-scroll relative h-full w-full flex-grow overflow-y-scroll">
-          <ul className="absolute left-0 top-0 flex  w-full flex-wrap gap-3">
+        <div className="w-full flex-grow">
+          <ul className=" flex w-full flex-wrap gap-3">
             {tags.map((tag, i) => (
               <TagItem handleClick={() => handleRemove(tag)} key={i}>
                 {tag}

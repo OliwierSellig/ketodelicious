@@ -32,7 +32,7 @@ function RecipeSlider() {
   }
 
   return (
-    <div className="relative h-[450px]">
+    <div className="relative h-[450px] xl:h-[500px]">
       <FilledButton
         additionalClass="absolute z-40 top-[-15%] left-[-2%] w-52 justify-center"
         size="lg"

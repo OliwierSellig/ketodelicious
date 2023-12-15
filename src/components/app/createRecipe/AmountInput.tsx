@@ -24,7 +24,7 @@ function AmountInput({
   borderColor = "gray-tint-3",
 }: AmountInputProps) {
   return (
-    <div className={`relative ${width ? `w-[${width}]` : "w-full"}`}>
+    <div className={`relative `}>
       <input
         value={value}
         onChange={(e) => onChange?.(e)}
