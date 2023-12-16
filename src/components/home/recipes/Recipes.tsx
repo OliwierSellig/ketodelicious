@@ -1,6 +1,5 @@
 "use client";
 
-import RecipeCard from "./RecipeCard";
 import SectionHeader from "../SectionHeader";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { recipeList } from "@/utils/dummyData";
