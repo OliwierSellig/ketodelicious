@@ -8,7 +8,7 @@
   }
 
   .add-to-recipe {
-    @apply absolute left-0 top-0 z-50 h-full w-full animate-[fadeBottom_0.6s]  rounded-2xl bg-add-recipe-background backdrop-blur-[6px];
+    @apply absolute left-0 top-0 z-50 h-full w-full animate-[fadeBottom_0.6s]  rounded-2xl bg-add-recipe-background backdrop-blur-[6px] xsm:backdrop-blur-[4px];
   }
 
   .hideArrowInputNumber::-webkit-outer-spin-button,
@@ -57,22 +57,24 @@
     );
   }
 
-  .recipe-scroll::-webkit-scrollbar {
-    width: 6px;
-  }
+  @media (hover: hover) {
+    .recipe-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
 
-  .recipe-scroll::-webkit-scrollbar-track {
-    border-radius: 1500px;
-    background: #999;
-  }
+    .recipe-scroll::-webkit-scrollbar-track {
+      border-radius: 1500px;
+      background: #999;
+    }
 
-  .recipe-scroll::-webkit-scrollbar-thumb {
-    background: #555;
-    border-radius: 1500px;
-  }
+    .recipe-scroll::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 1500px;
+    }
 
-  .recipe-scroll::-webkit-scrollbar-thumb:hover {
-    background: #666;
+    .recipe-scroll::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
   }
 }
 

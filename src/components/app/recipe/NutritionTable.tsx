@@ -7,7 +7,7 @@ interface NutritionTableProps {
 
 function NutritionTable({ nutritionList }: NutritionTableProps) {
   return (
-    <ul className="flex flex-col border-x-2 border-t-2 border-solid border-gray-tint-2 text-xl">
+    <ul className="flex flex-col border-x-2 border-t-2 border-solid border-gray-tint-2 text-xl xsm:text-lg">
       <NutritionRow value="Energy">{nutritionList.energy} kcal</NutritionRow>
       <NutritionRow value="Total Carbs">
         {nutritionList.totalCarbs}g

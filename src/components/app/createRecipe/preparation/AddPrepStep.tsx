@@ -1,7 +1,8 @@
-import FilledButton from "@/components/global/FilledButton";
 import InputCol from "../InputCol";
 import TextareaInput from "../TextareaInput";
 import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
+import AddToRecipeHeader from "../AddToRecipeHeader";
+import AddToRecipeButton from "../AddToRecipeButton";
 
 interface AddPrepStepProps {
   handleAdd: () => void;
@@ -10,10 +11,10 @@ interface AddPrepStepProps {
 function AddPrepStep({ handleAdd }: AddPrepStepProps) {
   return (
     <>
-      <p className="mb-8 font-ubuntu text-5xl font-medium">
-        Add Prep <span className="text-jade-normal">Step</span>
-      </p>
-      <form className="flex w-1/2 flex-col gap-12 xl:w-2/3">
+      <AddToRecipeHeader>
+        Add Prep <AddToRecipeHeader.Highlight>Step</AddToRecipeHeader.Highlight>
+      </AddToRecipeHeader>
+      <form className="flex w-1/2 flex-col gap-12 xl:w-2/3 sm:w-4/5 xsm:w-full">
         <InputCol
           label="Write the next step"
           id="prep-step-content"
@@ -29,10 +30,10 @@ function AddPrepStep({ handleAdd }: AddPrepStepProps) {
             placeholder="Ex. Combine the butter and cream cheese together in a heat-safe container."
           />
         </InputCol>
-        <FilledButton additionalClass="self-center" size="xl">
+        <AddToRecipeButton handleClick={() => {}}>
           <span>Save Prep Step</span>
-          <ClipboardDocumentCheckIcon className="h-8 w-8" />
-        </FilledButton>
+          <ClipboardDocumentCheckIcon />
+        </AddToRecipeButton>
       </form>
     </>
   );

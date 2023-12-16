@@ -34,12 +34,12 @@ function RecipeSlider() {
   return (
     <div className="relative h-[450px] xl:h-[500px]">
       <FilledButton
-        additionalClass="absolute z-40 top-[-15%] left-[-2%] w-52 justify-center"
+        additionalClass="absolute z-40 top-[-15%] left-[-2%] w-52 justify-center md:left-[5%] md:p-2 md:w-auto md:rounded-full md:-top-[12%]"
         size="lg"
         handleClick={goPrev}
       >
         <ChevronLeftIcon className="h-8 w-8" />
-        <span>
+        <span className="md:hidden">
           {current === 0
             ? "Preparation"
             : current === 1
@@ -49,10 +49,10 @@ function RecipeSlider() {
       </FilledButton>
       <FilledButton
         size="lg"
-        additionalClass="absolute z-40 top-0 right-0 top-[-15%] right-[-2%] w-52 justify-center"
+        additionalClass="absolute z-40 top-0 right-0 top-[-15%] right-[-2%] w-52 justify-center md:right-[5%] md:p-2 md:w-auto md:rounded-full  md:-top-[12%]"
         handleClick={goNext}
       >
-        <span>
+        <span className="md:hidden">
           {current === 0
             ? "Overview"
             : current === 1

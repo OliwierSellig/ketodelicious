@@ -1,8 +1,9 @@
-import FilledButton from "@/components/global/FilledButton";
 import AmountInput from "../AmountInput";
 import InputCol from "../InputCol";
 import TextInput from "../TextInput";
 import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
+import AddToRecipeHeader from "../AddToRecipeHeader";
+import AddToRecipeButton from "../AddToRecipeButton";
 
 interface AddIngredientsProps {
   handleAdd: (tag: string) => void;
@@ -10,10 +11,11 @@ interface AddIngredientsProps {
 function AddIngredient({ handleAdd }: AddIngredientsProps) {
   return (
     <>
-      <p className="mb-8 font-ubuntu text-5xl font-medium">
-        Add an <span className="text-jade-normal">Ingredient</span>
-      </p>
-      <form className="flex flex-col items-center">
+      <AddToRecipeHeader>
+        Add an{" "}
+        <AddToRecipeHeader.Highlight>Ingredient</AddToRecipeHeader.Highlight>
+      </AddToRecipeHeader>
+      <form className="flex flex-col items-center xsm:w-full">
         <InputCol
           additionalClass="mb-8 w-full"
           id="ingredient-name"
@@ -22,7 +24,7 @@ function AddIngredient({ handleAdd }: AddIngredientsProps) {
         >
           <TextInput id="ingredient-name" borderColor="gray-tint-2" />
         </InputCol>
-        <div className="mb-12 grid grid-cols-2 gap-8">
+        <div className="mb-12 grid grid-cols-2 gap-8 xsm:w-full xsm:grid-cols-1">
           <InputCol
             additionalClass="col-span-1"
             id="ingredient-named-amount"
@@ -42,10 +44,10 @@ function AddIngredient({ handleAdd }: AddIngredientsProps) {
             />
           </InputCol>
         </div>
-        <FilledButton additionalClass="self-center" size="xl">
+        <AddToRecipeButton handleClick={() => {}}>
           <span>Save the Ingredient</span>
-          <ClipboardDocumentCheckIcon className="h-8 w-8" />
-        </FilledButton>
+          <ClipboardDocumentCheckIcon />
+        </AddToRecipeButton>
       </form>
     </>
   );

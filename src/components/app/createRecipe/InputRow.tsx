@@ -5,6 +5,7 @@ interface InputRowProps {
   id: string;
   label: string;
   additionalClass?: string;
+  additionalClassLabel?: string;
   gap?: number;
   width?: string;
 }
@@ -14,6 +15,7 @@ function InputRow({
   id,
   label,
   additionalClass = "",
+  additionalClassLabel = "",
   gap = 3,
   width,
 }: InputRowProps) {
@@ -21,7 +23,10 @@ function InputRow({
     <div
       className={`flex items-center justify-between gap-${gap} ${additionalClass}  `}
     >
-      <label className={`flex-grow text-xl font-medium`} htmlFor={id}>
+      <label
+        className={`flex-grow text-xl font-medium ${additionalClassLabel}`}
+        htmlFor={id}
+      >
         {label}
       </label>
       {children}

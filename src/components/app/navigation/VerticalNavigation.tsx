@@ -43,7 +43,7 @@ function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
       </SvgButton>
       <div
         ref={containerRef}
-        className={`flex h-full flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav  xxxl:py-8 xxl:px-2 xl:px-6  mdl:absolute mdl:left-0 mdl:top-0 mdl:h-full mdl:animate-[vertiNavMove_0.4s]`}
+        className={`flex h-full flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav  xxxl:py-8 xxl:px-2 xl:px-6 mdl:absolute mdl:left-0  mdl:top-0 mdl:h-full mdl:animate-[vertiNavMove_0.4s] xsm:px-4 xsm:py-6`}
       >
         <Logo
           additionalClassCont="xl:justify-center"
@@ -70,7 +70,7 @@ function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
             </NavLink>
           </nav>
           <FilledButton size="xl" additionalClass="xl:p-4 xl:rounded-full">
-            <ArrowRightOnRectangleIcon className="h-7 w-7 xl:h-8 xl:w-8" />
+            <ArrowRightOnRectangleIcon className="h-7 w-7 xl:h-7 xl:w-7" />
             <span className="xl:hidden">Log out</span>
           </FilledButton>
         </div>

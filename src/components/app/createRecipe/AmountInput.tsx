@@ -32,7 +32,7 @@ function AmountInput({
         type="number"
         className={`recipe-input border-${borderColor} w-full  px-${px} py-${py} text-${textSize} ${additionalClass} hideArrowInputNumber`}
       />
-      <span className="absolute right-4 top-0 z-50  translate-y-1/2 text-xl text-gray-tint-2">
+      <span className="absolute right-4 top-0 z-50  translate-y-1/2 text-xl text-gray-tint-2 xsm:text-lg">
         {unit}.
       </span>
     </div>

@@ -117,10 +117,10 @@ function MainContainer() {
         ) : (
           <FilledButton
             size="xl"
-            additionalClass="px-24 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"
+            additionalClass="px-24 mdl:w-2/3 mdl:justify-center sm:px-0 xsm:w-3/4  absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"
           >
-            <span>Create Recipe</span>
-            <CheckCircleIcon className="h-8 w-8 stroke-white-normal" />
+            <span className="sm:text-xl">Create Recipe</span>
+            <CheckCircleIcon className="h-8 w-8 stroke-white-normal sm:h-7 sm:w-7" />
           </FilledButton>
         )
       ) : null}

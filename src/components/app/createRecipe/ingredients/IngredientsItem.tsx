@@ -7,8 +7,8 @@ interface IngredientItemProps {
 
 function IngredientsItem({ ingredient }: IngredientItemProps) {
   return (
-    <div className="flex items-center justify-between border-b-[1.5px] border-solid border-[#999] px-2 py-6">
-      <div className="flex flex-col gap-2 text-xl">
+    <div className="flex items-center justify-between gap-6  border-b-[1.5px] border-solid border-[#999] px-2 py-6 xsm:flex-col xsm:items-start xsm:gap-4">
+      <div className="flex flex-col gap-2 text-xl sm:text-lg">
         <p>
           <span>Name: </span>
           <span className="font-medium">{ingredient.name}</span>
@@ -30,7 +30,7 @@ function IngredientsItem({ ingredient }: IngredientItemProps) {
           )}
         </p>
       </div>
-      <nav className="flex flex-col gap-4">
+      <nav className="flex flex-col gap-4 xsm:flex-row">
         <button className=" [&:focus>svg]:stroke-jade-normal [&:hover>svg]:stroke-jade-normal">
           <XCircleIcon className="h-8 w-8 stroke-gray-tint-1 transition-all duration-150 ease-linear" />
         </button>

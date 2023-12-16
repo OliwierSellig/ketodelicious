@@ -3,7 +3,6 @@ import AmountInput from "../AmountInput";
 import InputCol from "../InputCol";
 import NutritionAccordion from "./NutritionAccordion";
 import CreateElementsButton from "../CreateElementsButton";
-import IngredientsList from "./IngredientsList";
 import IngredientsItem from "./IngredientsItem";
 
 interface IngredientsSlideProps {
@@ -16,7 +15,7 @@ function IngredientsSlide({
   openIngredientWindow,
 }: IngredientsSlideProps) {
   return (
-    <div className="grid grid-cols-2 gap-28 overflow-x-clip overflow-y-scroll xl:gap-20">
+    <div className="grid grid-cols-2 gap-28 overflow-x-clip overflow-y-scroll xl:gap-20 mdl:grid-cols-1 mdl:gap-0 mdl:overflow-y-scroll">
       <div className="col-span-1 flex h-full flex-col ">
         <div className="mb-6 flex flex-col gap-4">
           <InputCol id="cooking-time" label="Cooking Time">
@@ -40,8 +39,8 @@ function IngredientsSlide({
         >
           Ingredients
         </CreateElementsButton>
-        <div className="recipe-scroll relative flex-grow overflow-y-scroll">
-          <ul className="absolute left-0 top-0 h-full w-full px-4">
+        <div className="recipe-scroll relative flex-grow overflow-y-scroll mdl:overflow-y-visible">
+          <ul className="absolute left-0 top-0 h-full w-full px-4 mdl:static">
             {ingredientsList.map((ingredient, i) => (
               <IngredientsItem ingredient={ingredient} key={i} />
             ))}

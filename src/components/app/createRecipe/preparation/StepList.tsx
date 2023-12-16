@@ -10,7 +10,7 @@ function StepList({ stepsList }: StepListProps) {
       <p className="font-mdeium text-center font-kalam text-4xl text-gray-tint-2">
         Start
       </p>
-      <ul className="flex flex-col gap-4 px-4 py-6">
+      <ul className="flex flex-col gap-4 px-4 py-6 sm:px-2 sm:py-4">
         {stepsList.map((step, i) => (
           <StepItem step={step} key={i}></StepItem>
         ))}

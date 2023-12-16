@@ -7,7 +7,7 @@ function RecipeDescriptionInput() {
       label="Recipe Description"
       id="desc"
       additionalInfo="Max 420 letters"
-      additionalClass="[&>textarea]:h-[300px] lg:[&>textarea]:w-[380px]"
+      additionalClass="[&>textarea]:h-[300px] lg:[&>textarea]:w-[380px] mdl:[&>textarea]:w-full"
     >
       <TextareaInput
         id="name"

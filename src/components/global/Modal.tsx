@@ -76,9 +76,9 @@ function Window({ name, children }: WindowProps) {
       <button
         onClick={close}
         aria-label="Close this window"
-        className="absolute right-8 top-8 z-[1500] animate-[fadeRight_0.6s] rounded-full bg-jade-shade-2 p-2 shadow-sm transition-all duration-150 ease-linear focus-within:scale-105 focus-within:bg-jade-normal hover:scale-105 hover:bg-jade-normal"
+        className="absolute right-8 top-8 z-[1500] animate-[fadeRight_0.6s] rounded-full bg-jade-shade-2 p-2 shadow-sm transition-all duration-150 ease-linear focus-within:scale-105 focus-within:bg-jade-normal hover:scale-105 hover:bg-jade-normal sm:right-4 sm:top-4"
       >
-        <XMarkIcon className="h-10 w-10 fill-white-normal " />
+        <XMarkIcon className="h-10 w-10 fill-white-normal xsm:h-8 xsm:w-8 " />
       </button>
     </div>,
     document.body,
