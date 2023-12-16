@@ -34,6 +34,7 @@ function RecipeSlider() {
   return (
     <div className="relative h-[450px] xl:h-[500px]">
       <FilledButton
+        label="Go left"
         additionalClass="absolute z-40 top-[-15%] left-[-2%] w-52 justify-center md:left-[5%] md:p-2 md:w-auto md:rounded-full md:-top-[12%]"
         size="lg"
         handleClick={goPrev}
@@ -48,6 +49,7 @@ function RecipeSlider() {
         </span>
       </FilledButton>
       <FilledButton
+        label="Go right"
         size="lg"
         additionalClass="absolute z-40 top-0 right-0 top-[-15%] right-[-2%] w-52 justify-center md:right-[5%] md:p-2 md:w-auto md:rounded-full  md:-top-[12%]"
         handleClick={goNext}

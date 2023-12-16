@@ -42,10 +42,6 @@ function Slider({ children, gap = 1 }: SliderProps) {
       setDisabledButtons(false);
       setDragX(x.get());
     });
-
-    const unsubscribe = x.on("animationComplete", () => console.log("chuj"));
-
-    return unsubscribe;
   }, [x]);
 
   function classListManipulate(action: "add" | "remove") {
@@ -123,7 +119,7 @@ function Slider({ children, gap = 1 }: SliderProps) {
             disabledButtons || !canDragLeft() ? "opacity-70" : ""
           }`}
         >
-          <ChevronLeftIcon className="h-8 w-8 fill-white-normal xsm:h-7 xsm:w-7" />
+          <ChevronLeftIcon className="h-8 w-8 fill-white-normal" />
         </motion.button>
         <motion.div
           className="flex"
@@ -154,7 +150,7 @@ function Slider({ children, gap = 1 }: SliderProps) {
             disabledButtons || !canDragRight() ? "opacity-70" : ""
           }`}
         >
-          <ChevronRightIcon className="h-8 w-8 fill-white-normal xsm:h-7 xsm:w-7" />
+          <ChevronRightIcon className="h-8 w-8 fill-white-normal" />
         </motion.button>
       </motion.div>
     </>

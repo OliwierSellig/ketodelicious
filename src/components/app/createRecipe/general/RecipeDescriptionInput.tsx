@@ -10,7 +10,7 @@ function RecipeDescriptionInput() {
       additionalClass="[&>textarea]:h-[300px] lg:[&>textarea]:w-[380px] mdl:[&>textarea]:w-full"
     >
       <TextareaInput
-        id="name"
+        id="desc"
         placeholder="Ex. This is my best recipe is far and I want to share it with the world!"
         height="300px"
         width="420px"

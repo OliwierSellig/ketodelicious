@@ -26,6 +26,7 @@ function PaginationNavigation({
     >
       <Link
         href={prevUrl}
+        aria-label="See Previous"
         className={`rounded-full bg-jade-shade-1 p-1 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
           !canGoPrev ? "pointer-events-none opacity-20" : ""
         }`}
@@ -38,6 +39,7 @@ function PaginationNavigation({
       <Link
         href={nextUrl}
         tabIndex={canGoNext ? 0 : -1}
+        aria-label="See Next"
         className={` rounded-full bg-jade-shade-1 p-1 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${
           !canGoNext ? "pointer-events-none opacity-20" : ""
         }`}

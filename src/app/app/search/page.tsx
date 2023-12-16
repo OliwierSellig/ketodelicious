@@ -1,6 +1,11 @@
 import SectionHeading from "@/components/app/SectionHeading";
 import SearchConfigurator from "@/components/app/search/SearchConfigurator";
 import SearchRecipeList from "@/components/app/search/SearchRecipeList";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Search for Reicpe",
+};
 
 function page() {
   return (

@@ -57,13 +57,14 @@ function Open({ children, opens: opensWindowName }: OpenProps) {
 interface WindowProps {
   name: string;
   children: ReactElement;
+  open?: boolean;
 }
 
-function Window({ name, children }: WindowProps) {
+function Window({ name, children, open = false }: WindowProps) {
   const { openName, close } = useModal();
   const backgroundRef = useRef<HTMLDivElement>(null);
 
-  if (name !== openName) return null;
+  if (!open) return null;
 
   return createPortal(
     <div

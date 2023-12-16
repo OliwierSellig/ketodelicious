@@ -11,7 +11,7 @@ function SectionHeading({ children }: ChildrenProp) {
 export default SectionHeading;
 
 function Highlight({ children }: ChildrenProp) {
-  return <span className="text-jade-normal">{children}</span>;
+  return <span className="text-jade-shade-1">{children}</span>;
 }
 
 SectionHeading.Highlight = Highlight;

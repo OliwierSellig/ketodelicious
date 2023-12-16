@@ -1,16 +1,28 @@
 "use client";
 
-import { ButtonProps } from "@/utils/utilTypes";
 import Link from "next/link";
+import { ReactNode } from "react";
+
+export interface FilledButtonProps {
+  children: ReactNode;
+  label?: string;
+  destination?: string;
+  handleClick?: Function;
+  onClick?: Function;
+  size?: "sm" | "md" | "lg" | "xl";
+  interPageLink?: boolean;
+  additionalClass?: string;
+}
 
 function FilledButton({
   children,
   destination,
+  label = "",
   handleClick,
   onClick,
   size = "md",
   additionalClass = "",
-}: ButtonProps) {
+}: FilledButtonProps) {
   const buttonStyles = `block ${
     size === "xl" ? "text-2xl" : "text-xl"
   } tacking-wide text-white-normal ${
@@ -25,7 +37,7 @@ function FilledButton({
 
   if (destination) {
     return (
-      <Link href={destination} className={buttonStyles}>
+      <Link aria-label={label} href={destination} className={buttonStyles}>
         {children}
       </Link>
     );
@@ -33,6 +45,7 @@ function FilledButton({
 
   return (
     <button
+      aria-label={label}
       onClick={() => {
         handleClick?.();
         onClick?.();

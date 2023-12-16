@@ -15,9 +15,10 @@ interface HorizontalNavigatonProps {
 function HorizontalNavigation({ openNav }: HorizontalNavigatonProps) {
   return (
     <nav
-      className={` z-10 flex items-center justify-end gap-10 bg-almond-tint-2 px-8 py-4 shadow-horizontal-nav mdl:justify-between`}
+      className={`z-10 flex animate-[fadeTop_1s] items-center justify-end gap-10 bg-almond-tint-2 px-8 py-4 shadow-horizontal-nav mdl:justify-between`}
     >
       <button
+        aria-label="Open mobile menu"
         onClick={openNav}
         className="hidden mdl:block [&:focus>svg]:scale-110 [&:focus>svg]:fill-jade-normal [&:hover>svg]:scale-110 [&:hover>svg]:fill-jade-normal"
       >
@@ -38,7 +39,10 @@ function HorizontalNavigation({ openNav }: HorizontalNavigatonProps) {
           </p>
         </Link>
         <OpenRecipeCreator>
-          <FilledButton additionalClass="sm:p-2 sm:rounded-full">
+          <FilledButton
+            label="Create recipe"
+            additionalClass="sm:p-2 sm:rounded-full"
+          >
             <PlusIcon className="h-7 w-7" />
             <span className="sm:hidden">Create Recipe</span>
           </FilledButton>

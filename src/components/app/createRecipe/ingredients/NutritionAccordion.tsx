@@ -10,7 +10,7 @@ function NutritionAccordion() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="mb-6 flex items-center gap-2 [&:focus>p>span]:text-jade-normal [&:focus>svg]:fill-jade-normal [&:hover>p>span]:text-jade-normal [&:hover>svg]:fill-jade-normal"
-        aria-label="Toggle Nutrition View"
+        aria-label="Nutrition (Not Required)"
       >
         <p>
           <span className="text-2xl font-medium text-gray-tint-1 transition-all duration-200 ease-linear sm:text-xl">

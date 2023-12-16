@@ -1,7 +1,10 @@
 import SectionHeading from "@/components/app/SectionHeading";
-import FavouritesCarousel from "@/components/app/favourites/FavouritesSlider";
 import SliderList from "@/components/app/favourites/SliderList";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Favourites",
+};
 function page() {
   return (
     <>

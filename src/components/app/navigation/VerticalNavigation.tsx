@@ -21,7 +21,6 @@ interface VerticalNavigationProps {
 
 function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  console.log(isOpen);
   return (
     <div
       onClick={(e: BaseSyntheticEvent) => {
@@ -43,7 +42,7 @@ function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
       </SvgButton>
       <div
         ref={containerRef}
-        className={`flex h-full flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav  xxxl:py-8 xxl:px-2 xl:px-6 mdl:absolute mdl:left-0  mdl:top-0 mdl:h-full mdl:animate-[vertiNavMove_0.4s] xsm:px-4 xsm:py-6`}
+        className={`flex h-full animate-[fadeLeft_1s] flex-col gap-16 bg-almond-tint-2 p-8 shadow-vertical-nav  xxxl:py-8 xxl:px-2 xl:px-6 mdl:absolute mdl:left-0  mdl:top-0 mdl:h-full mdl:animate-[vertiNavMove_0.4s] xsm:px-4 xsm:py-6`}
       >
         <Logo
           additionalClassCont="xl:justify-center"

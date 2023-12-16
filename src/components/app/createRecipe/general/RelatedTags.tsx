@@ -29,9 +29,11 @@ function RelatedTags({
         <div className="w-full flex-grow">
           <ul className=" flex w-full flex-wrap gap-3">
             {tags.map((tag, i) => (
-              <TagItem handleClick={() => handleRemove(tag)} key={i}>
-                {tag}
-              </TagItem>
+              <TagItem
+                handleClick={() => handleRemove(tag)}
+                tag={tag}
+                key={i}
+              />
             ))}
           </ul>
         </div>
