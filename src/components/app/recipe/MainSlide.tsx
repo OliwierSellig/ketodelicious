@@ -52,21 +52,20 @@ function MainSlide({
         </div>
       </div>
       <div className="flex items-center justify-center gap-12 pb-6 sm:gap-6 xsm:flex-col">
-        <p className="flex items-center gap-2 text-xl sm:flex-col sm:gap-1 sm:text-lg">
+        <div className="flex items-center gap-2 text-xl sm:flex-col sm:gap-1 sm:text-lg">
           <p className="flex items-center gap-1">
             <ClockIcon className="h-8 w-8 stroke-gray-tint-1 sm:h-7 sm:w-7 " />
             <span className="font-medium">Cooking time:</span>
           </p>
           <span className=" font-bold">{cookingTime} min</span>
-        </p>
-        <p className="flex items-center gap-2 text-xl sm:flex-col sm:gap-1 sm:text-lg">
+        </div>
+        <div className="flex items-center gap-2 text-xl sm:flex-col sm:gap-1 sm:text-lg">
           <p className="flex items-center gap-1 ">
             <BellIcon className="h-8 w-8 stroke-gray-tint-1 sm:h-7 sm:w-7" />
             <span className="font-medium">Prepare time:</span>
           </p>
-
           <span className=" font-bold">{prepareTime} min</span>
-        </p>
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,10 @@
+"use client";
+
 import { ChildrenProp } from "@/utils/utilTypes";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import {
   Dispatch,
   ReactElement,
-  ReactNode,
   SetStateAction,
   cloneElement,
   createContext,

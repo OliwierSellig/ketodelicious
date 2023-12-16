@@ -1,3 +1,5 @@
+"use client";
+
 import Modal from "@/components/global/Modal";
 import MainContainer from "./MainContainer";
 import { ReactElement } from "react";

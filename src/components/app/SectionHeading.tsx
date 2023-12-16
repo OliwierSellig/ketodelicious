@@ -2,7 +2,7 @@ import { ChildrenProp } from "@/utils/utilTypes";
 
 function SectionHeading({ children }: ChildrenProp) {
   return (
-    <h1 className="mb-8 font-kalam text-6xl xl:text-5xl xsm:text-4xl">
+    <h1 className="mb-8 animate-[fadeLeft_0.8s] font-kalam text-6xl xl:text-5xl xsm:text-4xl">
       {children}
     </h1>
   );

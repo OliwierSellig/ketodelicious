@@ -15,8 +15,12 @@ function FavouritesSlider({
   return (
     <li>
       <h2 className="mb-6 font-medium">
-        <p className="text-lg text-jade-shade-2 xsm:text-base">{subheading}</p>
-        <p className="font-ubuntu text-3xl xsm:text-2xl">{heading}</p>
+        <p className="animate-[fadeLeft_1.2s] text-lg text-jade-shade-2 xsm:text-base">
+          {subheading}
+        </p>
+        <p className="animate-[fadeLeft_1s] font-ubuntu text-3xl xsm:text-2xl">
+          {heading}
+        </p>
       </h2>
       <Slider>{children}</Slider>
     </li>

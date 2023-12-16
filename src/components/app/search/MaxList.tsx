@@ -7,7 +7,7 @@ interface MaxListProps {
 function MaxList({ isOpen }: MaxListProps) {
   return (
     <div
-      className={`flex flex-col gap-4 transition-all duration-200 ease-linear xxxl:grid xxxl:grid-cols-2 xxxl:gap-x-14  ${
+      className={`flex animate-[fadeRight_1.2s] flex-col gap-4 transition-all duration-200 ease-linear xxxl:grid xxxl:grid-cols-2 xxxl:gap-x-14  ${
         !isOpen ? "md:hidden" : "md:animate-[fadeRight_1s]"
       } md:flex md:flex-col`}
     >

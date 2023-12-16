@@ -21,7 +21,9 @@ function PaginationNavigation({
   canGoPrev,
 }: PaginationNavigationProps) {
   return (
-    <nav className={`flex items-center gap-3 ${additionalClass}`}>
+    <nav
+      className={`flex animate-[fadeBottom_0.8s] items-center gap-3 ${additionalClass}`}
+    >
       <Link
         href={prevUrl}
         className={`rounded-full bg-jade-shade-1 p-1 transition-all duration-150 ease-linear hover:bg-jade-normal focus:bg-jade-normal ${

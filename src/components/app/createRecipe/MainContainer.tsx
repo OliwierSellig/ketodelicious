@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import GeneralSlide from "./general/GeneralSlide";
 import IngredientsSlide from "./ingredients/IngredientsSlide";

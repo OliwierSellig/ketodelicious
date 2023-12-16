@@ -22,11 +22,11 @@ function SearchConfigurator() {
           type="text"
           id="name"
           placeholder="Write recipe name here"
-          className="mb-8 w-full rounded-2xl bg-white-tint px-8 py-3 text-xl text-gray-normal shadow-recipe-input xl:text-lg sm:mb-4"
+          className="mb-8 w-full animate-[fadeBottom_0.8s] rounded-2xl bg-white-tint px-8 py-3 text-xl text-gray-normal shadow-recipe-input xl:text-lg sm:mb-4"
         />
         <FilledButton
           handleClick={() => setIsConfiguratorOpen((prev) => !prev)}
-          additionalClass="hidden md:flex self-start mb-4 xsm:text-lg"
+          additionalClass="animate-[fadeLeft_0.6s] hidden md:flex self-start mb-4 xsm:text-lg"
         >
           <span>More options</span>
           <ChevronLeftIcon
@@ -37,7 +37,7 @@ function SearchConfigurator() {
         </FilledButton>
 
         <div
-          className={`grid grid-cols-2 gap-4 md:transition-all md:duration-200 md:ease-linear sm:flex sm:flex-col sm:gap-8 ${
+          className={`grid animate-[fadeLeft_1.2s] grid-cols-2 gap-4 md:transition-all md:duration-200 md:ease-linear sm:flex sm:flex-col sm:gap-8 ${
             !isConfiguratorOpen
               ? "md:hidden sm:hidden"
               : "md:animate-[fadeLeft_1s]"

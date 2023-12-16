@@ -94,6 +94,11 @@ const config: Config = {
           "100%": { transform: "scale(1)" },
         },
 
+        scaleOpacity: {
+          "0%": { transform: "scale(0.9)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+
         scaleUpModal: {
           "0%": {
             opactiy: "0",

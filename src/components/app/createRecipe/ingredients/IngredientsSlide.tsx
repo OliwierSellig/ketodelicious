@@ -15,7 +15,7 @@ function IngredientsSlide({
   openIngredientWindow,
 }: IngredientsSlideProps) {
   return (
-    <div className="grid grid-cols-2 gap-28 overflow-x-clip overflow-y-scroll xl:gap-20 mdl:grid-cols-1 mdl:gap-0 mdl:overflow-y-scroll">
+    <div className="grid grid-cols-2 gap-28 overflow-x-clip xl:gap-20 mdl:grid-cols-1 mdl:gap-0 mdl:overflow-y-scroll sm:overflow-y-scroll">
       <div className="col-span-1 flex h-full flex-col ">
         <div className="mb-6 flex flex-col gap-4">
           <InputCol id="cooking-time" label="Cooking Time">

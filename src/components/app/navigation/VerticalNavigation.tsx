@@ -69,7 +69,11 @@ function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
               <span>Random Recipe</span>
             </NavLink>
           </nav>
-          <FilledButton size="xl" additionalClass="xl:p-4 xl:rounded-full">
+          <FilledButton
+            size="xl"
+            additionalClass="xl:p-4 xl:rounded-full"
+            destination="/"
+          >
             <ArrowRightOnRectangleIcon className="h-7 w-7 xl:h-7 xl:w-7" />
             <span className="xl:hidden">Log out</span>
           </FilledButton>

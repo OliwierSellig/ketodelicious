@@ -9,7 +9,7 @@ interface PreparationSlideProps {
 
 function PreparationSlide({ stepsList, openStepsAdd }: PreparationSlideProps) {
   return (
-    <div className="flex h-full w-full flex-col justify-start overflow-x-clip overflow-y-scroll pt-12 sm:pt-4">
+    <div className="flex h-full w-full flex-col justify-start overflow-x-clip pt-12 sm:overflow-y-scroll sm:pt-4">
       <CreateElementsButton
         handleClick={openStepsAdd}
         currentNumber={stepsList.length}

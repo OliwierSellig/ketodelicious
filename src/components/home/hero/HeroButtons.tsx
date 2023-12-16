@@ -2,7 +2,8 @@
 
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import FilledButton from "../../global/FilledButton";
-import TextButton from "../../global/TextButton";
+
+import { Link } from "react-scroll";
 
 function HeroButtons() {
   return (
@@ -10,10 +11,17 @@ function HeroButtons() {
       <FilledButton size="lg" destination="/">
         <span className="px-6 xsm:text-2xl xxsm:px-2">Visit the app</span>
       </FilledButton>
-      <TextButton interPageLink={true} destination="cta">
+      <Link
+        href="/"
+        smooth={true}
+        offset={-100}
+        duration={500}
+        to="cta"
+        className="underline-ani relative flex cursor-pointer items-center gap-1 text-xl"
+      >
         <span className="font-medium ">Learn more</span>
         <ChevronRightIcon className="mt-[2px] h-8 w-8" />
-      </TextButton>
+      </Link>
     </nav>
   );
 }
