@@ -11,14 +11,14 @@ function RecipeImage({ image, recipeName }: RecipeImageProps) {
     <div className="mb-2 w-full">
       <Modal>
         <Modal.Open opens="recipe-image">
-          <button className="recipe-view-clip relative z-20 flex aspect-[5/2] h-full  w-full items-center justify-center overflow-hidden rounded-2xl px-12 py-4  lg:aspect-[2/1] md:h-[300px] md:rounded-none [&:focus>div]:scale-110 [&:hover>div]:scale-110">
+          <button className="recipe-view-clip  relative z-20 flex aspect-[5/2]  h-full min-h-[200px] w-full items-center justify-center overflow-hidden rounded-2xl px-12 py-4  lg:aspect-[2/1] md:h-[30vh]  md:rounded-none [&:focus>div]:scale-110 [&:hover>div]:scale-110">
             <div
               className="absolute left-0 top-0 z-10 h-full w-full bg-cover bg-center bg-no-repeat transition-all duration-150 ease-linear"
               style={{
                 backgroundImage: `linear-gradient(0deg, rgba(85, 85, 85, 0.9) 0%, rgba(85, 85, 85, 0.4) 50%, rgba(85, 85, 85, 0.5) 100%), url(${image})`,
               }}
             ></div>
-            <h1 className="z-20 font-kalam text-6xl font-bold text-white-tint md:text-4xl">
+            <h1 className=" z-20 font-kalam text-6xl font-bold text-white-tint md:animate-[fadeLeft_1s] md:text-4xl">
               {recipeName}
             </h1>
           </button>
