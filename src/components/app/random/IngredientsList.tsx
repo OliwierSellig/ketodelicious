@@ -7,7 +7,11 @@ const list = [
   "Broccoli",
 ];
 
-function IngredientsList() {
+interface IngredientsListProps {
+  list: { name: string; servingSize: { grams: number } }[];
+}
+
+function IngredientsList({ list }: IngredientsListProps) {
   return (
     <div className="mb-8">
       <p className="mb-3 font-ubuntu text-2xl font-medium lg:text-xl">
@@ -20,10 +24,10 @@ function IngredientsList() {
             className="relative cursor-default overflow-hidden rounded-xl bg-almond-shade-1 px-4 py-2 text-lg lg:text-base [&:hover>span:first-child]:-translate-y-[150%] [&:hover>span:last-child]:top-1/2 [&:hover>span:last-child]:-translate-y-1/2"
           >
             <span className="block transition-all duration-150 ease-linear">
-              {item}
+              {item.name}
             </span>
             <span className="absolute left-1/2 top-full z-20 -translate-x-1/2 transition-all duration-150 ease-linear">
-              20g
+              {Math.ceil(item.servingSize.grams) || 0}g
             </span>
           </li>
         ))}

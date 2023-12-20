@@ -9,9 +9,6 @@ export const metadata: Metadata = {
 function page() {
   return (
     <>
-      <SectionHeading>
-        <SectionHeading.Highlight>Random</SectionHeading.Highlight> Recipe
-      </SectionHeading>
       <RandomRecipeContainer />
     </>
   );

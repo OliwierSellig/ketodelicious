@@ -25,3 +25,12 @@ export interface FullDescriptionProps {
   fullDesc: string;
   recipeName: string;
 }
+
+export type RecipeCardProp = {
+  name: string;
+  image: string;
+  id: string;
+  prepareTime: number;
+  nutrients: { caloriesKCal: number };
+  ingredients: { name: string; servingSize: { grams: number } }[];
+};

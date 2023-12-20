@@ -24,8 +24,6 @@ function VerticalNavigation({ isOpen, closeNav }: VerticalNavigationProps) {
   return (
     <div
       onClick={(e: BaseSyntheticEvent) => {
-        console.log(e);
-        console.log(containerRef.current);
         if (e.target === containerRef.current) return;
         closeNav();
       }}

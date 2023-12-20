@@ -131,6 +131,27 @@ const config: Config = {
             transform: "translateX(0)",
           },
         },
+
+        rotate: {
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+
+        dash: {
+          "0%": {
+            strokeDasharray: "1, 150",
+            strokeDashoffset: "0",
+          },
+          "50%": {
+            strokeDasharray: "90, 150",
+            strokeDashoffset: "-35",
+          },
+          "100%": {
+            strokeDasharray: "90, 150",
+            strokeDashoffset: "-124",
+          },
+        },
       },
       animation: {
         animateScrollHeader: "fadeFromTopHeader 0.6s",

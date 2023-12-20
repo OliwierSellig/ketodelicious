@@ -60,11 +60,11 @@ interface WindowProps {
   open?: boolean;
 }
 
-function Window({ name, children, open = false }: WindowProps) {
+function Window({ name, children }: WindowProps) {
   const { openName, close } = useModal();
   const backgroundRef = useRef<HTMLDivElement>(null);
 
-  if (!open) return null;
+  if (name !== openName) return null;
 
   return createPortal(
     <div
