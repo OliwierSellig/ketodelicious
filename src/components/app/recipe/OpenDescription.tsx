@@ -1,6 +1,5 @@
 import Modal from "@/components/global/Modal";
 import FullDescription from "./FullDescription";
-import { ReactElement } from "react";
 import { FullDescriptionProps } from "@/utils/utilTypes";
 
 function OpenDescription({ fullDesc, recipeName }: FullDescriptionProps) {

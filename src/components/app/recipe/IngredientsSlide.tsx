@@ -1,11 +1,11 @@
 import { BookOpenIcon, HeartIcon } from "@heroicons/react/24/outline";
-import { IngredientItem, NutritionItem } from "@/utils/utilTypes";
+import { IngredientProp, NutritionListProps } from "@/utils/utilTypes";
 import IngredientElement from "./IngredientElement";
 import NutritionTable from "./NutritionTable";
 
 interface IngredientsSlideProps {
-  ingredientsList: IngredientItem[];
-  nutritionList: NutritionItem;
+  ingredientsList: IngredientProp[];
+  nutritionList: NutritionListProps;
 }
 
 function IngredientsSlide({

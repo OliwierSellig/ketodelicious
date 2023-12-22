@@ -22,8 +22,6 @@ interface RecipeSliderProps {
 function RecipeSlider({ recipe }: RecipeSliderProps) {
   const [current, setCurrent] = useState<number>(1);
 
-  console.log(recipe);
-
   function goPrev() {
     if (current === 0) {
       setCurrent(2);
@@ -75,8 +73,8 @@ function RecipeSlider({ recipe }: RecipeSliderProps) {
       <div className="relative h-full w-full overflow-hidden ">
         <RecipeSlide index={0} current={current}>
           <IngredientsSlide
-            ingredientsList={ingredientsList}
-            nutritionList={nutriList}
+            ingredientsList={recipe.ingredients}
+            nutritionList={recipe.nutrients}
           />
         </RecipeSlide>
         <RecipeSlide index={1} current={current}>
@@ -85,7 +83,7 @@ function RecipeSlider({ recipe }: RecipeSliderProps) {
             tagList={recipe.tags}
             prepareTime={recipe.cookTime}
             cookingTime={recipe.prepareTime}
-            recipeName="Grilled Salmon with Broccoli"
+            recipeName={recipe.name}
           />
         </RecipeSlide>
         <RecipeSlide index={2} current={current}>

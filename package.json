@@ -12,6 +12,7 @@
     "@heroicons/react": "^2.0.18",
     "@plaiceholder/next": "^3.0.0",
     "framer-motion": "^10.16.15",
+    "marked": "^11.1.0",
     "next": "14.0.3",
     "plaiceholder": "^3.0.0",
     "react": "^18",

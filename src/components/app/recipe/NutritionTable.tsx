@@ -1,23 +1,39 @@
-import { NutritionItem } from "@/utils/utilTypes";
+import { NutritionListProps } from "@/utils/utilTypes";
 import NutritionRow from "./NutritionRow";
 
 interface NutritionTableProps {
-  nutritionList: NutritionItem;
+  nutritionList: NutritionListProps;
 }
 
 function NutritionTable({ nutritionList }: NutritionTableProps) {
+  function fixToSingle(number: number | undefined) {
+    return number?.toFixed(1) || 0;
+  }
+
   return (
     <ul className="flex flex-col border-x-2 border-t-2 border-solid border-gray-tint-2 text-xl xsm:text-lg">
-      <NutritionRow value="Energy">{nutritionList.energy} kcal</NutritionRow>
-      <NutritionRow value="Total Carbs">
-        {nutritionList.totalCarbs}g
+      <NutritionRow value="Energy">
+        {fixToSingle(nutritionList.caloriesKCal)} kcal
       </NutritionRow>
-      <NutritionRow value="Net Carbs">{nutritionList.netCarbs}g</NutritionRow>
-      <NutritionRow value="Sugar">{nutritionList.sugar}g</NutritionRow>
-      <NutritionRow value="Fiber">{nutritionList.fiber}g</NutritionRow>
-      <NutritionRow value="Protein">{nutritionList.protein}g</NutritionRow>
-      <NutritionRow value="Fat">{nutritionList.fat}g</NutritionRow>
-      <NutritionRow value="Trans Fat">{nutritionList.transFat}g</NutritionRow>
+      <NutritionRow value="Total Carbs">
+        {fixToSingle(nutritionList.totalCarbs)}g
+      </NutritionRow>
+      <NutritionRow value="Net Carbs">
+        {fixToSingle(nutritionList.netCarbs)}g
+      </NutritionRow>
+      <NutritionRow value="Sugar">
+        {fixToSingle(nutritionList.sugar)}g
+      </NutritionRow>
+      <NutritionRow value="Fiber">
+        {fixToSingle(nutritionList.fiber)}g
+      </NutritionRow>
+      <NutritionRow value="Protein">
+        {fixToSingle(nutritionList.protein)}g
+      </NutritionRow>
+      <NutritionRow value="Fat">{fixToSingle(nutritionList.fat)}g</NutritionRow>
+      <NutritionRow value="Trans Fat">
+        {fixToSingle(nutritionList.transFat)}g
+      </NutritionRow>
     </ul>
   );
 }

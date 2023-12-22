@@ -10,7 +10,6 @@ function page({ params }: { params: { id: string } }) {
   return (
     <>
       <RecipeView recipeId={params.id} />
-      {/* <FeaturatedRecipes /> */}
     </>
   );
 }

@@ -26,6 +26,22 @@ export interface FullDescriptionProps {
   recipeName: string;
 }
 
+export type IngredientProp = {
+  name: string;
+  servingSize: { grams: number; desc: string };
+};
+
+export type NutritionListProps = {
+  caloriesKCal: number;
+  totalCarbs: number;
+  netCarbs: number;
+  sugar: number;
+  fiber: number;
+  protein: number;
+  fat: number;
+  transFat: number;
+};
+
 export type RecipeItemProp = {
   name: string;
   description: string;
@@ -34,8 +50,8 @@ export type RecipeItemProp = {
   cookTime: number;
   prepareTime: number;
   tags: string[];
-  nutrients: { caloriesKCal: number };
-  ingredients: { name: string; servingSize: { grams: number } }[];
+  nutrients: NutritionListProps;
+  ingredients: IngredientProp[];
   steps: string[];
 };
 
