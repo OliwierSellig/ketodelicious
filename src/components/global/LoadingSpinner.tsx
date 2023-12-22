@@ -1,7 +1,13 @@
-function LoadingSpinner() {
+interface LoadingSpinnerProps {
+  size?: "md" | "lg";
+}
+
+function LoadingSpinner({ size = "lg" }: LoadingSpinnerProps) {
   return (
     <svg
-      className="aspect-square  w-[120px] animate-[rotate_2s_linear_infinite] sm:w-[80px]"
+      className={`aspect-square ${
+        size === "md" ? "w-16 sm:w-10" : size === "lg" ? "w-28 sm:w-20" : ""
+      }   animate-[rotate_2s_linear_infinite]`}
       viewBox="0 0 50 50"
     >
       <circle
@@ -11,7 +17,7 @@ function LoadingSpinner() {
         cy="25"
         r="20"
         fill="none"
-        stroke-width="4"
+        strokeWidth="4"
       ></circle>
     </svg>
   );

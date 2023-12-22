@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: "Recipe",
 };
 
-function page() {
+function page({ params }: { params: { id: string } }) {
   return (
     <>
-      <RecipeView />
-      <FeaturatedRecipes />
+      <RecipeView recipeId={params.id} />
+      {/* <FeaturatedRecipes /> */}
     </>
   );
 }

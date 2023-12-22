@@ -10,7 +10,7 @@ function FeaturatedRecipes() {
       <Slider>
         {Array.from({ length: 8 }, (_, i) => (
           <div key={i} className="min-w-[420px] animate-[fadeBottom_1.2s]">
-            <RecipeCard />
+            <RecipeCard sizes={{ defaultSize: "50vw" }} />
           </div>
         ))}
       </Slider>

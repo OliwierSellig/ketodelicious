@@ -70,7 +70,7 @@ export async function fetchRecipes(searchParams: recipeItem) {
 }
 
 export async function fetchRecipeById(id: string) {
-  const res = await fetch(`${URL}/${id}`, {
+  const res = await fetch(`${URL}recipes/${id}`, {
     method: "GET",
     headers: {
       "X-RapidAPI-Key": KEY,
@@ -91,6 +91,7 @@ export async function fetchRandomRecipe() {
       "X-RapidAPI-Key": KEY,
       "X-RapidAPI-Host": HOST,
     },
+    cache: "no-store",
   });
 
   const data = res.json();

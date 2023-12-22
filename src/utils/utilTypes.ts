@@ -26,11 +26,20 @@ export interface FullDescriptionProps {
   recipeName: string;
 }
 
-export type RecipeCardProp = {
+export type RecipeItemProp = {
   name: string;
+  description: string;
   image: string;
   id: string;
+  cookTime: number;
   prepareTime: number;
+  tags: string[];
   nutrients: { caloriesKCal: number };
   ingredients: { name: string; servingSize: { grams: number } }[];
+  steps: string[];
+};
+
+export type ImageSizesProps = {
+  defaultSize: string;
+  widthBase?: { deviceWidth: number; cardWidth: string }[];
 };

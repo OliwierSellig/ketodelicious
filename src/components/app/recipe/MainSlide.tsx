@@ -30,8 +30,14 @@ function MainSlide({
             <span>Description:</span>
           </h2>
           <p className="text-lg xxl:text-base sm:text-sm">
-            <span>{desc.slice(0, 400)}... </span>
-            <OpenDescription fullDesc={desc} recipeName={recipeName} />
+            {desc.slice(0, 400) == desc ? (
+              <span>{desc}</span>
+            ) : (
+              <>
+                <span>{desc.slice(0, 400)}... </span>
+                <OpenDescription fullDesc={desc} recipeName={recipeName} />
+              </>
+            )}
           </p>
         </div>
         <div className="col-span-1">

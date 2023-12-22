@@ -1,7 +1,7 @@
 import { fetchRecipes } from "@/lib/recipes";
 import RecipeCard from "../../global/RecipeCard";
 import FavouritesSlider from "./FavouritesSlider";
-import { RecipeCardProp } from "@/utils/utilTypes";
+import { RecipeItemProp } from "@/utils/utilTypes";
 
 async function SliderList() {
   const timeUnder15 = await fetchRecipes({
@@ -22,7 +22,7 @@ async function SliderList() {
         subheading="Under 15 minutes"
         heading="For All The Busy Folks"
       >
-        {timeUnder15.map((recipe: RecipeCardProp) => (
+        {timeUnder15.map((recipe: RecipeItemProp) => (
           <RecipeCard
             key={recipe.id}
             additionalClass="min-w-[400px] sm:min-w-[240px] animate-[scaleOpacity_1s]"
@@ -31,6 +31,10 @@ async function SliderList() {
             calories={recipe.nutrients.caloriesKCal}
             image={recipe.image}
             id={recipe.id}
+            sizes={{
+              defaultSize: "400px",
+              widthBase: [{ deviceWidth: 640, cardWidth: "240px" }],
+            }}
           />
         ))}
       </FavouritesSlider>
@@ -38,7 +42,7 @@ async function SliderList() {
         subheading="Less that 400 calories"
         heading="For Those Guilt-Free Feasts"
       >
-        {caloriesUnder400?.map((recipe: RecipeCardProp) => (
+        {caloriesUnder400?.map((recipe: RecipeItemProp) => (
           <RecipeCard
             key={recipe.id}
             additionalClass="min-w-[400px] sm:min-w-[240px] animate-[scaleOpacity_1s]"
@@ -47,6 +51,10 @@ async function SliderList() {
             calories={recipe.nutrients.caloriesKCal}
             image={recipe.image}
             id={recipe.id}
+            sizes={{
+              defaultSize: "400px",
+              widthBase: [{ deviceWidth: 640, cardWidth: "240px" }],
+            }}
           />
         ))}
       </FavouritesSlider>
@@ -54,7 +62,7 @@ async function SliderList() {
         subheading="Less than 2g net carbs"
         heading="For The Most Strict Freaks"
       >
-        {netCarbsUnder5?.map((recipe: RecipeCardProp) => (
+        {netCarbsUnder5?.map((recipe: RecipeItemProp) => (
           <RecipeCard
             key={recipe.id}
             additionalClass="min-w-[400px] sm:min-w-[240px] animate-[scaleOpacity_1s]"
@@ -63,6 +71,10 @@ async function SliderList() {
             calories={recipe.nutrients.caloriesKCal}
             image={recipe.image}
             id={recipe.id}
+            sizes={{
+              defaultSize: "400px",
+              widthBase: [{ deviceWidth: 640, cardWidth: "240px" }],
+            }}
           />
         ))}
       </FavouritesSlider>

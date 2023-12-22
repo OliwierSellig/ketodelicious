@@ -1,5 +1,4 @@
-import SectionHeading from "@/components/app/SectionHeading";
-import RandomRecipeContainer from "@/components/app/random/RandomRecipeContainer";
+import RandomRecipeWindow from "@/components/app/random/RandomRecipeWindow";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
 function page() {
   return (
     <>
-      <RandomRecipeContainer />
+      <RandomRecipeWindow />
     </>
   );
 }

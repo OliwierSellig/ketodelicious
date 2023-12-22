@@ -1,5 +1,12 @@
 /** @type {import('next').NextConfig} */
+import withPlaiceholder from "@plaiceholder/next";
 const nextConfig = {
+  images: {
+    formats: ["image/webp", "image/avif"],
+    remotePatterns: [
+      { protocol: "https", hostname: "tinyurl.com", port: "", pathname: "/**" },
+    ],
+  },
   async redirects() {
     return [
       {
@@ -21,4 +28,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default withPlaiceholder(nextConfig);

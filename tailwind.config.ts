@@ -12,6 +12,12 @@ const config: Config = {
         "cta-image": "url('../../public/images/bckg.png')",
         "add-recipe-background":
           "radial-gradient(circle, rgba(250, 252, 252, 0.4) 0%, rgba(250, 252, 252, 0.2) 100%)",
+        "recipe-card-gradient-loader":
+          "linear-gradient(rgba(51, 51, 51, 0) 0%, rgba(204, 204, 204, 0.1) 100%)",
+        "recipe-card-gradient":
+          "linear-gradient(rgba(51, 51, 51, 0) 0%, rgba(119, 119, 119, 0.2) 100%)",
+        "recipe-view-gradient":
+          "linear-gradient(0deg, rgba(85, 85, 85, 0.9) 0%, rgba(85, 85, 85, 0.4) 50%, rgba(85, 85, 85, 0.5) 100%)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
