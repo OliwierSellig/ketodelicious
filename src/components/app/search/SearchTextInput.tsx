@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { BaseSyntheticEvent, ReactNode } from "react";
 
 interface SearchTextInputProps {
   children: ReactNode;
@@ -7,6 +7,8 @@ interface SearchTextInputProps {
   type?: string;
   placeholder?: string;
   unit?: string;
+  value: any;
+  handleChange: (e: BaseSyntheticEvent) => void;
 }
 
 function SearchTextInput({
@@ -16,6 +18,8 @@ function SearchTextInput({
   type = "text",
   placeholder = "",
   unit,
+  value,
+  handleChange,
 }: SearchTextInputProps) {
   return (
     <div
@@ -29,6 +33,8 @@ function SearchTextInput({
       </label>
       <div className="relative z-40 [&:focus-within>span]:opacity-100">
         <input
+          value={value}
+          onChange={(e: BaseSyntheticEvent) => handleChange(e)}
           type={type}
           id={id}
           className="hideArrowInputNumber z-40 w-52 rounded-2xl bg-white-tint px-8 py-2 pr-16 text-xl text-gray-normal shadow-recipe-input xl:w-44 xl:text-lg lg:w-36 md:w-44 xsm:w-36 xxsm:w-32"

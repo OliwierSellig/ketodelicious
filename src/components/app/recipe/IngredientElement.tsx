@@ -16,7 +16,9 @@ function IngredientElement({ ingredient }: IngredientElementProps) {
           ? " / "
           : ""}
       </span>
-      <span>{ingredient.servingSize.grams || ""}</span>
+      <span>
+        {ingredient.servingSize.grams ? `${ingredient.servingSize.grams}g` : ""}
+      </span>
     </li>
   );
 }

@@ -1,38 +1,9 @@
-"use client";
-
+import { fetchRecipes } from "@/lib/recipes";
 import SectionHeader from "../SectionHeader";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
-import { recipeList } from "@/utils/dummyData";
-import { useState } from "react";
-import NavButton from "./NavButton";
-import RecipeSpotlightCard from "./RecipeSpotlightCard";
+import RecipesContainer from "./RecipesContainer";
 
-function Recipes() {
-  const [iterator, setIterator] = useState<number>(
-    recipeList.length % 2 === 0
-      ? recipeList.length / 2
-      : (recipeList.length + 1) / 2,
-  );
-
-  function canGoNext() {
-    return iterator + 1 < recipeList.length;
-  }
-
-  function goNext() {
-    if (canGoNext()) {
-      setIterator((prev) => prev + 1);
-    }
-  }
-
-  function canGoPrev() {
-    return iterator > 0;
-  }
-
-  function goPrev() {
-    if (canGoPrev()) {
-      setIterator((prev) => prev - 1);
-    }
-  }
+async function Recipes() {
+  const recipes = await fetchRecipes({});
 
   return (
     <section
@@ -43,21 +14,7 @@ function Recipes() {
         <SectionHeader subtitle="Recipes">
           So, what are we making today?
         </SectionHeader>
-        <nav className="relative grid h-[400px] animate-[fadeBottom_1.2s] grid-cols-3 gap-6 overflow-hidden pt-16 sm:h-[460px] xsm:h-[520px] xsm:overflow-y-visible [&>button:first-child]:top-1/2 xsm:[&>button:first-child]:top-full xsm:[&>button:first-child]:-translate-y-full xsm:[&>button:first-child]:translate-x-[150%] [&>button:last-child]:right-0 [&>button:last-child]:top-1/2 xsm:[&>button:last-child]:top-full xsm:[&>button:last-child]:-translate-x-[150%] xsm:[&>button:last-child]:-translate-y-full">
-          <NavButton disabled={!canGoPrev()} handleClick={goPrev}>
-            <ChevronLeftIcon className="h-10 w-10 fill-white-normal" />
-          </NavButton>
-          {recipeList.map((recipe, index) => (
-            <RecipeSpotlightCard
-              index={index}
-              iterator={iterator}
-              key={index}
-            />
-          ))}
-          <NavButton disabled={!canGoNext()} handleClick={goNext}>
-            <ChevronRightIcon className="h-10 w-10 fill-white-normal" />
-          </NavButton>
-        </nav>
+        <RecipesContainer recipeList={recipes} />
       </div>
     </section>
   );

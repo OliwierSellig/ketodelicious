@@ -1,11 +1,17 @@
 import RecipeCard from "@/components/global/RecipeCard";
+import { RecipeItemProp } from "@/utils/utilTypes";
 
 interface RecipeSpotlightCardProps {
   index: number;
   iterator: number;
+  recipe: RecipeItemProp;
 }
 
-function RecipeSpotlightCard({ index, iterator }: RecipeSpotlightCardProps) {
+function RecipeSpotlightCard({
+  index,
+  iterator,
+  recipe,
+}: RecipeSpotlightCardProps) {
   const active = iterator === index;
   const pos = active
     ? { left: "50%" }
@@ -25,7 +31,14 @@ function RecipeSpotlightCard({ index, iterator }: RecipeSpotlightCardProps) {
           : "sm:scale-60 z-10 scale-90 select-none opacity-70 blur-[2px] grayscale-[80%]"
       }    sm:w-[95%] xsm:px-3`}
     >
-      <RecipeCard />
+      <RecipeCard
+        image={recipe.image}
+        name={recipe.name}
+        prepareTime={recipe.prepareTime}
+        calories={recipe.nutrients.caloriesKCal}
+        id={recipe.id}
+        sizes={{ defaultSize: "30vw" }}
+      />
     </div>
   );
 }
