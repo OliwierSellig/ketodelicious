@@ -34,7 +34,7 @@ function HeaderNav() {
         className={`flex items-center gap-5 pt-1 ${
           !mobileOpen
             ? "lg:hidden"
-            : "lg:bg-jade-shade-1/50 z-[99000] backdrop-blur-sm lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-screen lg:animate-[fadeIn_300ms] lg:flex-col lg:justify-center lg:gap-8"
+            : "z-[99000] backdrop-blur-sm lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-screen lg:animate-[fadeIn_300ms] lg:flex-col lg:justify-center lg:gap-8 lg:bg-jade-shade-1/50"
         }  `}
       >
         <MobileCloseButton handleClick={() => setMobileOpen(false)} />
@@ -50,7 +50,7 @@ function HeaderNav() {
         <HeaderLink handleClick={() => setMobileOpen(false)} to="recipes">
           Recipes
         </HeaderLink>
-        <FilledButton size="md" destination="/">
+        <FilledButton size="md" destination="/app/homeboard">
           <p className="lg:animate-[fadeIn_1s] lg:px-12 lg:py-1 lg:text-3xl sm:text-2xl">
             Account
           </p>

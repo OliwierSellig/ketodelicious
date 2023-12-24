@@ -1,12 +1,3 @@
-const list = [
-  "Ground Beef",
-  "Spinach",
-  "Cherry Tomatoes",
-  "Soy Sauce",
-  "Olive Oil",
-  "Broccoli",
-];
-
 interface IngredientsListProps {
   list: { name: string; servingSize: { grams: number } }[];
 }

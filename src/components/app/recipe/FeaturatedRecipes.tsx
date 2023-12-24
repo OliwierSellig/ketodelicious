@@ -1,14 +1,13 @@
 import { fetchRecipes } from "@/lib/recipes";
 import RecipeCard from "../../global/RecipeCard";
 import Slider from "../Slider";
-import { RecipeItemProp } from "@/utils/utilTypes";
 
 interface FeaturedRecipesProps {
   tag: string;
 }
 
 async function FeaturatedRecipes({ tag }: FeaturedRecipesProps) {
-  const featured: RecipeItemProp[] = await fetchRecipes({
+  const featured = await fetchRecipes({
     tags: [tag],
   });
 
@@ -18,18 +17,19 @@ async function FeaturatedRecipes({ tag }: FeaturedRecipesProps) {
         You may also like:
       </h2>
       <Slider>
-        {featured.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            image={recipe.image}
-            name={recipe.name}
-            prepareTime={recipe.prepareTime}
-            calories={recipe.nutrients.caloriesKCal}
-            id={recipe.id}
-            sizes={{ defaultSize: "50vw" }}
-            additionalClass="min-w-[420px] animate-[fadeBottom_1.2s]"
-          />
-        ))}
+        {Array.isArray(featured) &&
+          featured.map((recipe) => (
+            <RecipeCard
+              key={recipe.id}
+              image={recipe.image}
+              name={recipe.name}
+              prepareTime={recipe.prepareTime}
+              calories={recipe.nutrients.caloriesKCal}
+              id={recipe.id}
+              sizes={{ defaultSize: "50vw" }}
+              additionalClass="min-w-[420px] animate-[fadeBottom_1.2s]"
+            />
+          ))}
       </Slider>
     </div>
   );

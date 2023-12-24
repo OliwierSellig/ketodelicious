@@ -15,6 +15,7 @@ interface RecipeCardProps {
   calories?: number;
   id?: string;
   sizes: ImageSizesProps;
+  tab?: boolean;
 }
 
 function RecipeCard({
@@ -25,6 +26,7 @@ function RecipeCard({
   calories = 476,
   id = "",
   sizes = { defaultSize: "50vw" },
+  tab = true,
 }: RecipeCardProps) {
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
   const sizesString: string = sizes?.widthBase
@@ -36,6 +38,7 @@ function RecipeCard({
 
   return (
     <Link
+      tabIndex={tab ? 0 : -1}
       draggable={false}
       href={`/app/recipes/${id}`}
       className={`focus-scale-[103%] flex  w-full min-w-[300px]  max-w-[600px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal ${additionalClass}`}

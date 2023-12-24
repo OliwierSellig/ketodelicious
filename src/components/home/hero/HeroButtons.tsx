@@ -8,7 +8,7 @@ import { Link } from "react-scroll";
 function HeroButtons() {
   return (
     <nav className="flex animate-[fadeLeft_1.4s] items-center gap-10 xsm:flex-col">
-      <FilledButton size="lg" destination="/">
+      <FilledButton size="lg" destination="/app/homeboard">
         <span className="px-6 xsm:text-2xl xxsm:px-2">Visit the app</span>
       </FilledButton>
       <Link

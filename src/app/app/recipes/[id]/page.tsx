@@ -1,4 +1,3 @@
-import FeaturatedRecipes from "@/components/app/recipe/FeaturatedRecipes";
 import RecipeView from "@/components/app/recipe/RecipeView";
 import { Metadata } from "next";
 

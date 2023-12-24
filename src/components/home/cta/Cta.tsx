@@ -14,7 +14,7 @@ function Cta() {
           <span className=" text-jade-normal">for free!</span>
         </h2>
         <div className="animate-[fadeBottom_1.4s]">
-          <FilledButton destination="/" size="xl">
+          <FilledButton destination="/app/homeboard" size="xl">
             Visit the app
           </FilledButton>
         </div>

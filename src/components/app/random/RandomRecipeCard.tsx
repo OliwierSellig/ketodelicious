@@ -3,11 +3,11 @@ import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
 import IngredientsList from "./IngredientsList";
 import FilledButton from "@/components/global/FilledButton";
 import RecipeCardDetails from "@/components/global/RecipeCardDetails";
-import { ImageSizesProps, RecipeCardProp } from "@/utils/utilTypes";
 import LoadingSpinner from "@/components/global/LoadingSpinner";
+import { RecipeItemProp } from "@/utils/utilTypes";
 
 interface RandomRecipeCardProps {
-  recipe: RecipeCardProp;
+  recipe: RecipeItemProp;
   loadImage: () => void;
   loadingImage: boolean;
 }

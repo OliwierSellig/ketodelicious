@@ -4,12 +4,6 @@ import FilledButton from "@/components/global/FilledButton";
 import MainSlide from "./MainSlide";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import IngredientsSlide from "./IngredientsSlide";
-import {
-  nutriList,
-  ingredientsList,
-  preparingSteps,
-  tagList,
-} from "@/utils/dummyData";
 import PreparingSlide from "./PreparingSlide";
 import { useState } from "react";
 import RecipeSlide from "./RecipeSlide";
