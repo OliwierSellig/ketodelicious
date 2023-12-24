@@ -22,8 +22,11 @@ function SearchTextInput({
   handleChange,
 }: SearchTextInputProps) {
   return (
-    <div
+    <form
       className={`flex items-center gap-4 ${between ? "justify-between" : ""}`}
+      onSubmit={(e: BaseSyntheticEvent) => {
+        e.preventDefault();
+      }}
     >
       <label
         htmlFor={id}
@@ -46,7 +49,7 @@ function SearchTextInput({
           </span>
         )}
       </div>
-    </div>
+    </form>
   );
 }
 

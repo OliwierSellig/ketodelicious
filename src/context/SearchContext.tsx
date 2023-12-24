@@ -1,7 +1,7 @@
 "use client";
 
 import { fetchRecipes } from "@/lib/recipes";
-import { RecipeItemProp } from "@/utils/utilTypes";
+import { ChildrenProp, RecipeItemProp } from "@/utils/utilTypes";
 import {
   ReactNode,
   createContext,
@@ -13,18 +13,7 @@ import {
 
 const SearchContext = createContext<ContextType | undefined>(undefined);
 
-interface ContextType {
-  state: stateProps;
-  setName: (name: string) => void;
-  setMax: (
-    max: number,
-    maxType: "calories" | "cookTime" | "prepareTime" | "netCarbs",
-  ) => void;
-  addToList: Function;
-  removeFromList: Function;
-  modifyIterator: (type: "increment" | "decrement" | "refresh") => null;
-  setLoading: (type: boolean) => void;
-}
+// ----- Setting Types -----
 
 interface stateProps {
   name: string;
@@ -39,18 +28,18 @@ interface stateProps {
   isLoading: boolean;
 }
 
-const initialState: stateProps = {
-  name: "",
-  includedIngredients: [],
-  excludedIngredients: [],
-  maxCookTime: "",
-  maxPrepareTime: "",
-  maxCalories: "",
-  maxNetCarbs: "",
-  recipeList: [],
-  searchIterator: 0,
-  isLoading: false,
-};
+interface ContextType {
+  state: stateProps;
+  setName: (name: string) => void;
+  setMax: (
+    max: string,
+    maxType: "calories" | "cookTime" | "prepareTime" | "netCarbs",
+  ) => void;
+  addToList: (listType: "include" | "exclude", ing: string) => void;
+  removeFromList: (listType: "include" | "exclude", ing: string) => void;
+  modifyIterator: (type: "increment" | "decrement" | "refresh") => null;
+  setLoading: (type: boolean) => void;
+}
 
 const enum REDUCER_ACTION_TYPE {
   SET_NAME,
@@ -92,6 +81,22 @@ type ReducerAction =
     }
   | { type: REDUCER_ACTION_TYPE.SET_LOADING; payload: boolean };
 
+// --------------------------------------------
+
+// ---------- Initial State and Reducer Function ---------------------------
+
+const initialState: stateProps = {
+  name: "",
+  includedIngredients: [],
+  excludedIngredients: [],
+  maxCookTime: "",
+  maxPrepareTime: "",
+  maxCalories: "",
+  maxNetCarbs: "",
+  recipeList: [],
+  searchIterator: 0,
+  isLoading: false,
+};
 function reducer(
   state: stateProps,
   action: ReducerAction,
@@ -127,15 +132,13 @@ function reducer(
   }
 }
 
-interface SearchProviderProps {
-  children: ReactNode;
-}
-
-function SearchProvider({ children }: SearchProviderProps) {
+function SearchProvider({ children }: ChildrenProp) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const { includedIngredients, excludedIngredients } = state;
+
+  // --------------- Fetching the data on Query Change ----------------
 
   useEffect(() => {
     if (abortControllerRef.current) {
@@ -171,6 +174,7 @@ function SearchProvider({ children }: SearchProviderProps) {
           type: REDUCER_ACTION_TYPE.SET_RECIPE_LIST,
           payload: Array.isArray(data) ? data : [],
         });
+        modifyIterator("refresh");
         setLoading(false);
       } catch (err) {}
     }
@@ -186,12 +190,16 @@ function SearchProvider({ children }: SearchProviderProps) {
     state.excludedIngredients,
   ]);
 
+  // ---------------------------
+
+  // ------------------ Fetch Variables Modification ------------------------
+
   function setName(name: string) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_NAME, payload: name });
   }
 
   function setMax(
-    max: number,
+    max: string,
     maxType: "calories" | "cookTime" | "prepareTime" | "netCarbs",
   ) {
     switch (maxType) {
@@ -265,6 +273,8 @@ function SearchProvider({ children }: SearchProviderProps) {
   function setLoading(type: boolean) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_LOADING, payload: type });
   }
+
+  // --------------------------------------------
 
   return (
     <SearchContext.Provider

@@ -24,7 +24,6 @@ export async function fetchRecipes(
   searchParams: recipeItem,
   signal?: AbortSignal,
 ) {
-  console.log(signal);
   const paramList = [];
   if (searchParams.name) paramList.push(`name=${searchParams.name}`);
 
@@ -75,8 +74,6 @@ export async function fetchRecipes(
 
   const params = `?${paramList.join("&")}`;
 
-  console.log(`${URL}search${params}`);
-
   const res = await fetch(`${URL}search${params}`, {
     method: "GET",
     signal: signal,
@@ -88,8 +85,6 @@ export async function fetchRecipes(
   });
 
   const data: RecipeItemProp[] | { message: string } = await res.json();
-
-  console.log(data);
 
   return data;
 }

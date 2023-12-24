@@ -59,20 +59,30 @@
 
   @media (hover: hover) {
     .recipe-scroll::-webkit-scrollbar {
+      transition: all 0.2s;
       width: 6px;
     }
 
-    .recipe-scroll::-webkit-scrollbar-track {
-      border-radius: 1500px;
-      background: #999;
+    .recipe-scroll::-webkit-scrollbar-track,
+    .recipe-scroll::-webkit-scrollbar-thumb
+      .recipe-scroll::-webkit-scrollbar-thumb {
+      background: transparent;
     }
 
-    .recipe-scroll::-webkit-scrollbar-thumb {
+    .recipe-scroll:hover::-webkit-scrollbar-track,
+    .recipe-scroll:focus::-webkit-scrollbar-track {
+      background: #999;
+      border-radius: 1500px;
+    }
+
+    .recipe-scroll:hover::-webkit-scrollbar-thumb
+      .recipe-scroll:focus::-webkit-scrollbar-thumb {
       background: #555;
       border-radius: 1500px;
     }
 
-    .recipe-scroll::-webkit-scrollbar-thumb:hover {
+    .recipe-scroll:hover::-webkit-scrollbar-thumb:hover
+      .recipe-scroll:focus::-webkit-scrollbar-thumb:hover {
       background: #666;
     }
   }

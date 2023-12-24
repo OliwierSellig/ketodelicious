@@ -1,18 +1,18 @@
 "use client";
 
 import MaxList from "./MaxList";
-import { BaseSyntheticEvent, ChangeEvent, useState } from "react";
+import { BaseSyntheticEvent, useState } from "react";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import FilledButton from "@/components/global/FilledButton";
 import { useSearch } from "@/context/SearchContext";
-import IngredientsModifier from "./IngredientsModifier";
+import IngredientsBox from "./IngredientsBox";
 
 function SearchConfigurator() {
   const [isConfiguratorOpen, setIsConfiguratorOpen] = useState<boolean>(false);
   const { state: search, setName } = useSearch();
 
   return (
-    <div className="mb-24 grid max-w-[1300px] grid-cols-[2fr_1fr] gap-12 xxxl:flex xxxl:flex-col md:mb-12 md:w-full">
+    <div className="mb-20 grid max-w-[1300px] grid-cols-[2fr_1fr] gap-12 xxxl:flex xxxl:flex-col md:mb-12 md:w-full">
       <div className="flex flex-col gap-4">
         <input
           value={search.name}
@@ -33,8 +33,17 @@ function SearchConfigurator() {
             }`}
           />
         </FilledButton>
+        <div
+          className={`grid animate-[fadeLeft_1.2s] grid-cols-2 gap-4 md:transition-all md:duration-200 md:ease-linear sm:flex sm:flex-col sm:gap-8 ${
+            !isConfiguratorOpen
+              ? "md:hidden sm:hidden"
+              : "md:animate-[fadeLeft_1s]"
+          } `}
+        >
+          <IngredientsBox actionType="include" />
+          <IngredientsBox actionType="exclude" />
+        </div>
       </div>
-      <IngredientsModifier />
       <MaxList isOpen={isConfiguratorOpen} />
     </div>
   );

@@ -13,10 +13,10 @@ function SearchRecipeList() {
 
   if (!search.isLoading && search.recipeList.length < 1) {
     return (
-      <div className="flex h-full w-full flex-grow items-center justify-center">
-        <p className="flex items-center gap-4 text-3xl font-medium text-gray-tint-2">
+      <div className="flex h-full w-full flex-grow items-center justify-center ">
+        <p className="flex items-center gap-4 text-3xl font-medium text-gray-tint-2 md:flex-col md:text-center md:text-2xl">
           <span>We found no recipes matching your query...</span>
-          <FaceFrownIcon className="h-14 w-14 stroke-gray-tint-2" />
+          <FaceFrownIcon className="h-14 w-14 stroke-gray-tint-2 " />
         </p>
       </div>
     );
@@ -29,26 +29,25 @@ function SearchRecipeList() {
     );
   return (
     <>
-      <ul className="mb-8 grid animate-[scaleOpacity_0.8s] grid-cols-4 gap-x-4 gap-y-6 xxxl:grid-cols-3 lg:grid-cols-2 sm:w-full sm:animate-[fadeRight_0.8s] sm:grid-cols-1 ">
+      <nav className="mb-8 grid w-full max-w-[1800px]  animate-[scaleOpacity_0.8s] grid-cols-4 items-stretch gap-x-4 gap-y-6 xxxl:grid-cols-3 lg:grid-cols-2 sm:w-full sm:animate-[fadeRight_0.8s] sm:grid-cols-1 ">
         {search.recipeList
           .slice(
             0 + search.searchIterator * PAGE_COUNT,
             PAGE_COUNT + search.searchIterator * PAGE_COUNT,
           )
           .map((recipe) => (
-            <li key={recipe.id}>
-              <RecipeCard
-                sizes={{ defaultSize: "30vw" }}
-                name={recipe.name}
-                image={recipe.image}
-                calories={recipe.nutrients.caloriesKCal}
-                prepareTime={recipe.prepareTime}
-                id={recipe.id}
-                additionalClass="xxl:min-w-[280px] xl:min-w-[240px] sm:"
-              />
-            </li>
+            <RecipeCard
+              key={recipe.id}
+              sizes={{ defaultSize: "30vw" }}
+              name={recipe.name}
+              image={recipe.image}
+              calories={recipe.nutrients.caloriesKCal}
+              prepareTime={recipe.prepareTime}
+              id={recipe.id}
+              additionalClass="xxl:min-w-[280px] xl:min-w-[240px] sm:"
+            />
           ))}
-      </ul>
+      </nav>
       <PaginationNavigation
         handleNext={() => modifyIterator("increment")}
         handlePrev={() => modifyIterator("decrement")}

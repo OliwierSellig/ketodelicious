@@ -11,7 +11,7 @@ function LoadingWindow({
 }: LoadingWindowProps) {
   return (
     <div
-      className={`flex h-full w-full flex-col items-center justify-center gap-12 ${additionalClass}`}
+      className={` flex h-full w-full flex-grow flex-col items-center justify-center gap-12 ${additionalClass}`}
     >
       <LoadingSpinner />
       <p className="text-3xl font-medium text-gray-tint-2 sm:text-2xl">
