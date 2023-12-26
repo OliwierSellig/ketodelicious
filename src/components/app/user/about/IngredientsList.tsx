@@ -1,8 +1,9 @@
+import AboutList from "./AboutList";
 import TagIngItem from "./TagIngItem";
 
 function IngredientsList() {
   return (
-    <ul className="flex  flex-wrap items-start gap-2 p-2">
+    <AboutList>
       <TagIngItem count={4} theme="green">
         Egg
       </TagIngItem>
@@ -24,7 +25,7 @@ function IngredientsList() {
       <TagIngItem count={4} theme="green">
         Dark Chocolate
       </TagIngItem>
-    </ul>
+    </AboutList>
   );
 }
 

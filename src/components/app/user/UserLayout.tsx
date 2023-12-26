@@ -5,7 +5,7 @@ import avatar from "../../../../../public/images/photo-me.png";
 import { BookmarkIcon, PlusIcon, UsersIcon } from "@heroicons/react/24/outline";
 import UserNavLink from "@/components/app/user/UserNavLink";
 
-function layout({ children }: ChildrenProp) {
+function UserLayout({ children }: ChildrenProp) {
   return (
     <div className="h-full w-full">
       <div className="relative flex h-[30vw] max-h-[420px] min-h-[260px] w-full items-center justify-center bg-cover bg-center bg-no-repeat after:absolute after:left-0 after:top-0 after:z-30 after:h-full after:w-full after:bg-jade-shade-2/70 after:content-['']">
@@ -55,4 +55,4 @@ function layout({ children }: ChildrenProp) {
   );
 }
 
-export default layout;
+export default UserLayout;

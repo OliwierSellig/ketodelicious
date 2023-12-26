@@ -1,16 +1,15 @@
 import {
   ArrowsUpDownIcon,
   BookOpenIcon,
-  PencilSquareIcon,
   TagIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
 import AboutBox from "./AboutBox";
-import InfoBox from "./InfoBox";
-import FilledButton from "@/components/global/FilledButton";
+
 import ActivitiesList from "./ActivitiesList";
 import TagList from "./TagList";
 import IngredientsList from "./IngredientsList";
+import AboutInfo from "./AboutInfo";
 
 function CardsGrid() {
   return (
@@ -20,15 +19,7 @@ function CardsGrid() {
         icon={<UserIcon />}
         additionalClass="xxl:col-span-2 animate-[fadeLeft_1s]"
       >
-        <div className="mb-8 flex flex-col gap-4">
-          <InfoBox dataType="Username">oliwiersellig54</InfoBox>
-          <InfoBox dataType="Email">oliwierandrzej.sellig@gmail.com</InfoBox>
-          <InfoBox dataType="Phone">+48 514 049 144</InfoBox>
-        </div>
-        <FilledButton size="lg" additionalClass="self-center">
-          <PencilSquareIcon className="h-7 w-7" />
-          <span className="sm:text-lg">Edit Info</span>
-        </FilledButton>
+        <AboutInfo />
       </AboutBox>
       <AboutBox
         icon={<ArrowsUpDownIcon />}
