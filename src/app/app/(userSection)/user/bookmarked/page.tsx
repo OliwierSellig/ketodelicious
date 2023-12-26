@@ -1,5 +1,5 @@
 function page() {
-  return <div>User Page</div>;
+  return <div>Bookmarked</div>;
 }
 
 export default page;
