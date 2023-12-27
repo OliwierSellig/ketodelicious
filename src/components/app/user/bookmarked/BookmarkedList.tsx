@@ -1,15 +1,14 @@
-import { fetchRecipes } from "@/lib/recipes";
+"use client";
 
 import UserListContainer from "../UserListContainer";
+import { useUser } from "@/context/UserContext";
 
-async function BookmarkedList() {
-  const recipes = await fetchRecipes({ limit: 20 });
-
-  const recipeList = Array.isArray(recipes) ? recipes : [];
+function BookmarkedList() {
+  const { state: user } = useUser();
 
   return (
     <UserListContainer
-      list={recipeList}
+      list={user.bookmarked}
       type="bookmarked"
       heading="Bookmarked Recipes"
     />

@@ -55,7 +55,23 @@ export type RecipeItemProp = {
   steps: string[];
 };
 
+export type BookmarkedRecipeItem = RecipeItemProp & { isFavourite: boolean };
+
 export type ImageSizesProps = {
   defaultSize: string;
   widthBase?: { deviceWidth: number; cardWidth: string }[];
 };
+
+export type ActivityProp = {
+  date: any;
+  action: actionType;
+  recipe: { name: string; id: string };
+};
+
+export type actionType =
+  | "created"
+  | "deleted"
+  | "unbookmarked"
+  | "bookmarked"
+  | "favored"
+  | "unfavored";

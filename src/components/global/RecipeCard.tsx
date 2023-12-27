@@ -41,7 +41,7 @@ function RecipeCard({
       tabIndex={tab ? 0 : -1}
       draggable={false}
       href={`/app/recipes/${id}`}
-      className={`focus-scale-[103%] flex  w-full min-w-[300px]  max-w-[600px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal ${additionalClass}`}
+      className={`focus-scale-[103%] flex  w-full min-w-[300px]  max-w-[480px] flex-col items-center overflow-hidden rounded-2xl bg-white-tint shadow-recipe-input  transition-all duration-200 ease-linear hover:scale-[103%] [&:focus>div>h2]:text-jade-normal ${additionalClass}`}
     >
       <div className="relative aspect-video w-full bg-white-tint ">
         <div

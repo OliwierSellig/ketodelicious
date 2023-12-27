@@ -9,7 +9,7 @@ function ProfileLink() {
         Or, visit your profile:
       </p>
       <Link
-        href="users/user-12"
+        href="/app/user/about"
         className="flex animate-[fadeBottom_0.8s] items-center gap-4 rounded-2xl bg-white-tint px-10 py-2 shadow-md transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-shade-2 focus:scale-105 focus:bg-jade-shade-2 xsm:px-6 [&:focus>p]:text-white-normal [&:hover>p]:text-white-normal"
       >
         <Image

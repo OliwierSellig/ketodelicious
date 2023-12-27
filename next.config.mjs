@@ -20,8 +20,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/app/users",
-        destination: "/app/homeboard",
+        source: "/app/user",
+        destination: "/app/user/about",
         permanent: true,
       },
     ];

@@ -3,7 +3,6 @@
 import { fetchRecipes } from "@/lib/recipes";
 import { ChildrenProp, RecipeItemProp } from "@/utils/utilTypes";
 import {
-  ReactNode,
   createContext,
   useContext,
   useEffect,
@@ -128,7 +127,7 @@ function reducer(
       return { ...state, isLoading: action.payload };
 
     default:
-      throw new Error();
+      throw new Error("Undefined reducer action");
   }
 }
 

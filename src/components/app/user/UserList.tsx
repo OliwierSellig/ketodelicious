@@ -23,7 +23,7 @@ function UserList({ list, iterator, setIterator, query, type }: UserListProps) {
 
   if (filteredList?.length < 1)
     return (
-      <div className="flex flex-grow flex-col items-center justify-center gap-8 p-14">
+      <div className="flex flex-grow animate-[scaleOpacity_0.8s] flex-col items-center justify-center gap-8 p-14">
         <p className="flex items-center gap-2 text-2xl font-medium text-gray-tint-2">
           It seems like you have not added any here recipes yet, try adding
           some!
@@ -34,7 +34,7 @@ function UserList({ list, iterator, setIterator, query, type }: UserListProps) {
 
   if (filteredList?.length < 1)
     return (
-      <div className="flex flex-grow items-center justify-center p-14">
+      <div className="flex flex-grow animate-[scaleOpacity_0.8s] items-center justify-center p-14">
         <p className="flex items-center gap-2">
           <EyeIcon className="h-10 w-10 stroke-gray-tint-2" />
           <span className="text-2xl font-medium text-gray-tint-2">
@@ -46,7 +46,7 @@ function UserList({ list, iterator, setIterator, query, type }: UserListProps) {
 
   return (
     <>
-      <nav className="mb-16 grid grid-cols-4 gap-6  xxxl:grid-cols-3 xl:grid-cols-2 lg:gap-x-4 lg:gap-y-6 sm:grid-cols-1">
+      <nav className="mb-16 grid animate-[scaleOpacity_0.8s] grid-cols-4  gap-6 xxxl:grid-cols-3 xl:grid-cols-2 lg:gap-x-4 lg:gap-y-6 sm:grid-cols-1">
         {filteredList
           .slice(PAGE_COUNT * iterator, PAGE_COUNT + PAGE_COUNT * iterator)
           .map((recipe) => (

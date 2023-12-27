@@ -17,7 +17,7 @@ function UserListHeader({
   setIterator,
 }: UserListHeader) {
   return (
-    <nav className="mb-16 flex w-full flex-wrap items-center gap-x-8 gap-y-4 px-8 sm:px-4 xsm:px-2">
+    <nav className="mb-16 flex w-full animate-[fadeBottom_1s] flex-wrap items-center gap-x-8 gap-y-4 px-8 sm:px-4 xsm:px-2">
       <h2 className=" font-ubuntu text-4xl font-medium tracking-wide sm:text-3xl">
         {children}
       </h2>

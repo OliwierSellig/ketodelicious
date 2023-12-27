@@ -3,7 +3,8 @@
 import { ReactNode, useState } from "react";
 import VerticalNavigation from "./VerticalNavigation";
 import HorizontalNavigation from "./HorizontalNavigation";
-import { ChildrenProp } from "@/utils/utilTypes";
+import { Toaster } from "react-hot-toast";
+import { UserProvider } from "@/context/UserContext";
 
 interface NavigationLayoutProps {
   children: ReactNode;
@@ -31,6 +32,28 @@ function NavigationLayout({ children, padding = true }: NavigationLayoutProps) {
           </div>
         </main>
       </div>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          className: "toast",
+          success: { duration: 2000 },
+          error: { duration: 5000 },
+          style: {
+            maxWidth: "500px",
+            widows: "70%",
+            padding: "16px 32px",
+            backgroundColor: "#FEFEFE",
+            color: "#333",
+            textAlign: "center",
+          },
+          iconTheme: {
+            primary: "#00A86B",
+            secondary: "#FAFCFC",
+          },
+        }}
+      />
     </div>
   );
 }

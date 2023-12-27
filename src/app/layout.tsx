@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { inter, kalam, ubuntu } from "@/utils/fonts";
 import "../styles/globals.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Crave Less, Live Longer | KetoDelicious",
