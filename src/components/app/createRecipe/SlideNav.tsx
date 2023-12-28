@@ -6,10 +6,12 @@ import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 function SlideNav() {
   const {
+    state: recipes,
     canModifyIterator,
     checkWindowsOpen,
     decrementIterator,
     incrementIterator,
+    canProceed,
   } = useCreateRecipe();
 
   if (!checkWindowsOpen())
@@ -26,6 +28,7 @@ function SlideNav() {
         )}
         {canModifyIterator("increment") ? (
           <SvgButton
+            disabled={false}
             label="Go to the next frame"
             handleClick={incrementIterator}
             additionalClass="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2"

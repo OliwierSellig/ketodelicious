@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 
 interface AddToRecipeButtonProps {
   children: ReactNode;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 function AddToRecipeButton({ children, handleClick }: AddToRecipeButtonProps) {

@@ -1,17 +1,20 @@
-import { ChildrenProp } from "@/utils/utilTypes";
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import { XCircleIcon } from "@heroicons/react/20/solid";
-import { ReactNode } from "react";
+import toast from "react-hot-toast";
 
 interface TagItemProps {
   tag: string;
-  handleClick: () => void;
 }
 
-function TagItem({ tag, handleClick }: TagItemProps) {
+function TagItem({ tag }: TagItemProps) {
+  const { modifyTags } = useCreateRecipe();
   return (
     <li className="">
       <button
-        onClick={handleClick}
+        onClick={() => {
+          modifyTags("remove", tag);
+          toast.success("Successfully removed tag");
+        }}
         aria-label={tag}
         className="relative overflow-hidden rounded-xl bg-almond-shade-1 px-6 py-3 text-xl transition-all duration-200 ease-linear md:px-4 md:py-2 md:text-lg [&:focus>div]:translate-y-0 [&:focus>div]:opacity-100 [&:hover>div]:translate-y-0 [&:hover>div]:opacity-100"
       >

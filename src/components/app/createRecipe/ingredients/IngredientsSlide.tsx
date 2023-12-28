@@ -1,9 +1,7 @@
 import { IngredientItem } from "@/utils/utilTypes";
-import AmountInput from "../AmountInput";
-import InputCol from "../InputCol";
 import NutritionAccordion from "./NutritionAccordion";
-import CreateElementsButton from "../CreateElementsButton";
-import IngredientsItem from "./IngredientsItem";
+import InfoInputs from "./InfoInputs";
+import IngredientsContainer from "./IngredientsContainer";
 
 interface IngredientsSlideProps {
   ingredientsList: IngredientItem[];
@@ -17,36 +15,10 @@ function IngredientsSlide({
   return (
     <div className="grid grid-cols-2 gap-28 overflow-x-clip xl:gap-20 mdl:grid-cols-1 mdl:gap-0 mdl:overflow-y-scroll sm:overflow-y-scroll">
       <div className="col-span-1 flex h-full flex-col ">
-        <div className="mb-6 flex flex-col gap-4">
-          <InputCol id="cooking-time" label="Cooking Time">
-            <AmountInput id="cooking-time" unit="min" />
-          </InputCol>
-          <InputCol id="prepare-time" label="Prepare Time">
-            <AmountInput id="prepare-time" unit="min" />
-          </InputCol>
-          <InputCol id="calories-time" label="Calories">
-            <AmountInput id="calories-time" unit="kcal" />
-          </InputCol>
-        </div>
+        <InfoInputs />
         <NutritionAccordion />
       </div>
-      <div className="col-span-1 flex flex-col gap-4">
-        <CreateElementsButton
-          minReqName="Ingredients"
-          currentNumber={ingredientsList.length}
-          minReqNumber={3}
-          handleClick={openIngredientWindow}
-        >
-          Ingredients
-        </CreateElementsButton>
-        <div className="recipe-scroll relative flex-grow overflow-y-scroll mdl:overflow-y-visible">
-          <ul className="absolute left-0 top-0 h-full w-full px-4 mdl:static">
-            {ingredientsList.map((ingredient, i) => (
-              <IngredientsItem ingredient={ingredient} key={i} />
-            ))}
-          </ul>
-        </div>
-      </div>
+      <IngredientsContainer />
     </div>
   );
 }

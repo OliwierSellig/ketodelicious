@@ -4,14 +4,14 @@ import NoItemsAlert from "../NoItemsAlert";
 import TagItem from "./TagItem";
 
 function RelatedTags() {
-  const { state: recipes, modifyWindow, modifyTags } = useCreateRecipe();
+  const { state: recipes, modifyWindow } = useCreateRecipe();
 
   return (
     <div className="flex  flex-grow flex-col px-6 pb-4">
       <CreateElementsButton
         currentNumber={recipes.tags.length}
         additionalClass="mb-6"
-        handleClick={() => modifyWindow("open", "tag")}
+        handleClick={() => modifyWindow("open", { name: "tag" })}
         minReqName="tags"
         minReqNumber={5}
       >
@@ -23,7 +23,6 @@ function RelatedTags() {
           <ul className=" flex w-full flex-wrap gap-3">
             {recipes.tags.map((tag, i) => (
               <TagItem
-                handleClick={() => modifyTags("remove", tag)}
                 tag={tag}
                 key={i}
               />

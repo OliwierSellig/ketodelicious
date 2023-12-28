@@ -7,23 +7,25 @@ import AddPrepStep from "./preparation/AddPrepStep";
 function AddWindows() {
   const { state: recipe, modifyWindow } = useCreateRecipe();
 
-  if (recipe.windowsOpenState.addTag)
+  if (recipe.windowsOptions.addTag.isOpen)
     return (
-      <AddToRecipeWindow onClose={() => modifyWindow("close", "tag")}>
-        <AddTag handleAdd={() => {}} />
+      <AddToRecipeWindow onClose={() => modifyWindow("close", { name: "tag" })}>
+        <AddTag />
       </AddToRecipeWindow>
     );
 
-  if (recipe.windowsOpenState.addIngredient)
+  if (recipe.windowsOptions.addIngredient.isOpen)
     return (
-      <AddToRecipeWindow onClose={() => modifyWindow("close", "ing")}>
-        <AddIngredient handleAdd={() => {}} />
+      <AddToRecipeWindow onClose={() => modifyWindow("close", { name: "ing" })}>
+        <AddIngredient />
       </AddToRecipeWindow>
     );
 
-  if (recipe.windowsOpenState.addStep)
+  if (recipe.windowsOptions.addStep.isOpen)
     return (
-      <AddToRecipeWindow onClose={() => modifyWindow("close", "step")}>
+      <AddToRecipeWindow
+        onClose={() => modifyWindow("close", { name: "step" })}
+      >
         <AddPrepStep handleAdd={() => {}} />
       </AddToRecipeWindow>
     );

@@ -12,12 +12,18 @@ function AddTag() {
   const { state: recipes, modifyTags, modifyWindow } = useCreateRecipe();
 
   function addTag() {
-    if (recipes.tags.includes(query))
-      toast.error("You have tag with that name!");
-    else {
-      modifyTags("add", query);
-      modifyWindow("close", "tag");
+    if (recipes.tags.includes(query)) {
+      toast.error("You already have tag with that name!");
+      return;
     }
+
+    if (query.length < 2) {
+      toast.error("Your tag must be at least 2 letters long");
+      return;
+    }
+    modifyTags("add", query);
+    modifyWindow("close", { name: "tag" });
+    toast.success("Tag added successfully!");
   }
 
   return (
@@ -30,6 +36,7 @@ function AddTag() {
         className="flex w-full flex-col items-center"
         onSubmit={(e: BaseSyntheticEvent) => {
           e.preventDefault();
+          addTag();
         }}
       >
         <div className="relative mb-16 w-full text-center [&:focus-within>span]:visible [&:focus-within>span]:translate-y-1/2 [&:focus-within>span]:opacity-100 xsm:[&:focus-within>span]:translate-y-1/3">
@@ -53,7 +60,7 @@ function AddTag() {
             &quot;-&quot; as a separator
           </span>
         </div>
-        <AddToRecipeButton handleClick={() => addTag()}>
+        <AddToRecipeButton>
           <span>Save the tag</span>
           <ClipboardDocumentCheckIcon />
         </AddToRecipeButton>

@@ -2,6 +2,7 @@
 
 import { ChildrenProp, IngredientProp } from "@/utils/utilTypes";
 import { createContext, useContext, useReducer } from "react";
+import toast from "react-hot-toast";
 
 const CreateRecipeContext = createContext<ContextType | undefined>(undefined);
 
@@ -10,14 +11,23 @@ interface ContextType {
   setName: (name: string) => void;
   setDescription: (desc: string) => void;
   modifyTags: (action: "add" | "remove", tagItem: string) => void;
-  modifyWindow: (
-    action: "open" | "close",
-    window: "tag" | "ing" | "step",
+  setCookTime: (time: string) => void;
+  setPrepTime: (time: string) => void;
+  setCalories: (calories: string) => void;
+  setNutrition: (nutrient: NutrientType, amount: string) => void;
+  modifyIngredients: (
+    type:
+      | { action: "add"; item: IngredientProp }
+      | { action: "remove"; itemName: string }
+      | { action: "edit"; item: IngredientProp; prevItemName: string },
   ) => void;
+  checkInIngredients: (ingName: string) => boolean;
+  modifyWindow: (action: "open" | "close", windowItem: WindowTypes) => void;
   checkWindowsOpen: () => boolean;
   canModifyIterator: (type: "increment" | "decrement") => boolean;
   incrementIterator: () => void;
   decrementIterator: () => void;
+  canProceed: (type: "general" | "ingredients") => boolean;
 }
 
 interface stateProps {
@@ -25,27 +35,45 @@ interface stateProps {
   description: string;
   image: string;
   tags: string[];
-  cookingTime: number;
-  prepareTime: number;
-  calories: number;
+  cookingTime: string;
+  prepareTime: string;
+  calories: string;
   nutrition: NutritionItem;
   ingredients: IngredientProp[];
   prepareSteps: string[];
-  windowsOpenState: WindowItem;
+  windowsOptions: WindowItem;
   iterator: number;
 }
 
-type WindowItem = { addTag: boolean; addIngredient: boolean; addStep: boolean };
+type WindowItem = {
+  addTag: { isOpen: boolean; tag: string };
+  addIngredient: { isOpen: boolean; ingredient: IngredientProp };
+  addStep: { isOpen: boolean };
+};
 
 type NutritionItem = {
-  netCarbs?: number;
-  totalCarbs?: number;
-  sugar?: number;
-  fiber?: number;
-  protein?: number;
-  totalFat?: number;
-  transFat?: number;
+  netCarbs: string;
+  totalCarbs: string;
+  sugar: string;
+  fiber: string;
+  protein: string;
+  totalFat: string;
+  transFat: string;
 };
+
+type WindowTypes =
+  | { name: "tag"; tag?: string }
+  | { name: "ing"; ingredient?: IngredientProp }
+  | { name: "step" };
+
+type NutrientType =
+  | "netCarbs"
+  | "totalCarbs"
+  | "sugar"
+  | "fiber"
+  | "protein"
+  | "totalFat"
+  | "transFat";
 
 const enum REDUCER_ACTION_TYPE {
   SET_NAME,
@@ -68,15 +96,11 @@ type ReducerAction =
       type:
         | REDUCER_ACTION_TYPE.SET_NAME
         | REDUCER_ACTION_TYPE.SET_DESCRIPTION
-        | REDUCER_ACTION_TYPE.SET_IMAGE;
-      payload: string;
-    }
-  | {
-      type:
+        | REDUCER_ACTION_TYPE.SET_IMAGE
         | REDUCER_ACTION_TYPE.SET_COOKING_TIME
         | REDUCER_ACTION_TYPE.SET_PREPARE_TIME
         | REDUCER_ACTION_TYPE.SET_CALORIES;
-      payload: number;
+      payload: string;
     }
   | {
       type:
@@ -102,16 +126,38 @@ const initialState: stateProps = {
   description: "",
   image: "",
   tags: [],
-  cookingTime: 0,
-  prepareTime: 0,
-  calories: 0,
-  nutrition: {},
+  cookingTime: "",
+  prepareTime: "",
+  calories: "",
+  nutrition: {
+    netCarbs: "",
+    totalCarbs: "",
+    sugar: "",
+    protein: "",
+    fiber: "",
+    totalFat: "",
+    transFat: "",
+  },
   ingredients: [],
   prepareSteps: [],
-  windowsOpenState: {
-    addTag: false,
-    addIngredient: false,
-    addStep: false,
+  windowsOptions: {
+    addTag: {
+      isOpen: false,
+      tag: "",
+    },
+    addIngredient: {
+      isOpen: false,
+      ingredient: {
+        name: "",
+        servingSize: {
+          grams: 0,
+          desc: "",
+        },
+      },
+    },
+    addStep: {
+      isOpen: false,
+    },
   },
   iterator: 0,
 };
@@ -139,7 +185,7 @@ function reducer(state: stateProps, action: ReducerAction): stateProps {
     case REDUCER_ACTION_TYPE.SET_PREPARE_STEPS:
       return { ...state, prepareSteps: action.payload };
     case REDUCER_ACTION_TYPE.SET_WINDOW_OPEN:
-      return { ...state, windowsOpenState: action.payload };
+      return { ...state, windowsOptions: action.payload };
     case REDUCER_ACTION_TYPE.INCREMENT_ITERATOR:
       return { ...state, iterator: state.iterator + 1 };
     case REDUCER_ACTION_TYPE.DECREMENT_ITERATOR:
@@ -169,28 +215,98 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_TAGS, payload: newArr });
   }
 
-  function modifyWindow(
-    action: "open" | "close",
-    window: "tag" | "ing" | "step",
-  ) {
-    const act = action === "open" ? true : false;
+  function setCookTime(time: string) {
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_COOKING_TIME, payload: time });
+  }
+  function setPrepTime(time: string) {
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_PREPARE_TIME, payload: time });
+  }
+  function setCalories(calories: string) {
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_CALORIES, payload: calories });
+  }
 
+  function setNutrition(nutrient: NutrientType, amount: string) {
+    function setNewTable() {
+      switch (nutrient) {
+        case "netCarbs":
+          return { ...state.nutrition, netCarbs: amount };
+        case "totalCarbs":
+          return { ...state.nutrition, totalCarbs: amount };
+        case "sugar":
+          return { ...state.nutrition, sugar: amount };
+        case "fiber":
+          return { ...state.nutrition, fiber: amount };
+        case "protein":
+          return { ...state.nutrition, protein: amount };
+        case "totalFat":
+          return { ...state.nutrition, totalFat: amount };
+        case "transFat":
+          return { ...state.nutrition, transFat: amount };
+        default:
+          throw new Error("Undefined nutrient");
+      }
+    }
+
+    const table = setNewTable();
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_NUTRITION, payload: table });
+  }
+
+  function checkInIngredients(ingName: string) {
+    return state.ingredients.map((ing) => ing.name).includes(ingName);
+  }
+
+  function modifyIngredients(
+    type:
+      | { action: "add"; item: IngredientProp }
+      | { action: "remove"; itemName: string }
+      | { action: "edit"; item: IngredientProp; prevItemName: string },
+  ) {
+    const filteredList = state.ingredients.filter((ing) =>
+      type.action === "add"
+        ? ing.name !== type.item.name
+        : type.action === "remove"
+          ? ing.name !== type.itemName
+          : ing.name !== type.prevItemName,
+    );
+
+    console.log(filteredList);
+
+    const newList =
+      type.action === "remove" ? filteredList : [...filteredList, type.item];
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_INGREDIENTS, payload: newList });
+  }
+
+  function modifyWindow(action: "open" | "close", windowItem: WindowTypes) {
+    const act = action === "open" ? true : false;
     function setNewWindow() {
-      switch (window) {
+      switch (windowItem.name) {
         case "tag":
           return {
-            ...state.windowsOpenState,
-            addTag: act,
+            ...state.windowsOptions,
+            addTag: {
+              ...state.windowsOptions.addTag,
+              isOpen: act,
+              tag: windowItem.tag && action === "open" ? windowItem.tag : "",
+            },
           };
         case "ing":
           return {
-            ...state.windowsOpenState,
-            addIngredient: act,
+            ...state.windowsOptions,
+            addIngredient: {
+              ...state.windowsOptions.addIngredient,
+              isOpen: act,
+              ingredient:
+                windowItem.ingredient && action === "open"
+                  ? windowItem.ingredient
+                  : { name: "", servingSize: { grams: 0, desc: "" } },
+            },
           };
         case "step":
           return {
-            ...state.windowsOpenState,
-            addStep: act,
+            ...state.windowsOptions,
+            addStep: { ...state.windowsOptions.addStep, isOpen: act },
           };
         default:
           throw new Error("Undefined Window");
@@ -222,10 +338,25 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
 
   function checkWindowsOpen() {
     return (
-      state.windowsOpenState.addIngredient ||
-      state.windowsOpenState.addStep ||
-      state.windowsOpenState.addTag
+      state.windowsOptions.addIngredient.isOpen ||
+      state.windowsOptions.addStep.isOpen ||
+      state.windowsOptions.addTag.isOpen
     );
+  }
+
+  function canProceed(type: "general" | "ingredients") {
+    switch (type) {
+      case "general":
+        return (
+          state.name.length > 8 &&
+          state.description.length > 40 &&
+          state.tags.length >= 5
+        );
+      case "ingredients":
+        return true;
+      default:
+        throw new Error("Undefined Type");
+    }
   }
 
   return (
@@ -235,11 +366,18 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
         setName,
         setDescription,
         modifyTags,
+        setNutrition,
+        modifyIngredients,
+        checkInIngredients,
         modifyWindow,
         canModifyIterator,
         incrementIterator,
         decrementIterator,
         checkWindowsOpen,
+        canProceed,
+        setPrepTime,
+        setCookTime,
+        setCalories,
       }}
     >
       {children}

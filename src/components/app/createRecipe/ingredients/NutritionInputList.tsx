@@ -1,11 +1,15 @@
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import AmountInput from "../AmountInput";
 import InputRow from "../InputRow";
+import { ChangeEvent } from "react";
 
 interface NutritionInputListProps {
   open: boolean;
 }
 
 function NutritionInputList({ open }: NutritionInputListProps) {
+  const { state: recipes, setNutrition } = useCreateRecipe();
+
   return (
     <div
       className={`recipe-scroll relative overflow-y-scroll transition-all duration-150 ease-linear mdl:overflow-y-visible ${
@@ -20,6 +24,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
             additionalClassLabel="xsm:text-lg"
           >
             <AmountInput
+              value={recipes.nutrition.netCarbs}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("netCarbs", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xsm:w-[160px] xxsm:w-[140px] xsm:text-lg"
               unit="g"
@@ -34,6 +42,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
             additionalClassLabel="xsm:text-lg"
           >
             <AmountInput
+              value={recipes.nutrition.totalCarbs}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("totalCarbs", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px] xsm:w-[160px]"
               unit="g"
@@ -44,6 +56,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
         <li>
           <InputRow label="Sugar" id="sugar" additionalClassLabel="xsm:text-lg">
             <AmountInput
+              value={recipes.nutrition.sugar}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("sugar", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px] xsm:w-[160px]"
               unit="g"
@@ -54,6 +70,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
         <li>
           <InputRow label="Fiber" id="fiber" additionalClassLabel="xsm:text-lg">
             <AmountInput
+              value={recipes.nutrition.fiber}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("fiber", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px] xsm:w-[160px]"
               unit="g"
@@ -68,6 +88,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
             additionalClassLabel="xsm:text-lg"
           >
             <AmountInput
+              value={recipes.nutrition.protein}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("protein", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px] xsm:w-[160px]"
               unit="g"
@@ -82,6 +106,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
             additionalClassLabel="xsm:text-lg"
           >
             <AmountInput
+              value={recipes.nutrition.totalFat}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("totalFat", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px] xsm:w-[160px]"
               unit="g"
@@ -96,6 +124,10 @@ function NutritionInputList({ open }: NutritionInputListProps) {
             additionalClassLabel="xsm:text-lg"
           >
             <AmountInput
+              value={recipes.nutrition.transFat}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setNutrition("transFat", e.target.value)
+              }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px]  xsm:w-[160px]"
               unit="g"
