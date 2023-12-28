@@ -1,18 +1,24 @@
-import SvgButton from "@/components/global/SvgButton";
-import { XMarkIcon } from "@heroicons/react/20/solid";
 import TextInput from "../TextInput";
-import FilledButton from "@/components/global/FilledButton";
+
 import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
-import { BaseSyntheticEvent, SyntheticEvent, useState } from "react";
+import { BaseSyntheticEvent, useState } from "react";
 import AddToRecipeHeader from "../AddToRecipeHeader";
 import AddToRecipeButton from "../AddToRecipeButton";
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
+import toast from "react-hot-toast";
 
-interface AddTagProps {
-  handleAdd: (tag: string) => void;
-}
-
-function AddTag({ handleAdd }: AddTagProps) {
+function AddTag() {
   const [query, setQuery] = useState<string>("");
+  const { state: recipes, modifyTags, modifyWindow } = useCreateRecipe();
+
+  function addTag() {
+    if (recipes.tags.includes(query))
+      toast.error("You have tag with that name!");
+    else {
+      modifyTags("add", query);
+      modifyWindow("close", "tag");
+    }
+  }
 
   return (
     <>
@@ -20,7 +26,12 @@ function AddTag({ handleAdd }: AddTagProps) {
         Add a related{" "}
         <AddToRecipeHeader.Highlight>Tag</AddToRecipeHeader.Highlight>
       </AddToRecipeHeader>
-      <form className="flex w-full flex-col items-center">
+      <form
+        className="flex w-full flex-col items-center"
+        onSubmit={(e: BaseSyntheticEvent) => {
+          e.preventDefault();
+        }}
+      >
         <div className="relative mb-16 w-full text-center [&:focus-within>span]:visible [&:focus-within>span]:translate-y-1/2 [&:focus-within>span]:opacity-100 xsm:[&:focus-within>span]:translate-y-1/3">
           <TextInput
             borderColor="gray-tint-2"
@@ -28,11 +39,10 @@ function AddTag({ handleAdd }: AddTagProps) {
             maxLength={30}
             onChange={(e: BaseSyntheticEvent) => {
               if (
-                e.target.value &&
-                !e.target.value.slice(-1).match(/^[a-z-]+$/)
+                e.target.value.slice(-1).match(/^[a-z-]+$/) ||
+                e.target.value === ""
               )
-                return;
-              setQuery(e.target.value);
+                setQuery(e.target.value);
             }}
             id="add-tag"
             additionalClass="w-1/3 placeholder:text-gray-tint-2 sm:w-2/3 xsm:w-3/4"
@@ -43,7 +53,7 @@ function AddTag({ handleAdd }: AddTagProps) {
             &quot;-&quot; as a separator
           </span>
         </div>
-        <AddToRecipeButton handleClick={() => handleAdd(query)}>
+        <AddToRecipeButton handleClick={() => addTag()}>
           <span>Save the tag</span>
           <ClipboardDocumentCheckIcon />
         </AddToRecipeButton>

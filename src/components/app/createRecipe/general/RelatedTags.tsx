@@ -1,36 +1,29 @@
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import CreateElementsButton from "../CreateElementsButton";
 import NoItemsAlert from "../NoItemsAlert";
 import TagItem from "./TagItem";
 
-interface RelatedTagsProps {
-  tags: string[];
-  handleRemove: Function;
-  openAddTagWindow: Function;
-}
+function RelatedTags() {
+  const { state: recipes, modifyWindow, modifyTags } = useCreateRecipe();
 
-function RelatedTags({
-  tags,
-  handleRemove,
-  openAddTagWindow,
-}: RelatedTagsProps) {
   return (
     <div className="flex  flex-grow flex-col px-6 pb-4">
       <CreateElementsButton
-        currentNumber={tags.length}
+        currentNumber={recipes.tags.length}
         additionalClass="mb-6"
-        handleClick={openAddTagWindow}
+        handleClick={() => modifyWindow("open", "tag")}
         minReqName="tags"
         minReqNumber={5}
       >
         Related Tags
       </CreateElementsButton>
 
-      {tags.length > 0 ? (
+      {recipes.tags.length > 0 ? (
         <div className="w-full flex-grow">
           <ul className=" flex w-full flex-wrap gap-3">
-            {tags.map((tag, i) => (
+            {recipes.tags.map((tag, i) => (
               <TagItem
-                handleClick={() => handleRemove(tag)}
+                handleClick={() => modifyTags("remove", tag)}
                 tag={tag}
                 key={i}
               />

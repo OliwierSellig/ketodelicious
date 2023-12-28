@@ -28,7 +28,7 @@ export interface FullDescriptionProps {
 
 export type IngredientProp = {
   name: string;
-  servingSize: { grams: number; desc: string };
+  servingSize: { grams?: number; desc?: string };
 };
 
 export type NutritionListProps = {

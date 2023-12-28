@@ -38,8 +38,14 @@ function NavigationLayout({ children, padding = true }: NavigationLayoutProps) {
         containerStyle={{ margin: "8px" }}
         toastOptions={{
           className: "toast",
-          success: { duration: 2000 },
-          error: { duration: 5000 },
+          success: {
+            duration: 2000,
+            iconTheme: { primary: "#00A86B", secondary: "#FAFCFC" },
+          },
+          error: {
+            duration: 5000,
+            iconTheme: { primary: "#D23232", secondary: "#FAFCFC" },
+          },
           style: {
             maxWidth: "500px",
             widows: "70%",
@@ -47,10 +53,6 @@ function NavigationLayout({ children, padding = true }: NavigationLayoutProps) {
             backgroundColor: "#FEFEFE",
             color: "#333",
             textAlign: "center",
-          },
-          iconTheme: {
-            primary: "#00A86B",
-            secondary: "#FAFCFC",
           },
         }}
       />
