@@ -75,3 +75,8 @@ export type actionType =
   | "bookmarked"
   | "favored"
   | "unfavored";
+
+export type StepProp = {
+  pos: number;
+  step: string;
+};

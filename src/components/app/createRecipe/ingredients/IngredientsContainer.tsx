@@ -1,4 +1,5 @@
 import CreateElementsButton from "../CreateElementsButton";
+import NoItemsAlert from "../NoItemsAlert";
 import IngredientsItem from "./IngredientsItem";
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 
@@ -16,11 +17,15 @@ function IngredientsContainer() {
         Ingredients
       </CreateElementsButton>
       <div className="recipe-scroll relative flex-grow overflow-y-scroll mdl:overflow-y-visible">
-        <ul className="absolute left-0 top-0 h-full w-full px-4 mdl:static">
-          {recipes.ingredients.map((ingredient, i) => (
-            <IngredientsItem ingredient={ingredient} key={i} />
-          ))}
-        </ul>
+        {recipes.ingredients.length > 0 ? (
+          <ul className="absolute left-0 top-0 h-full w-full px-4 mdl:static">
+            {recipes.ingredients.map((ingredient, i) => (
+              <IngredientsItem ingredient={ingredient} key={i} />
+            ))}
+          </ul>
+        ) : (
+          <NoItemsAlert name="ingredients" additionalClass="h-full" />
+        )}
       </div>
     </div>
   );

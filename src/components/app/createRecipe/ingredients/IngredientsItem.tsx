@@ -1,6 +1,7 @@
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import { IngredientProp } from "@/utils/utilTypes";
 import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import toast from "react-hot-toast";
 
 interface IngredientItemProps {
   ingredient: IngredientProp;
@@ -38,9 +39,10 @@ function IngredientsItem({ ingredient }: IngredientItemProps) {
       <nav className="flex flex-col gap-4 xsm:flex-row">
         <button
           aria-label="Remove ingredient"
-          onClick={() =>
-            modifyIngredients({ action: "remove", itemName: ingredient.name })
-          }
+          onClick={() => {
+            modifyIngredients({ action: "remove", itemName: ingredient.name });
+            toast.success("Ingredient removed successfully");
+          }}
           className=" [&:focus>svg]:stroke-jade-normal [&:hover>svg]:stroke-jade-normal"
         >
           <XCircleIcon className="h-8 w-8 stroke-gray-tint-1 transition-all duration-150 ease-linear" />

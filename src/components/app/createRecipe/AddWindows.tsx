@@ -26,7 +26,7 @@ function AddWindows() {
       <AddToRecipeWindow
         onClose={() => modifyWindow("close", { name: "step" })}
       >
-        <AddPrepStep handleAdd={() => {}} />
+        <AddPrepStep />
       </AddToRecipeWindow>
     );
 }

@@ -56,15 +56,18 @@ type ReducerAction =
 
 // ---------- Initial State and Reducer Function ---------------------------
 
-const initialState: stateProps = {
-  bookmarked: localStorage.getItem("bookmarked")
-    ? JSON.parse(localStorage.getItem("bookmarked") || "")
-    : [],
-  created: [],
-  activities: localStorage.getItem("activities")
-    ? JSON.parse(localStorage.getItem("activities") || "")
-    : [],
-};
+const initialState: stateProps =
+  typeof window !== "undefined"
+    ? {
+        bookmarked: localStorage.getItem("bookmarked")
+          ? JSON.parse(localStorage.getItem("bookmarked") || "")
+          : [],
+        created: [],
+        activities: localStorage.getItem("activities")
+          ? JSON.parse(localStorage.getItem("activities") || "")
+          : [],
+      }
+    : { bookmarked: [], created: [], activities: [] };
 
 function reducer(state: stateProps, action: ReducerAction): stateProps {
   switch (action.type) {

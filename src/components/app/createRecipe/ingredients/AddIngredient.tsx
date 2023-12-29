@@ -16,6 +16,7 @@ function AddIngredient() {
     modifyWindow,
     checkInIngredients,
   } = useCreateRecipe();
+
   const [ingName, setIngName] = useState<string>(
     recipe.windowsOptions.addIngredient.ingredient.name || "",
   );

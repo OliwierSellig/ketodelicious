@@ -7,7 +7,9 @@ interface NoItemsAlertProps {
 
 function NoItemsAlert({ name, additionalClass = "" }: NoItemsAlertProps) {
   return (
-    <p className={`flex items-center gap-2  ${additionalClass}`}>
+    <p
+      className={`flex flex-grow items-center justify-center  ${additionalClass}`}
+    >
       <span className="first-letter: text-xl text-gray-tint-2">
         No {name} yet, please add some
       </span>

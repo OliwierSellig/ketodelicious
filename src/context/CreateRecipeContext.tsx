@@ -1,8 +1,7 @@
 "use client";
 
-import { ChildrenProp, IngredientProp } from "@/utils/utilTypes";
+import { ChildrenProp, IngredientProp, StepProp } from "@/utils/utilTypes";
 import { createContext, useContext, useReducer } from "react";
-import toast from "react-hot-toast";
 
 const CreateRecipeContext = createContext<ContextType | undefined>(undefined);
 
@@ -22,6 +21,12 @@ interface ContextType {
       | { action: "edit"; item: IngredientProp; prevItemName: string },
   ) => void;
   checkInIngredients: (ingName: string) => boolean;
+  addStep: (item: string) => void;
+  removeStep: (item: string) => void;
+  editStep: (item: string, prevItem: string) => void;
+  updateStepPos: (action: "increment" | "decrement", item: string) => void;
+  getSortedSteps: () => StepProp[];
+  isBorderStep: (pos: "last" | "first", item: string) => boolean;
   modifyWindow: (action: "open" | "close", windowItem: WindowTypes) => void;
   checkWindowsOpen: () => boolean;
   canModifyIterator: (type: "increment" | "decrement") => boolean;
@@ -40,7 +45,7 @@ interface stateProps {
   calories: string;
   nutrition: NutritionItem;
   ingredients: IngredientProp[];
-  prepareSteps: string[];
+  prepareSteps: StepProp[];
   windowsOptions: WindowItem;
   iterator: number;
 }
@@ -48,7 +53,7 @@ interface stateProps {
 type WindowItem = {
   addTag: { isOpen: boolean; tag: string };
   addIngredient: { isOpen: boolean; ingredient: IngredientProp };
-  addStep: { isOpen: boolean };
+  addStep: { isOpen: boolean; step: string };
 };
 
 type NutritionItem = {
@@ -64,7 +69,7 @@ type NutritionItem = {
 type WindowTypes =
   | { name: "tag"; tag?: string }
   | { name: "ing"; ingredient?: IngredientProp }
-  | { name: "step" };
+  | { name: "step"; step?: string };
 
 type NutrientType =
   | "netCarbs"
@@ -102,12 +107,8 @@ type ReducerAction =
         | REDUCER_ACTION_TYPE.SET_CALORIES;
       payload: string;
     }
-  | {
-      type:
-        | REDUCER_ACTION_TYPE.SET_TAGS
-        | REDUCER_ACTION_TYPE.SET_PREPARE_STEPS;
-      payload: string[];
-    }
+  | { type: REDUCER_ACTION_TYPE.SET_TAGS; payload: string[] }
+  | { type: REDUCER_ACTION_TYPE.SET_PREPARE_STEPS; payload: StepProp[] }
   | { type: REDUCER_ACTION_TYPE.SET_NUTRITION; payload: NutritionItem }
   | { type: REDUCER_ACTION_TYPE.SET_INGREDIENTS; payload: IngredientProp[] }
   | { type: REDUCER_ACTION_TYPE.SET_WINDOW_OPEN; payload: WindowItem }
@@ -157,6 +158,7 @@ const initialState: stateProps = {
     },
     addStep: {
       isOpen: false,
+      step: "",
     },
   },
   iterator: 0,
@@ -270,12 +272,105 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
           : ing.name !== type.prevItemName,
     );
 
-    console.log(filteredList);
-
     const newList =
       type.action === "remove" ? filteredList : [...filteredList, type.item];
 
     dispatch({ type: REDUCER_ACTION_TYPE.SET_INGREDIENTS, payload: newList });
+  }
+
+  function addStep(item: string) {
+    if (state.prepareSteps.map((step) => step.step).includes(item)) return;
+
+    const newStep = { pos: state.prepareSteps.length, step: item };
+
+    const newArr = [...state.prepareSteps, newStep];
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_PREPARE_STEPS, payload: newArr });
+  }
+
+  function removeStep(item: string) {
+    const refStep = state.prepareSteps.find((step) => step.step === item);
+
+    if (!refStep) return;
+
+    const lessThanRef = state.prepareSteps.filter(
+      (step) => step.pos < refStep.pos,
+    );
+
+    const moreThatRef = state.prepareSteps.filter(
+      (step) => step.pos > refStep.pos,
+    );
+
+    const fixedSteps = moreThatRef.map((step) => {
+      return { step: step.step, pos: step.pos - 1 };
+    });
+
+    const newArr = [...lessThanRef, ...fixedSteps];
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_PREPARE_STEPS, payload: newArr });
+  }
+
+  function editStep(item: string, prevItem: string) {
+    const refStep = state.prepareSteps.find((step) => step.step === prevItem);
+
+    if (!refStep) return;
+
+    const filteredSteps = state.prepareSteps.filter(
+      (step) => step.step !== prevItem,
+    );
+
+    const newStep = {
+      step: item,
+      pos: refStep.pos,
+    };
+
+    const newArr = [...filteredSteps, newStep];
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_PREPARE_STEPS, payload: newArr });
+  }
+
+  function updateStepPos(action: "increment" | "decrement", item: string) {
+    const refStep = state.prepareSteps.find((step) => step.step === item);
+
+    if (!refStep) return;
+
+    const targetStep = state.prepareSteps.find((step) =>
+      action === "increment"
+        ? step.pos === refStep.pos + 1
+        : step.pos === refStep.pos - 1,
+    );
+
+    if (!targetStep) return;
+
+    const updatedRefStep = { ...refStep, pos: targetStep.pos };
+
+    const updatedNextStep = { ...targetStep, pos: refStep.pos };
+
+    const filteredList = state.prepareSteps.filter(
+      (step) => step.pos !== refStep.pos && step.pos !== targetStep.pos,
+    );
+
+    const newArr = [...filteredList, updatedRefStep, updatedNextStep];
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_PREPARE_STEPS, payload: newArr });
+  }
+
+  function getSortedSteps() {
+    return state.prepareSteps.sort((a, b) => a.pos - b.pos);
+  }
+
+  function isBorderStep(pos: "last" | "first", item: string) {
+    const refStep = state.prepareSteps.find((step) => step.step === item);
+
+    if (!refStep) return false;
+
+    const isBorder = Boolean(
+      state.prepareSteps.find((step) =>
+        pos === "last" ? step.pos > refStep.pos : step.pos < refStep.pos,
+      ),
+    );
+
+    return !isBorder;
   }
 
   function modifyWindow(action: "open" | "close", windowItem: WindowTypes) {
@@ -306,7 +401,11 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
         case "step":
           return {
             ...state.windowsOptions,
-            addStep: { ...state.windowsOptions.addStep, isOpen: act },
+            addStep: {
+              ...state.windowsOptions.addStep,
+              isOpen: act,
+              step: windowItem.step && action === "open" ? windowItem.step : "",
+            },
           };
         default:
           throw new Error("Undefined Window");
@@ -369,6 +468,12 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
         setNutrition,
         modifyIngredients,
         checkInIngredients,
+        addStep,
+        removeStep,
+        editStep,
+        updateStepPos,
+        getSortedSteps,
+        isBorderStep,
         modifyWindow,
         canModifyIterator,
         incrementIterator,

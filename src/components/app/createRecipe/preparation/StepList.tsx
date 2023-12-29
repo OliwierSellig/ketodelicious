@@ -1,17 +1,19 @@
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import StepItem from "./StepItem";
+import NoItemsAlert from "../NoItemsAlert";
 
-interface StepListProps {
-  stepsList: string[];
-}
+function StepList() {
+  const { state: recipes, getSortedSteps } = useCreateRecipe();
 
-function StepList({ stepsList }: StepListProps) {
+  if (recipes.prepareSteps.length < 1) return <NoItemsAlert name="steps" />;
+
   return (
-    <div className="recipe-scroll overflow-y-scroll">
+    <div className="recipe-scroll flex-grow overflow-y-scroll">
       <p className="font-mdeium text-center font-kalam text-4xl text-gray-tint-2">
         Start
       </p>
-      <ul className="flex flex-col gap-4 px-4 py-6 sm:px-2 sm:py-4">
-        {stepsList.map((step, i) => (
+      <ul className="flex  flex-col gap-4 px-4 py-6 sm:px-2 sm:py-4">
+        {getSortedSteps().map((step, i) => (
           <StepItem step={step} key={i}></StepItem>
         ))}
       </ul>
