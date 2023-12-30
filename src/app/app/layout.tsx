@@ -3,7 +3,11 @@ import { UserProvider } from "@/context/UserContext";
 import { ChildrenProp } from "@/utils/utilTypes";
 
 function layout({ children }: ChildrenProp) {
-  return <div>{children}</div>;
+  return (
+    <UserProvider>
+      <CreateRecipeProvider>{children}</CreateRecipeProvider>
+    </UserProvider>
+  );
 }
 
 export default layout;
