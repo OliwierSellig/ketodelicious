@@ -66,7 +66,7 @@ function UserList({ list, iterator, setIterator, query, type }: UserListProps) {
         currentSite={iterator + 1}
         maxSite={Math.ceil(filteredList.length / PAGE_COUNT)}
         canGoPrev={iterator !== 0}
-        canGoNext={iterator < Math.floor(filteredList.length / PAGE_COUNT)}
+        canGoNext={iterator + 1 < Math.ceil(filteredList.length / PAGE_COUNT)}
         handleNext={() => setIterator((prev) => prev + 1)}
         handlePrev={() => setIterator((prev) => prev - 1)}
       />

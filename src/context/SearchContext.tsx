@@ -147,36 +147,34 @@ function SearchProvider({ children }: ChildrenProp) {
     abortControllerRef.current = new AbortController();
 
     async function fetchFilteredRecipes() {
-      try {
-        setLoading(true);
-        const data = await fetchRecipes(
-          {
-            name: state.name,
-            maxCalories: parseInt(state.maxCalories) || undefined,
-            maxCookTime:
-              parseInt(state.maxCookTime) === 0
-                ? 0
-                : parseInt(state.maxCookTime) || undefined,
-            maxPrepareTime: parseInt(state.maxPrepareTime) || undefined,
-            maxNetCarbs:
-              parseInt(state.maxNetCarbs) === 0
-                ? 0
-                : parseInt(state.maxNetCarbs) || undefined,
-            includeIngredients: state.includedIngredients,
-            excludeIngredients: state.excludedIngredients,
-            limit: 20,
-          },
-          abortControllerRef.current?.signal,
-        );
+      setLoading(true);
+      const data = await fetchRecipes(
+        {
+          name: state.name,
+          maxCalories: parseInt(state.maxCalories) || undefined,
+          maxCookTime:
+            parseInt(state.maxCookTime) === 0
+              ? 0
+              : parseInt(state.maxCookTime) || undefined,
+          maxPrepareTime: parseInt(state.maxPrepareTime) || undefined,
+          maxNetCarbs:
+            parseInt(state.maxNetCarbs) === 0
+              ? 0
+              : parseInt(state.maxNetCarbs) || undefined,
+          includeIngredients: state.includedIngredients,
+          excludeIngredients: state.excludedIngredients,
+          limit: 20,
+        },
+        abortControllerRef.current?.signal,
+      );
 
-        dispatch({
-          type: REDUCER_ACTION_TYPE.SET_RECIPE_LIST,
-          payload: Array.isArray(data) ? data : [],
-        });
+      dispatch({
+        type: REDUCER_ACTION_TYPE.SET_RECIPE_LIST,
+        payload: Array.isArray(data) ? data : [],
+      });
 
-        modifyIterator("refresh");
-        setLoading(false);
-      } catch (err) {}
+      modifyIterator("refresh");
+      if (data !== undefined) setLoading(false);
     }
 
     fetchFilteredRecipes();
