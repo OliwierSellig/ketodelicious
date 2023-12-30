@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react";
 import { BookmarkIcon, BookmarkSlashIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon as BookmarkIconFull } from "@heroicons/react/24/solid";
-import FilledButton from "@/components/global/FilledButton";
-import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
 import { useUser } from "@/context/UserContext";
 import { RecipeItemProp } from "@/utils/utilTypes";
+import toast from "react-hot-toast";
+import FilledButton from "@/components/global/FilledButton";
 import RemoveCreatedButton from "./RemoveCreatedButton";
 
 interface ToggleRecipeButtonProps {
@@ -33,7 +33,7 @@ function ToggleRecipeButton({ recipe, isCreated }: ToggleRecipeButtonProps) {
     }
   }, [bookmarked]);
 
-  if (isCreated) return <RemoveCreatedButton id={recipe.id} />;
+  if (isCreated) return <RemoveCreatedButton recipe={recipe} />;
 
   return (
     <FilledButton

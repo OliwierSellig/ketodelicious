@@ -1,10 +1,10 @@
-import Image from "next/image";
 import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
-import IngredientsList from "./IngredientsList";
+import { RecipeItemProp } from "@/utils/utilTypes";
+import Image from "next/image";
 import FilledButton from "@/components/global/FilledButton";
 import RecipeCardDetails from "@/components/global/RecipeCardDetails";
 import LoadingSpinner from "@/components/global/LoadingSpinner";
-import { RecipeItemProp } from "@/utils/utilTypes";
+import IngredientsList from "./IngredientsList";
 
 interface RandomRecipeCardProps {
   recipe: RecipeItemProp;

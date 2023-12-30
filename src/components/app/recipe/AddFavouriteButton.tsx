@@ -1,8 +1,8 @@
+import { HeartIcon } from "@heroicons/react/24/outline";
+import { HeartIcon as HeartIconFull } from "@heroicons/react/24/solid";
 import { useUser } from "@/context/UserContext";
 import { RecipeItemProp } from "@/utils/utilTypes";
 import toast from "react-hot-toast";
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { HeartIcon as HeartIconFull } from "@heroicons/react/24/solid";
 
 interface AddFavouriteButtonProps {
   recipe: RecipeItemProp;

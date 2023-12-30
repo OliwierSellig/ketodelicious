@@ -3,7 +3,6 @@ import AddToRecipeWindow from "./AddToRecipeWindow";
 import AddTag from "./general/AddTag";
 import AddIngredient from "./ingredients/AddIngredient";
 import AddPrepStep from "./preparation/AddPrepStep";
-
 import ResetAuth from "./ResetAuth";
 import CreateAuth from "./CreateAuth";
 

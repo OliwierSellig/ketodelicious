@@ -1,12 +1,12 @@
 "use client";
 
+import { PlusIcon, Bars3Icon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
-import FilledButton from "../../global/FilledButton";
-import { PlusIcon } from "@heroicons/react/20/solid";
 import myPhoto from "../../../../public/images/photo-me.png";
+import FilledButton from "../../global/FilledButton";
 import OpenRecipeCreator from "../createRecipe/OpenRecipeCreator";
-import { Bars3Icon } from "@heroicons/react/20/solid";
+
 
 interface HorizontalNavigatonProps {
   openNav: () => void;

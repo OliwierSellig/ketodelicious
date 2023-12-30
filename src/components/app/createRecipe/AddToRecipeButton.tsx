@@ -1,6 +1,5 @@
-import FilledButton from "@/components/global/FilledButton";
-import { ChildrenProp } from "@/utils/utilTypes";
 import { ReactNode } from "react";
+import FilledButton from "@/components/global/FilledButton";
 
 interface AddToRecipeButtonProps {
   children: ReactNode;

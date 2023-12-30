@@ -51,16 +51,6 @@ const config: Config = {
         "recipe-input": "0px 12px 20px 0px rgba(85, 85, 85, 0.05)",
       },
       keyframes: {
-        fadeFromTopHeader: {
-          "0%": {
-            opacity: "0",
-            transform: "translate(-50%, -32px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translate(-50%, 0)",
-          },
-        },
         fadeIn: {
           "0%": {
             opacity: "0",
@@ -127,6 +117,17 @@ const config: Config = {
           },
         },
 
+        fadeFromTopHeader: {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-50%, -32px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%, 0)",
+          },
+        },
+
         vertiNavMove: {
           "0%": {
             opacity: "0",
@@ -158,9 +159,6 @@ const config: Config = {
             strokeDashoffset: "-124",
           },
         },
-      },
-      animation: {
-        animateScrollHeader: "fadeFromTopHeader 0.6s",
       },
       aspectRatio: {
         "22/7": "22 / 7",

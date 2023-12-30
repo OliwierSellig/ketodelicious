@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import RecipeCardDetails from "./RecipeCardDetails";
 import { useState } from "react";
-import Image from "next/image";
-import LoadingSpinner from "./LoadingSpinner";
 import { ImageSizesProps } from "@/utils/utilTypes";
+import Link from "next/link";
+import Image from "next/image";
 import previewDish from "../../../public/images/dish-1.jpg";
+import RecipeCardDetails from "./RecipeCardDetails";
+import LoadingSpinner from "./LoadingSpinner";
 
 interface RecipeCardProps {
   additionalClass?: string;

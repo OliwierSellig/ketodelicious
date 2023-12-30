@@ -1,13 +1,14 @@
+import { MinusCircleIcon } from "@heroicons/react/24/outline";
+import { UserRecipe } from "@/utils/utilTypes";
 import FilledButton from "@/components/global/FilledButton";
 import Modal from "@/components/global/Modal";
-import { MinusCircleIcon } from "@heroicons/react/24/outline";
 import RemoveAuth from "./RemoveAuth";
 
 interface RemoveCreatedButtonProps {
-  id: string;
+  recipe: UserRecipe;
 }
 
-function RemoveCreatedButton({ id }: RemoveCreatedButtonProps) {
+function RemoveCreatedButton({ recipe }: RemoveCreatedButtonProps) {
   return (
     <Modal>
       <Modal.Open opens="remove-recipe">
@@ -20,7 +21,7 @@ function RemoveCreatedButton({ id }: RemoveCreatedButtonProps) {
         </FilledButton>
       </Modal.Open>
       <Modal.Window name="remove-recipe">
-        <RemoveAuth id={id} />
+        <RemoveAuth recipe={recipe} />
       </Modal.Window>
     </Modal>
   );

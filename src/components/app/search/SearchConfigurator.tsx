@@ -1,10 +1,10 @@
 "use client";
 
-import MaxList from "./MaxList";
 import { BaseSyntheticEvent, useState } from "react";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
-import FilledButton from "@/components/global/FilledButton";
 import { useSearch } from "@/context/SearchContext";
+import FilledButton from "@/components/global/FilledButton";
+import MaxList from "./MaxList";
 import IngredientsBox from "./IngredientsBox";
 
 function SearchConfigurator() {

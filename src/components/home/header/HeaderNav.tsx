@@ -1,7 +1,7 @@
-import HeaderLink from "./HeaderLink";
-import FilledButton from "../../global/FilledButton";
+import { useEffect, useState } from "react";
 import { Bars3Icon } from "@heroicons/react/20/solid";
-import { BaseSyntheticEvent, useEffect, useRef, useState } from "react";
+import FilledButton from "../../global/FilledButton";
+import HeaderLink from "./HeaderLink";
 import MobileCloseButton from "./MobileCloseButton";
 
 function HeaderNav() {

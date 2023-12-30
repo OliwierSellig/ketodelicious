@@ -1,11 +1,10 @@
-import TextInput from "../TextInput";
-
-import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
 import { BaseSyntheticEvent, useState } from "react";
-import AddToRecipeHeader from "../AddToRecipeHeader";
-import AddToRecipeButton from "../AddToRecipeButton";
+import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import toast from "react-hot-toast";
+import AddToRecipeHeader from "../AddToRecipeHeader";
+import AddToRecipeButton from "../AddToRecipeButton";
+import TextInput from "../TextInput";
 
 function AddTag() {
   const [query, setQuery] = useState<string>("");

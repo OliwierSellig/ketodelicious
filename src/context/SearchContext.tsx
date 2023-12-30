@@ -1,7 +1,5 @@
 "use client";
 
-import { fetchRecipes } from "@/lib/recipes";
-import { ChildrenProp, RecipeItemProp } from "@/utils/utilTypes";
 import {
   createContext,
   useContext,
@@ -9,6 +7,8 @@ import {
   useReducer,
   useRef,
 } from "react";
+import { fetchRecipes } from "@/lib/recipes";
+import { ChildrenProp, RecipeItemProp } from "@/utils/utilTypes";
 
 const SearchContext = createContext<ContextType | undefined>(undefined);
 

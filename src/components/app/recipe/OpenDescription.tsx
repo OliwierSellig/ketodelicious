@@ -1,6 +1,6 @@
+import { FullDescriptionProps } from "@/utils/utilTypes";
 import Modal from "@/components/global/Modal";
 import FullDescription from "./FullDescription";
-import { FullDescriptionProps } from "@/utils/utilTypes";
 
 function OpenDescription({ fullDesc, recipeName }: FullDescriptionProps) {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "../../global/Logo";
+import { BaseSyntheticEvent, useRef } from "react";
 import {
   HomeIcon,
   MagnifyingGlassIcon,
@@ -8,11 +8,11 @@ import {
   StarIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import SvgButton from "@/components/global/SvgButton";
+import Logo from "../../global/Logo";
 import FilledButton from "../../global/FilledButton";
 import NavLink from "./NavLink";
-import { BaseSyntheticEvent, useRef } from "react";
-import SvgButton from "@/components/global/SvgButton";
-import { XMarkIcon } from "@heroicons/react/20/solid";
 
 interface VerticalNavigationProps {
   isOpen: boolean;

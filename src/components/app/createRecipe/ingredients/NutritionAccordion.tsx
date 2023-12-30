@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import NutritionInputList from "./NutritionInputList";
-import { useState } from "react";
 
 function NutritionAccordion() {
   const [isOpen, setIsOpen] = useState<boolean>(true);

@@ -1,6 +1,6 @@
-import SvgButton from "@/components/global/SvgButton";
-import { XMarkIcon } from "@heroicons/react/20/solid";
 import { ReactNode } from "react";
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import SvgButton from "@/components/global/SvgButton";
 
 interface AddToRecipeWindowProps {
   onClose: () => void;

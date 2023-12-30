@@ -1,7 +1,7 @@
 "use client";
 
-import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 
 interface AchievementNumberProps {

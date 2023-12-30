@@ -1,5 +1,5 @@
-import Image, { StaticImageData } from "next/image";
 import { ReactNode } from "react";
+import Image, { StaticImageData } from "next/image";
 import AchievementNumber from "./AchievementNumber";
 
 interface AchievementCardProps {

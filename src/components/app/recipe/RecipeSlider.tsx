@@ -1,11 +1,11 @@
+import { useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { RecipeItemProp } from "@/utils/utilTypes";
 import FilledButton from "@/components/global/FilledButton";
 import MainSlide from "./MainSlide";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import IngredientsSlide from "./IngredientsSlide";
 import PreparingSlide from "./PreparingSlide";
-import { useState } from "react";
 import RecipeSlide from "./RecipeSlide";
-import { RecipeItemProp } from "@/utils/utilTypes";
 
 interface RecipeSliderProps {
   recipe: RecipeItemProp;

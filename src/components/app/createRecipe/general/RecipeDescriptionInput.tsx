@@ -1,7 +1,7 @@
+import { BaseSyntheticEvent } from "react";
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import InputCol from "../InputCol";
 import TextareaInput from "../TextareaInput";
-import { BaseSyntheticEvent } from "react";
 
 function RecipeDescriptionInput() {
   const { state: recipe, setDescription } = useCreateRecipe();

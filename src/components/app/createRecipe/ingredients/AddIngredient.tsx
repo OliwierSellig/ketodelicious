@@ -1,13 +1,13 @@
+import { BaseSyntheticEvent, ChangeEvent, useState } from "react";
+import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
+import { IngredientProp } from "@/utils/utilTypes";
+import toast from "react-hot-toast";
 import AmountInput from "../AmountInput";
 import InputCol from "../InputCol";
 import TextInput from "../TextInput";
-import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
 import AddToRecipeHeader from "../AddToRecipeHeader";
 import AddToRecipeButton from "../AddToRecipeButton";
-import { BaseSyntheticEvent, ChangeEvent, useState } from "react";
-import toast from "react-hot-toast";
-import { useCreateRecipe } from "@/context/CreateRecipeContext";
-import { IngredientProp } from "@/utils/utilTypes";
 
 function AddIngredient() {
   const {

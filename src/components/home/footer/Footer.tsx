@@ -1,9 +1,9 @@
-import Logo from "../../global/Logo";
-import SocialIcon from "./SocialIcon";
 import youtube from "../../../../public/svg/youtube.svg";
 import instagram from "../../../../public/svg/instagram.svg";
 import facebook from "../../../../public/svg/facebook.svg";
 import x from "../../../../public/svg/x.svg";
+import Logo from "../../global/Logo";
+import SocialIcon from "./SocialIcon";
 
 const footerLinkClass =
   "hover:text-jade-normal focus:text-jade-normal transition-all duration-150 ease-linear justify-self-start";

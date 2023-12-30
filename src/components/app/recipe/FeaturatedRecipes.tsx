@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react";
 import { fetchRecipes } from "@/lib/recipes";
+import { RecipeItemProp } from "@/utils/utilTypes";
 import RecipeCard from "../../global/RecipeCard";
 import Slider from "../Slider";
-import { useEffect, useState } from "react";
-import { RecipeItemProp } from "@/utils/utilTypes";
 
 interface FeaturedRecipesProps {
   tag: string;

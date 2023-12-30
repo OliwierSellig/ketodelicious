@@ -1,11 +1,11 @@
+import { BaseSyntheticEvent, ChangeEvent, useState } from "react";
+import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
+import toast from "react-hot-toast";
 import InputCol from "../InputCol";
 import TextareaInput from "../TextareaInput";
-import { ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
 import AddToRecipeHeader from "../AddToRecipeHeader";
 import AddToRecipeButton from "../AddToRecipeButton";
-import { useCreateRecipe } from "@/context/CreateRecipeContext";
-import { BaseSyntheticEvent, ChangeEvent, useState } from "react";
-import toast from "react-hot-toast";
 
 function AddPrepStep() {
   const {

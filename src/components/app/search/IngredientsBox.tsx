@@ -1,11 +1,11 @@
+import { BaseSyntheticEvent, Dispatch, SetStateAction, useState } from "react";
 import {
   ArchiveBoxArrowDownIcon,
   ArchiveBoxXMarkIcon,
 } from "@heroicons/react/24/outline";
+import { useSearch } from "@/context/SearchContext";
 import SearchTextInput from "./SearchTextInput";
 import IngredientsItem from "./IngredientsItem";
-import { BaseSyntheticEvent, Dispatch, SetStateAction, useState } from "react";
-import { useSearch } from "@/context/SearchContext";
 
 interface IngredientsBoxProps {
   actionType: "include" | "exclude";

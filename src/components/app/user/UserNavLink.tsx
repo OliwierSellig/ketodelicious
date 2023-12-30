@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ReactComponentElement, ReactElement, ReactNode } from "react";
+import Link from "next/link";
 
 interface UserNavLinkProps {
   to: string;

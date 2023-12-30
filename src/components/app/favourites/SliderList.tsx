@@ -1,7 +1,7 @@
 import { fetchRecipes } from "@/lib/recipes";
+import { RecipeItemProp } from "@/utils/utilTypes";
 import RecipeCard from "../../global/RecipeCard";
 import FavouritesSlider from "./FavouritesSlider";
-import { RecipeItemProp } from "@/utils/utilTypes";
 
 async function SliderList() {
   const timeUnder15 = await fetchRecipes({

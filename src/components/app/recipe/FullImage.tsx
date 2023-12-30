@@ -1,6 +1,6 @@
-import LoadingSpinner from "@/components/global/LoadingSpinner";
-import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import LoadingSpinner from "@/components/global/LoadingSpinner";
 
 interface FullImageProps {
   image: string | StaticImageData;

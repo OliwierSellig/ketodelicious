@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { RecipeItemProp, UserRecipe } from "@/utils/utilTypes";
 import UserListHeader from "./UserListHeader";
 import UserList from "./UserList";
-import { useState } from "react";
 
 interface UserListContainer {
   type: "created" | "bookmarked";

@@ -1,10 +1,10 @@
 "use client";
 
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
+import { RecipeItemProp } from "@/utils/utilTypes";
 import NavButton from "./NavButton";
 import RecipeSpotlightCard from "./RecipeSpotlightCard";
-import { RecipeItemProp } from "@/utils/utilTypes";
 
 interface RecipeContainerProps {
   recipeList: RecipeItemProp[];

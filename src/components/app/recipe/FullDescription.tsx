@@ -1,6 +1,6 @@
-import { FullDescriptionProps } from "@/utils/utilTypes";
 import { NewspaperIcon } from "@heroicons/react/24/outline";
 import { marked } from "marked";
+import { FullDescriptionProps } from "@/utils/utilTypes";
 
 function FullDescription({ fullDesc, recipeName }: FullDescriptionProps) {
   const html = marked(fullDesc);

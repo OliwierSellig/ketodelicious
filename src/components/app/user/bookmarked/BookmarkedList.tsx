@@ -1,7 +1,7 @@
 "use client";
 
-import UserListContainer from "../UserListContainer";
 import { useUser } from "@/context/UserContext";
+import UserListContainer from "../UserListContainer";
 
 function BookmarkedList() {
   const { state: user } = useUser();

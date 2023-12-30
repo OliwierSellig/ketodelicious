@@ -1,7 +1,7 @@
+import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import { StepProp } from "@/utils/utilTypes";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
-import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 
 interface StepItemProps {

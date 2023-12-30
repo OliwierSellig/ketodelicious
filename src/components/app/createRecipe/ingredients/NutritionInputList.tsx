@@ -1,7 +1,7 @@
+import { ChangeEvent } from "react";
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import AmountInput from "../AmountInput";
 import InputRow from "../InputRow";
-import { ChangeEvent } from "react";
 
 interface NutritionInputListProps {
   open: boolean;

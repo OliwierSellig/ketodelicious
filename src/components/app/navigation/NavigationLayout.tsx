@@ -1,10 +1,9 @@
 "use client";
 
 import { ReactNode, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import VerticalNavigation from "./VerticalNavigation";
 import HorizontalNavigation from "./HorizontalNavigation";
-import { Toaster } from "react-hot-toast";
-import { UserProvider } from "@/context/UserContext";
 
 interface NavigationLayoutProps {
   children: ReactNode;

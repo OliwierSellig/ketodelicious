@@ -1,9 +1,9 @@
+import { BookmarkIcon, PlusIcon, UsersIcon } from "@heroicons/react/24/outline";
 import { ChildrenProp } from "@/utils/utilTypes";
 import Image from "next/image";
+import UserNavLink from "@/components/app/user/UserNavLink";
 import bg from "../../../../../public/images/user-bg.png";
 import avatar from "../../../../../public/images/photo-me.png";
-import { BookmarkIcon, PlusIcon, UsersIcon } from "@heroicons/react/24/outline";
-import UserNavLink from "@/components/app/user/UserNavLink";
 
 function UserLayout({ children }: ChildrenProp) {
   return (

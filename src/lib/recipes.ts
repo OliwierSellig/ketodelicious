@@ -1,9 +1,6 @@
 import { RecipeItemProp } from "@/utils/utilTypes";
 
-const KEY = "4450770199msh126e1e41a9aa96cp1059e0jsncc20db639921";
-
 const HOST = "low-carb-recipes.p.rapidapi.com";
-
 const URL = "https://low-carb-recipes.p.rapidapi.com/";
 
 export interface recipeItem {
@@ -79,8 +76,8 @@ export async function fetchRecipes(
       method: "GET",
       signal: signal,
       headers: {
-        "X-RapidAPI-Key": KEY,
-        "X-RapidAPI-Host": HOST,
+        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY || "",
+        "X-RapidAPI-Host": HOST || "",
       },
       next: { revalidate: 120 },
     });
@@ -95,8 +92,8 @@ export async function fetchRecipeById(id: string) {
   const res = await fetch(`${URL}recipes/${id}`, {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": KEY,
-      "X-RapidAPI-Host": HOST,
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY || "",
+      "X-RapidAPI-Host": HOST || "",
     },
     next: { revalidate: 30 },
   });
@@ -109,8 +106,8 @@ export async function fetchRandomRecipe() {
   const res = await fetch(`${URL}random`, {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": KEY,
-      "X-RapidAPI-Host": HOST,
+      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_API_KEY || "",
+      "X-RapidAPI-Host": HOST || "",
     },
     cache: "no-store",
   });

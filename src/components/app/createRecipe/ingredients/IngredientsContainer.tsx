@@ -1,7 +1,7 @@
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import CreateElementsButton from "../CreateElementsButton";
 import NoItemsAlert from "../NoItemsAlert";
 import IngredientsItem from "./IngredientsItem";
-import { useCreateRecipe } from "@/context/CreateRecipeContext";
 
 function IngredientsContainer() {
   const { state: recipes, modifyWindow } = useCreateRecipe();

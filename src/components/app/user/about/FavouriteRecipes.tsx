@@ -1,10 +1,10 @@
 "use client";
 
+import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { useUser } from "@/context/UserContext";
-import Slider from "../../Slider";
 import RecipeCard from "@/components/global/RecipeCard";
 import FilledButton from "@/components/global/FilledButton";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import Slider from "../../Slider";
 function FavouriteRecipes() {
   const { favourites } = useUser();
 

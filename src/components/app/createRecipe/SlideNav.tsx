@@ -1,14 +1,14 @@
-import FilledButton from "@/components/global/FilledButton";
-import SvgButton from "@/components/global/SvgButton";
-import { useCreateRecipe } from "@/context/CreateRecipeContext";
-import { useUser } from "@/context/UserContext";
 import {
   ArrowPathIcon,
   ChevronDownIcon,
   ChevronUpIcon,
 } from "@heroicons/react/20/solid";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { useCreateRecipe } from "@/context/CreateRecipeContext";
+import { useUser } from "@/context/UserContext";
 import toast from "react-hot-toast";
+import FilledButton from "@/components/global/FilledButton";
+import SvgButton from "@/components/global/SvgButton";
 
 function SlideNav() {
   const { checkInCreated } = useUser();

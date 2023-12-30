@@ -1,5 +1,6 @@
 "use client";
 
+import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   ActivityProp,
   BookmarkedRecipeItem,
@@ -8,7 +9,6 @@ import {
   UserRecipe,
   actionType,
 } from "@/utils/utilTypes";
-import { createContext, useContext, useEffect, useReducer } from "react";
 import { doubleDigit } from "@/utils/utilFunctions";
 
 const UserContext = createContext<ContextType | undefined>(undefined);
@@ -32,7 +32,7 @@ interface ContextType {
     recipeItem: RecipeItemProp | UserRecipe,
   ) => void;
   addToCreated: (item: UserRecipe) => void;
-  removeFromCreated: (id: string) => void;
+  removeFromCreated: (item: UserRecipe) => void;
   checkInCreated: (name: string) => boolean;
   getCreatedById: (id: string) => UserRecipe | undefined;
 }
@@ -115,6 +115,10 @@ function UserProvider({ children }: ChildrenProp) {
 
     dispatch({ type: REDUCER_ACTION_TYPE.SET_INITIAL_RENDER });
   }, []);
+
+  // --------------------------------------------
+
+  // ---------- Saving Data To Local Storage ---------------------------
 
   useEffect(() => {
     if (!state.initialRender)
@@ -218,12 +222,14 @@ function UserProvider({ children }: ChildrenProp) {
     const newArr = [...state.created, item];
 
     dispatch({ type: REDUCER_ACTION_TYPE.SET_CREATED, payload: newArr });
+    addActivity("created", item);
   }
 
-  function removeFromCreated(id: string) {
-    const filteredArr = state.created.filter((recipe) => recipe.id !== id);
+  function removeFromCreated(item: UserRecipe) {
+    const filteredArr = state.created.filter((recipe) => recipe.id !== item.id);
 
     dispatch({ type: REDUCER_ACTION_TYPE.SET_CREATED, payload: filteredArr });
+    addActivity("deleted", item);
   }
 
   function checkInCreated(name: string) {

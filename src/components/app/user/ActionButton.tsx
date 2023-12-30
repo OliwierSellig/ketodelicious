@@ -1,5 +1,5 @@
-import FilledButton from "@/components/global/FilledButton";
 import { MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/20/solid";
+import FilledButton from "@/components/global/FilledButton";
 import OpenRecipeCreator from "../createRecipe/OpenRecipeCreator";
 
 interface ActionButtonProps {

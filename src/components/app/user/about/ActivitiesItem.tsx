@@ -1,4 +1,3 @@
-import { ActivityProp } from "@/utils/utilTypes";
 import {
   PlusCircleIcon,
   BookmarkIcon,
@@ -7,6 +6,7 @@ import {
   XCircleIcon,
   HeartIcon,
 } from "@heroicons/react/24/outline";
+import { ActivityProp } from "@/utils/utilTypes";
 import Link from "next/link";
 
 interface ActivityItemProps {

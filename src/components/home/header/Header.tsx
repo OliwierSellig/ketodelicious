@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import HeaderNav from "./HeaderNav";
 import Logo from "../../global/Logo";
+import HeaderNav from "./HeaderNav";
 
 function Header() {
   const [isSticky, setIsSticky] = useState<boolean>(false);

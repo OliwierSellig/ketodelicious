@@ -1,5 +1,6 @@
 "use client";
 
+import { createContext, useContext, useReducer } from "react";
 import {
   ChildrenProp,
   IngredientProp,
@@ -7,10 +8,11 @@ import {
   UserNutritionItem,
   UserRecipe,
 } from "@/utils/utilTypes";
-import { createContext, useContext, useReducer } from "react";
 import { useUser } from "./UserContext";
 
 const CreateRecipeContext = createContext<ContextType | undefined>(undefined);
+
+// ------------ Setting Types -------------
 
 interface ContextType {
   state: stateProps;
@@ -217,7 +219,11 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
   const { addToCreated, addActivity } = useUser();
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  console.log(state);
+  // -----------------------------------------------------
+  // ------------ Recipe Data Modifinactions -------------
+  // -----------------------------------------------------
+
+  // ------------ Name & Description & Tags -------------
 
   function setName(name: string) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_NAME, payload: name });
@@ -232,6 +238,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_TAGS, payload: newArr });
   }
 
+  // -------------------------------------------------
+
+  // ------------ CookTime & PrepTime & Calories -------------
+
   function setCookTime(time: string) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_COOKING_TIME, payload: time });
   }
@@ -241,6 +251,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
   function setCalories(calories: string) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_CALORIES, payload: calories });
   }
+
+  // -------------------------------------------------
+
+  // ------------------- Nutrition -------------------
 
   function setNutrition(nutrient: NutrientType, amount: string) {
     function setNewTable() {
@@ -269,6 +283,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_NUTRITION, payload: table });
   }
 
+  // -------------------------------------------------
+
+  // ------------------- Ingredients ------------------
+
   function checkInIngredients(ingName: string) {
     return state.ingredients.map((ing) => ing.name).includes(ingName);
   }
@@ -292,6 +310,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
 
     dispatch({ type: REDUCER_ACTION_TYPE.SET_INGREDIENTS, payload: newList });
   }
+
+  // -------------------------------------------------
+
+  // ---------------------- Steps ---------------------
 
   function addStep(item: string) {
     if (state.prepareSteps.map((step) => step.step).includes(item)) return;
@@ -388,6 +410,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     return !isBorder;
   }
 
+  // -------------------------------------------------
+
+  // --------- Recipe Creation Function --------------
+
   function createRecipe() {
     const newRecipe: UserRecipe = {
       name: state.name,
@@ -414,6 +440,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     addToCreated(newRecipe);
     addActivity("created", newRecipe);
   }
+
+  // -------------------------------------------------
+
+  // ------------ Window Modifications ---------------
 
   function modifyWindow(action: "open" | "close", windowItem: WindowTypes) {
     const act = action === "open" ? true : false;
@@ -465,6 +495,20 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     });
   }
 
+  function checkWindowsOpen() {
+    return (
+      state.windowsOptions.addIngredient.isOpen ||
+      state.windowsOptions.addStep.isOpen ||
+      state.windowsOptions.addTag.isOpen ||
+      state.windowsOptions.reset.isOpen ||
+      state.windowsOptions.create.isOpen
+    );
+  }
+
+  // -------------------------------------------------
+
+  // ---------------- Iterator -----------------------
+
   function canModifyIterator(type: "increment" | "decrement") {
     return type === "increment" ? state.iterator < 2 : state.iterator > 0;
   }
@@ -479,16 +523,6 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     if (canModifyIterator("decrement")) {
       dispatch({ type: REDUCER_ACTION_TYPE.DECREMENT_ITERATOR });
     }
-  }
-
-  function checkWindowsOpen() {
-    return (
-      state.windowsOptions.addIngredient.isOpen ||
-      state.windowsOptions.addStep.isOpen ||
-      state.windowsOptions.addTag.isOpen ||
-      state.windowsOptions.reset.isOpen ||
-      state.windowsOptions.create.isOpen
-    );
   }
 
   function canProceed(type: "general" | "ingredients" | "create") {
@@ -513,9 +547,15 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     }
   }
 
+  // -------------------------------------------------
+
+  // ---------------- State Reset --------------------
+
   function resetState() {
     dispatch({ type: REDUCER_ACTION_TYPE.RESET });
   }
+
+  // -------------------------------------------------
 
   return (
     <CreateRecipeContext.Provider

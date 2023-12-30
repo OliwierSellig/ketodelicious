@@ -1,5 +1,5 @@
-import FilledButton from "@/components/global/FilledButton";
 import { DocumentArrowUpIcon } from "@heroicons/react/24/outline";
+import FilledButton from "@/components/global/FilledButton";
 
 function RecipeImageInput() {
   return (

@@ -1,6 +1,6 @@
+import { BaseSyntheticEvent } from "react";
 import { useSearch } from "@/context/SearchContext";
 import SearchTextInput from "./SearchTextInput";
-import { BaseSyntheticEvent } from "react";
 
 interface MaxListProps {
   isOpen: boolean;

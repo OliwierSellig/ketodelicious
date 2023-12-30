@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { fetchRandomRecipe } from "@/lib/recipes";
+import { RecipeItemProp } from "@/utils/utilTypes";
 import LoadingWindow from "@/components/global/LoadingWindow";
 import RandomRecipeCard from "./RandomRecipeCard";
 import RandomRecipeRoll from "./RandomRecipeRoll";
-import { RecipeItemProp } from "@/utils/utilTypes";
 
 function RandomRecipeContainer() {
   const [randomRecipe, setRandomRecipe] = useState<RecipeItemProp | null>(null);

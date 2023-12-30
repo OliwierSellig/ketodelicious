@@ -1,6 +1,6 @@
+import { PencilSquareIcon } from "@heroicons/react/20/solid";
 import FilledButton from "@/components/global/FilledButton";
 import InfoBox from "./InfoBox";
-import { PencilSquareIcon } from "@heroicons/react/20/solid";
 
 function AboutInfo() {
   return (

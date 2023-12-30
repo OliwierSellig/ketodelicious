@@ -1,13 +1,13 @@
-import FilledButton from "@/components/global/FilledButton";
 import { useUser } from "@/context/UserContext";
-import { useRouter } from "next/router";
+import { UserRecipe } from "@/utils/utilTypes";
 import toast from "react-hot-toast";
+import FilledButton from "@/components/global/FilledButton";
 
 interface RemoveAuthProps {
-  id: string;
+  recipe: UserRecipe;
 }
 
-function RemoveAuth({ id }: RemoveAuthProps) {
+function RemoveAuth({ recipe }: RemoveAuthProps) {
   const { removeFromCreated } = useUser();
 
   return (
@@ -22,7 +22,7 @@ function RemoveAuth({ id }: RemoveAuthProps) {
         size="xl"
         destination="/app"
         handleClick={() => {
-          removeFromCreated(id);
+          removeFromCreated(recipe);
           toast.success("Recipe removed succesfully!");
         }}
       >

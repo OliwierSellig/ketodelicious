@@ -1,10 +1,10 @@
 "use client";
 
-import { useSearch } from "@/context/SearchContext";
-import RecipeCard from "../../global/RecipeCard";
-import PaginationNavigation from "./PaginationNavigation";
-import LoadingSpinner from "@/components/global/LoadingSpinner";
 import { FaceFrownIcon } from "@heroicons/react/24/outline";
+import { useSearch } from "@/context/SearchContext";
+import LoadingSpinner from "@/components/global/LoadingSpinner";
+import RecipeCard from "../../global/RecipeCard";
+import PaginationNavigation from "../PaginationNavigation";
 
 const PAGE_COUNT = 8;
 

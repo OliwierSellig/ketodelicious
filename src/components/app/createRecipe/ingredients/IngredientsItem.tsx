@@ -1,6 +1,6 @@
+import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import { useCreateRecipe } from "@/context/CreateRecipeContext";
 import { IngredientProp } from "@/utils/utilTypes";
-import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
 
 interface IngredientItemProps {

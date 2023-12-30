@@ -1,4 +1,3 @@
-import FilledButton from "@/components/global/FilledButton";
 import {
   MagnifyingGlassIcon,
   ArrowPathIcon,

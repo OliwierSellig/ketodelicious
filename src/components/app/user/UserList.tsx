@@ -1,10 +1,10 @@
 "use client";
 
-import RecipeCard from "@/components/global/RecipeCard";
-import { RecipeItemProp, UserRecipe } from "@/utils/utilTypes";
 import { Dispatch, SetStateAction } from "react";
-import PaginationNavigation from "../search/PaginationNavigation";
 import { EyeIcon } from "@heroicons/react/24/outline";
+import { RecipeItemProp, UserRecipe } from "@/utils/utilTypes";
+import RecipeCard from "@/components/global/RecipeCard";
+import PaginationNavigation from "../PaginationNavigation";
 import ActionButton from "./ActionButton";
 
 interface UserListProps {

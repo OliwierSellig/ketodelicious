@@ -4,11 +4,10 @@ import {
   TagIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import AboutBox from "./AboutBox";
-
 import ActivitiesList from "./ActivitiesList";
-import TagList from "./TagList";
 import IngredientsList from "./IngredientsList";
+import TagList from "./TagList";
+import AboutBox from "./AboutBox";
 import AboutInfo from "./AboutInfo";
 
 function CardsGrid() {

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef, ReactNode } from "react";
-import { motion, useMotionValue } from "framer-motion";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/20/solid";
+import { motion, useMotionValue } from "framer-motion";
 
 interface SliderProps {
   children: ReactNode;

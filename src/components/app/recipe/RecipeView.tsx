@@ -1,16 +1,16 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { fetchRecipeById } from "@/lib/recipes";
-import { RecipeItemProp, UserRecipe } from "@/utils/utilTypes";
-import FeaturatedRecipes from "./FeaturatedRecipes";
+import { useUser } from "@/context/UserContext";
 import { getRandomInt } from "@/utils/utilFunctions";
+import { RecipeItemProp, UserRecipe } from "@/utils/utilTypes";
+import LoadingWindow from "@/components/global/LoadingWindow";
+import FeaturatedRecipes from "./FeaturatedRecipes";
 import RecipeNotFound from "./RecipeNotFound";
 import RecipeImage from "./RecipeImage";
 import RecipeSlider from "./RecipeSlider";
 import ToggleRecipeButton from "./ToggleRecipeButton";
-import { useEffect, useState } from "react";
-import { useUser } from "@/context/UserContext";
-import LoadingWindow from "@/components/global/LoadingWindow";
 
 interface RecipeViewProps {
   recipeId: string;

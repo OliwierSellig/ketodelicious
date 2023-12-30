@@ -1,7 +1,5 @@
 "use client";
 
-import { ChildrenProp } from "@/utils/utilTypes";
-import { XMarkIcon } from "@heroicons/react/20/solid";
 import {
   Dispatch,
   ReactElement,
@@ -9,11 +7,12 @@ import {
   cloneElement,
   createContext,
   useContext,
-  useEffect,
   useRef,
   useState,
 } from "react";
 import { createPortal } from "react-dom";
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import { ChildrenProp } from "@/utils/utilTypes";
 
 interface ModalContextProps {
   openName: string;

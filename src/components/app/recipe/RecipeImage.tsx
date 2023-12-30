@@ -1,10 +1,10 @@
-import Modal from "@/components/global/Modal";
-import FullImage from "./FullImage";
-import Image from "next/image";
 import { useState } from "react";
-import LoadingSpinner from "@/components/global/LoadingSpinner";
 import { RecipeItemProp } from "@/utils/utilTypes";
+import Image from "next/image";
+import Modal from "@/components/global/Modal";
+import LoadingSpinner from "@/components/global/LoadingSpinner";
 import previewImage from "../../../../public/images/dish-1.jpg";
+import FullImage from "./FullImage";
 import AddFavouriteButton from "./AddFavouriteButton";
 
 interface RecipeImageProps {

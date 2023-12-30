@@ -1,9 +1,8 @@
 "use client";
 
+import { Link } from "react-scroll";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 import FilledButton from "../../global/FilledButton";
-
-import { Link } from "react-scroll";
 
 function HeroButtons() {
   return (

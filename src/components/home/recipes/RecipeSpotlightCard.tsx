@@ -1,5 +1,5 @@
-import RecipeCard from "@/components/global/RecipeCard";
 import { RecipeItemProp } from "@/utils/utilTypes";
+import RecipeCard from "@/components/global/RecipeCard";
 
 interface RecipeSpotlightCardProps {
   index: number;
