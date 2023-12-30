@@ -8,11 +8,11 @@ function StepList() {
   if (recipes.prepareSteps.length < 1) return <NoItemsAlert name="steps" />;
 
   return (
-    <div className="recipe-scroll flex-grow overflow-y-scroll">
+    <div className="recipe-scroll mb-4 flex flex-grow flex-col overflow-y-scroll">
       <p className="font-mdeium text-center font-kalam text-4xl text-gray-tint-2">
         Start
       </p>
-      <ul className="flex  flex-col gap-4 px-4 py-6 sm:px-2 sm:py-4">
+      <ul className="flex  flex-grow flex-col gap-4 px-4 py-6 sm:px-2 sm:py-4">
         {getSortedSteps().map((step, i) => (
           <StepItem step={step} key={i}></StepItem>
         ))}

@@ -1,23 +1,19 @@
-"use client";
 import Modal from "@/components/global/Modal";
 import FullImage from "./FullImage";
 import Image from "next/image";
 import { useState } from "react";
 import LoadingSpinner from "@/components/global/LoadingSpinner";
-import { HeartIcon } from "@heroicons/react/24/outline";
-import { HeartIcon as HeartIconFull } from "@heroicons/react/24/solid";
-import toast from "react-hot-toast";
-import { useUser } from "@/context/UserContext";
 import { RecipeItemProp } from "@/utils/utilTypes";
+import previewImage from "../../../../public/images/dish-1.jpg";
+import AddFavouriteButton from "./AddFavouriteButton";
 
 interface RecipeImageProps {
   recipe: RecipeItemProp;
+  isCreated: boolean;
 }
 
-function RecipeImage({ recipe }: RecipeImageProps) {
-  const { checkIsFavourite, addToBookmarked } = useUser();
+function RecipeImage({ recipe, isCreated }: RecipeImageProps) {
   const [hasLoadedImage, setHasLoadedImage] = useState(false);
-  const isFav = checkIsFavourite(recipe.id);
 
   return (
     <div className="relative mb-2 w-full">
@@ -35,10 +31,11 @@ function RecipeImage({ recipe }: RecipeImageProps) {
               <Image
                 alt=""
                 className="z-30 object-cover"
-                src={recipe.image}
+                src={recipe.image || previewImage}
                 fill
                 sizes="60vw"
                 onLoad={() => setHasLoadedImage(true)}
+                priority={true}
               />
             </div>
             <h1
@@ -54,30 +51,10 @@ function RecipeImage({ recipe }: RecipeImageProps) {
           </button>
         </Modal.Open>
         <Modal.Window name="recipe-image">
-          <FullImage image={recipe.image} />
+          <FullImage image={recipe.image || previewImage} />
         </Modal.Window>
       </Modal>
-      <div className="absolute  right-8 top-0 z-50 rounded-bl-2xl rounded-br-2xl bg-jade-shade-2 p-2 pt-6">
-        <button
-          onClick={() => {
-            if (!isFav) {
-              addToBookmarked(recipe, true, "favored");
-              toast.success("Succesfully added as favourite");
-            } else {
-              addToBookmarked(recipe, false, "unfavored");
-              toast.success("Succesfully removed as favourite");
-            }
-          }}
-          className="[&:focus>svg]:scale-105 [&:hover>svg]:scale-105"
-          aria-label={isFav ? "Remove from favourites" : "Add to favourites"}
-        >
-          {isFav ? (
-            <HeartIconFull className="h-10 w-10 animate-[scaleUp_0.4s] fill-white-normal transition-all duration-200 ease-linear sm:h-8 sm:w-8" />
-          ) : (
-            <HeartIcon className="h-10 w-10 stroke-white-normal transition-all  duration-200 ease-linear sm:h-8 sm:w-8" />
-          )}
-        </button>
-      </div>
+      {!isCreated && <AddFavouriteButton recipe={recipe} />}
     </div>
   );
 }

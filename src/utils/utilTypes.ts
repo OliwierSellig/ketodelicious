@@ -38,7 +38,7 @@ export type NutritionListProps = {
   sugar: number;
   fiber: number;
   protein: number;
-  fat: number;
+  totalFat: number;
   transFat: number;
 };
 
@@ -79,4 +79,28 @@ export type actionType =
 export type StepProp = {
   pos: number;
   step: string;
+};
+
+export type UserNutritionItem = {
+  netCarbs?: string;
+  totalCarbs?: string;
+  sugar?: string;
+  fiber?: string;
+  protein?: string;
+  totalFat?: string;
+  transFat?: string;
+};
+
+export type UserRecipe = {
+  name: string;
+  description: string;
+  id: string;
+  image: string;
+  tags: string[];
+  cookTime: number;
+  prepareTime: number;
+
+  nutrients: NutritionListProps;
+  ingredients: IngredientProp[];
+  steps: string[];
 };

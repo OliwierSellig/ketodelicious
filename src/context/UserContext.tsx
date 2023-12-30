@@ -5,6 +5,7 @@ import {
   BookmarkedRecipeItem,
   ChildrenProp,
   RecipeItemProp,
+  UserRecipe,
   actionType,
 } from "@/utils/utilTypes";
 import { createContext, useContext, useEffect, useReducer } from "react";
@@ -26,19 +27,28 @@ interface ContextType {
   ) => void;
   removeFromBookmarked: (recipeItem: RecipeItemProp) => void;
   getFilteredList: (type: "ingredients" | "tags") => (string | number)[][];
-  addActivity: (type: actionType, recipeItem: RecipeItemProp) => void;
+  addActivity: (
+    type: actionType,
+    recipeItem: RecipeItemProp | UserRecipe,
+  ) => void;
+  addToCreated: (item: UserRecipe) => void;
+  removeFromCreated: (id: string) => void;
+  checkInCreated: (name: string) => boolean;
+  getCreatedById: (id: string) => UserRecipe | undefined;
 }
 
 interface stateProps {
   bookmarked: BookmarkedRecipeItem[];
-  created: RecipeItemProp[];
+  created: UserRecipe[];
   activities: ActivityProp[];
+  initialRender: boolean;
 }
 
 const enum REDUCER_ACTION_TYPE {
   SET_BOOKMARKED,
   SET_CREATED,
   SET_ACTIVITIES,
+  SET_INITIAL_RENDER,
 }
 
 type ReducerAction =
@@ -48,26 +58,21 @@ type ReducerAction =
     }
   | {
       type: REDUCER_ACTION_TYPE.SET_CREATED;
-      payload: RecipeItemProp[];
+      payload: UserRecipe[];
     }
-  | { type: REDUCER_ACTION_TYPE.SET_ACTIVITIES; payload: ActivityProp[] };
+  | { type: REDUCER_ACTION_TYPE.SET_ACTIVITIES; payload: ActivityProp[] }
+  | { type: REDUCER_ACTION_TYPE.SET_INITIAL_RENDER };
 
 // --------------------------------------------
 
 // ---------- Initial State and Reducer Function ---------------------------
 
-const initialState: stateProps =
-  typeof window !== "undefined"
-    ? {
-        bookmarked: localStorage.getItem("bookmarked")
-          ? JSON.parse(localStorage.getItem("bookmarked") || "")
-          : [],
-        created: [],
-        activities: localStorage.getItem("activities")
-          ? JSON.parse(localStorage.getItem("activities") || "")
-          : [],
-      }
-    : { bookmarked: [], created: [], activities: [] };
+const initialState: stateProps = {
+  bookmarked: [],
+  created: [],
+  activities: [],
+  initialRender: true,
+};
 
 function reducer(state: stateProps, action: ReducerAction): stateProps {
   switch (action.type) {
@@ -77,6 +82,8 @@ function reducer(state: stateProps, action: ReducerAction): stateProps {
       return { ...state, created: action.payload };
     case REDUCER_ACTION_TYPE.SET_ACTIVITIES:
       return { ...state, activities: action.payload };
+    case REDUCER_ACTION_TYPE.SET_INITIAL_RENDER:
+      return { ...state, initialRender: false };
     default:
       throw new Error("Undefined reducer action");
   }
@@ -89,15 +96,40 @@ function UserProvider({ children }: ChildrenProp) {
 
   const favourites = state.bookmarked.filter((recipe) => recipe.isFavourite);
 
-  // ---------- Saving Into Local Storage ---------------------------
+  // ---------- Getting Data From Local Storage ---------------------------
 
   useEffect(() => {
-    localStorage.setItem("bookmarked", JSON.stringify(state.bookmarked));
-  }, [state.bookmarked]);
+    dispatch({
+      type: REDUCER_ACTION_TYPE.SET_BOOKMARKED,
+      payload: JSON.parse(localStorage.getItem("bookmarked") || ""),
+    });
+
+    dispatch({
+      type: REDUCER_ACTION_TYPE.SET_CREATED,
+      payload: JSON.parse(localStorage.getItem("created") || ""),
+    });
+    dispatch({
+      type: REDUCER_ACTION_TYPE.SET_ACTIVITIES,
+      payload: JSON.parse(localStorage.getItem("activities") || ""),
+    });
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_INITIAL_RENDER });
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem("activities", JSON.stringify(state.activities));
-  }, [state.activities]);
+    if (!state.initialRender)
+      localStorage.setItem("bookmarked", JSON.stringify(state.bookmarked));
+  }, [state.bookmarked, state.initialRender]);
+
+  useEffect(() => {
+    if (!state.initialRender)
+      localStorage.setItem("activities", JSON.stringify(state.activities));
+  }, [state.activities, state.initialRender]);
+
+  useEffect(() => {
+    if (!state.initialRender)
+      localStorage.setItem("created", JSON.stringify(state.created));
+  }, [state.created, state.initialRender]);
 
   // --------------------------------------------
 
@@ -159,7 +191,10 @@ function UserProvider({ children }: ChildrenProp) {
     return elementCounts.sort((a, b) => Number(b[1]) - Number(a[1]));
   }
 
-  function addActivity(type: actionType, recipeItem: RecipeItemProp) {
+  function addActivity(
+    type: actionType,
+    recipeItem: RecipeItemProp | UserRecipe,
+  ) {
     const currentDate = new Date();
     const dateString = `${doubleDigit(currentDate.getDate())}.${doubleDigit(
       currentDate.getMonth() + 1,
@@ -179,6 +214,28 @@ function UserProvider({ children }: ChildrenProp) {
     dispatch({ type: REDUCER_ACTION_TYPE.SET_ACTIVITIES, payload: newArr });
   }
 
+  function addToCreated(item: UserRecipe) {
+    const newArr = [...state.created, item];
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_CREATED, payload: newArr });
+  }
+
+  function removeFromCreated(id: string) {
+    const filteredArr = state.created.filter((recipe) => recipe.id !== id);
+
+    dispatch({ type: REDUCER_ACTION_TYPE.SET_CREATED, payload: filteredArr });
+  }
+
+  function checkInCreated(name: string) {
+    return state.created
+      .map((recipe) => recipe.name.toLowerCase())
+      .includes(name.toLowerCase());
+  }
+
+  function getCreatedById(id: string) {
+    return state.created.find((recipe) => recipe.id === id);
+  }
+
   // --------------------------------------------
 
   return (
@@ -192,6 +249,10 @@ function UserProvider({ children }: ChildrenProp) {
         addToBookmarked,
         removeFromBookmarked,
         addActivity,
+        addToCreated,
+        removeFromCreated,
+        checkInCreated,
+        getCreatedById,
       }}
     >
       {children}

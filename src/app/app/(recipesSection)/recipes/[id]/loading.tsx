@@ -1,7 +1,7 @@
 import LoadingWindow from "@/components/global/LoadingWindow";
 
 function loading() {
-  return <LoadingWindow name="Your Recipe" />;
+  return <LoadingWindow name="Recipe" />;
 }
 
 export default loading;

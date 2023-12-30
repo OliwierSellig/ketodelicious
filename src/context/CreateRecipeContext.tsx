@@ -1,7 +1,14 @@
 "use client";
 
-import { ChildrenProp, IngredientProp, StepProp } from "@/utils/utilTypes";
+import {
+  ChildrenProp,
+  IngredientProp,
+  StepProp,
+  UserNutritionItem,
+  UserRecipe,
+} from "@/utils/utilTypes";
 import { createContext, useContext, useReducer } from "react";
+import { useUser } from "./UserContext";
 
 const CreateRecipeContext = createContext<ContextType | undefined>(undefined);
 
@@ -32,7 +39,9 @@ interface ContextType {
   canModifyIterator: (type: "increment" | "decrement") => boolean;
   incrementIterator: () => void;
   decrementIterator: () => void;
-  canProceed: (type: "general" | "ingredients") => boolean;
+  canProceed: (type: "general" | "ingredients" | "create") => boolean;
+  resetState: () => void;
+  createRecipe: () => void;
 }
 
 interface stateProps {
@@ -43,7 +52,7 @@ interface stateProps {
   cookingTime: string;
   prepareTime: string;
   calories: string;
-  nutrition: NutritionItem;
+  nutrition: UserNutritionItem;
   ingredients: IngredientProp[];
   prepareSteps: StepProp[];
   windowsOptions: WindowItem;
@@ -54,22 +63,16 @@ type WindowItem = {
   addTag: { isOpen: boolean; tag: string };
   addIngredient: { isOpen: boolean; ingredient: IngredientProp };
   addStep: { isOpen: boolean; step: string };
-};
-
-type NutritionItem = {
-  netCarbs: string;
-  totalCarbs: string;
-  sugar: string;
-  fiber: string;
-  protein: string;
-  totalFat: string;
-  transFat: string;
+  reset: { isOpen: boolean };
+  create: { isOpen: boolean };
 };
 
 type WindowTypes =
   | { name: "tag"; tag?: string }
   | { name: "ing"; ingredient?: IngredientProp }
-  | { name: "step"; step?: string };
+  | { name: "step"; step?: string }
+  | { name: "reset" }
+  | { name: "create" };
 
 type NutrientType =
   | "netCarbs"
@@ -94,6 +97,7 @@ const enum REDUCER_ACTION_TYPE {
   SET_WINDOW_OPEN,
   INCREMENT_ITERATOR,
   DECREMENT_ITERATOR,
+  RESET,
 }
 
 type ReducerAction =
@@ -109,14 +113,15 @@ type ReducerAction =
     }
   | { type: REDUCER_ACTION_TYPE.SET_TAGS; payload: string[] }
   | { type: REDUCER_ACTION_TYPE.SET_PREPARE_STEPS; payload: StepProp[] }
-  | { type: REDUCER_ACTION_TYPE.SET_NUTRITION; payload: NutritionItem }
+  | { type: REDUCER_ACTION_TYPE.SET_NUTRITION; payload: UserNutritionItem }
   | { type: REDUCER_ACTION_TYPE.SET_INGREDIENTS; payload: IngredientProp[] }
   | { type: REDUCER_ACTION_TYPE.SET_WINDOW_OPEN; payload: WindowItem }
   | {
       type:
         | REDUCER_ACTION_TYPE.INCREMENT_ITERATOR
         | REDUCER_ACTION_TYPE.DECREMENT_ITERATOR;
-    };
+    }
+  | { type: REDUCER_ACTION_TYPE.RESET };
 
 // --------------------------------------------
 
@@ -160,6 +165,12 @@ const initialState: stateProps = {
       isOpen: false,
       step: "",
     },
+    reset: {
+      isOpen: false,
+    },
+    create: {
+      isOpen: false,
+    },
   },
   iterator: 0,
 };
@@ -192,6 +203,9 @@ function reducer(state: stateProps, action: ReducerAction): stateProps {
       return { ...state, iterator: state.iterator + 1 };
     case REDUCER_ACTION_TYPE.DECREMENT_ITERATOR:
       return { ...state, iterator: state.iterator - 1 };
+    case REDUCER_ACTION_TYPE.RESET: {
+      return initialState;
+    }
     default:
       throw new Error("Undefined reducer action");
   }
@@ -200,6 +214,7 @@ function reducer(state: stateProps, action: ReducerAction): stateProps {
 // --------------------------------------------
 
 function CreateRecipeProvider({ children }: ChildrenProp) {
+  const { addToCreated, addActivity } = useUser();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   console.log(state);
@@ -373,6 +388,33 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     return !isBorder;
   }
 
+  function createRecipe() {
+    const newRecipe: UserRecipe = {
+      name: state.name,
+      description: state.description,
+      id: (Math.random() * 1000000).toString(),
+      tags: state.tags,
+      image: "",
+      prepareTime: parseFloat(state.prepareTime),
+      cookTime: parseFloat(state.cookingTime),
+      nutrients: {
+        caloriesKCal: parseFloat(state.calories),
+        netCarbs: parseFloat(state.nutrition.netCarbs || "-1"),
+        totalCarbs: parseFloat(state.nutrition.totalCarbs || "-1"),
+        sugar: parseFloat(state.nutrition.sugar || "-1"),
+        fiber: parseFloat(state.nutrition.fiber || "-1"),
+        protein: parseFloat(state.nutrition.protein || "-1"),
+        totalFat: parseFloat(state.nutrition.totalFat || "-1"),
+        transFat: parseFloat(state.nutrition.transFat || "-1"),
+      },
+      ingredients: state.ingredients,
+      steps: getSortedSteps().map((step) => step.step),
+    };
+
+    addToCreated(newRecipe);
+    addActivity("created", newRecipe);
+  }
+
   function modifyWindow(action: "open" | "close", windowItem: WindowTypes) {
     const act = action === "open" ? true : false;
     function setNewWindow() {
@@ -407,6 +449,10 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
               step: windowItem.step && action === "open" ? windowItem.step : "",
             },
           };
+        case "reset":
+          return { ...state.windowsOptions, reset: { isOpen: act } };
+        case "create":
+          return { ...state.windowsOptions, create: { isOpen: act } };
         default:
           throw new Error("Undefined Window");
       }
@@ -439,11 +485,13 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
     return (
       state.windowsOptions.addIngredient.isOpen ||
       state.windowsOptions.addStep.isOpen ||
-      state.windowsOptions.addTag.isOpen
+      state.windowsOptions.addTag.isOpen ||
+      state.windowsOptions.reset.isOpen ||
+      state.windowsOptions.create.isOpen
     );
   }
 
-  function canProceed(type: "general" | "ingredients") {
+  function canProceed(type: "general" | "ingredients" | "create") {
     switch (type) {
       case "general":
         return (
@@ -452,10 +500,21 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
           state.tags.length >= 5
         );
       case "ingredients":
-        return true;
+        return (
+          state.cookingTime !== "" &&
+          state.prepareTime !== "" &&
+          state.calories !== "" &&
+          state.ingredients.length >= 3
+        );
+      case "create":
+        return state.prepareSteps.length >= 1;
       default:
         throw new Error("Undefined Type");
     }
+  }
+
+  function resetState() {
+    dispatch({ type: REDUCER_ACTION_TYPE.RESET });
   }
 
   return (
@@ -483,6 +542,8 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
         setPrepTime,
         setCookTime,
         setCalories,
+        resetState,
+        createRecipe,
       }}
     >
       {children}

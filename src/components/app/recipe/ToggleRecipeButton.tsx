@@ -1,5 +1,3 @@
-"use client";
-
 import { BookmarkIcon, BookmarkSlashIcon } from "@heroicons/react/24/outline";
 import { BookmarkIcon as BookmarkIconFull } from "@heroicons/react/24/solid";
 import FilledButton from "@/components/global/FilledButton";
@@ -7,12 +5,14 @@ import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { useUser } from "@/context/UserContext";
 import { RecipeItemProp } from "@/utils/utilTypes";
+import RemoveCreatedButton from "./RemoveCreatedButton";
 
 interface ToggleRecipeButtonProps {
   recipe: RecipeItemProp;
+  isCreated: boolean;
 }
 
-function ToggleRecipeButton({ recipe }: ToggleRecipeButtonProps) {
+function ToggleRecipeButton({ recipe, isCreated }: ToggleRecipeButtonProps) {
   const { checkInBookmarked, addToBookmarked, removeFromBookmarked } =
     useUser();
   const [ad, setAd] = useState<string>("");
@@ -32,6 +32,8 @@ function ToggleRecipeButton({ recipe }: ToggleRecipeButtonProps) {
       };
     }
   }, [bookmarked]);
+
+  if (isCreated) return <RemoveCreatedButton id={recipe.id} />;
 
   return (
     <FilledButton

@@ -11,6 +11,13 @@ const PAGE_COUNT = 8;
 function SearchRecipeList() {
   const { state: search, modifyIterator } = useSearch();
 
+  if (search.isLoading)
+    return (
+      <div className="flex h-full w-full flex-grow items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
+
   if (!search.isLoading && search.recipeList.length < 1) {
     return (
       <div className="flex h-full w-full flex-grow items-center justify-center ">
@@ -21,12 +28,6 @@ function SearchRecipeList() {
       </div>
     );
   }
-  if (search.isLoading)
-    return (
-      <div className="flex h-full w-full flex-grow items-center justify-center">
-        <LoadingSpinner />
-      </div>
-    );
   return (
     <>
       <nav className="mb-8 grid w-full max-w-[1800px]  animate-[scaleOpacity_0.8s] grid-cols-4 items-stretch gap-x-4 gap-y-6 xxxl:grid-cols-3 lg:grid-cols-2 sm:w-full sm:animate-[fadeRight_0.8s] sm:grid-cols-1 ">

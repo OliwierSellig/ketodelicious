@@ -74,19 +74,21 @@ export async function fetchRecipes(
 
   const params = `?${paramList.join("&")}`;
 
-  const res = await fetch(`${URL}search${params}`, {
-    method: "GET",
-    signal: signal,
-    headers: {
-      "X-RapidAPI-Key": KEY,
-      "X-RapidAPI-Host": HOST,
-    },
-    next: { revalidate: 30 },
-  });
+  try {
+    const res = await fetch(`${URL}search${params}`, {
+      method: "GET",
+      signal: signal,
+      headers: {
+        "X-RapidAPI-Key": KEY,
+        "X-RapidAPI-Host": HOST,
+      },
+      next: { revalidate: 120 },
+    });
 
-  const data: RecipeItemProp[] | { message: string } = await res.json();
+    const data: RecipeItemProp[] | { message: string } = await res.json();
 
-  return data;
+    return data;
+  } catch (error) {}
 }
 
 export async function fetchRecipeById(id: string) {
@@ -100,7 +102,6 @@ export async function fetchRecipeById(id: string) {
   });
 
   const data = await res.json();
-
   return data;
 }
 

@@ -1,14 +1,14 @@
 "use client";
 
 import RecipeCard from "@/components/global/RecipeCard";
-import { RecipeItemProp } from "@/utils/utilTypes";
+import { RecipeItemProp, UserRecipe } from "@/utils/utilTypes";
 import { Dispatch, SetStateAction } from "react";
 import PaginationNavigation from "../search/PaginationNavigation";
 import { EyeIcon } from "@heroicons/react/24/outline";
 import ActionButton from "./ActionButton";
 
 interface UserListProps {
-  list: RecipeItemProp[];
+  list: RecipeItemProp[] | UserRecipe[];
   iterator: number;
   setIterator: Dispatch<SetStateAction<number>>;
   query: string;

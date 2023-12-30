@@ -1,5 +1,3 @@
-"use client";
-
 import FilledButton from "@/components/global/FilledButton";
 import MainSlide from "./MainSlide";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";

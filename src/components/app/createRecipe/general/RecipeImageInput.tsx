@@ -1,3 +1,4 @@
+import FilledButton from "@/components/global/FilledButton";
 import { DocumentArrowUpIcon } from "@heroicons/react/24/outline";
 
 function RecipeImageInput() {
@@ -9,13 +10,10 @@ function RecipeImageInput() {
           <DocumentArrowUpIcon className="h-6 w-6 stroke-gray-tint-1" />
           <span className="text-lg">Drop an image here</span>
         </p>
-        <label
-          className="mb-4 cursor-pointer  rounded-xl bg-jade-shade-2 px-12 py-3 text-xl text-white transition-all duration-150 ease-linear hover:scale-105 hover:bg-jade-normal focus:scale-105 focus:bg-jade-normal xsm:px-8  xsm:py-2"
-          htmlFor="file"
-        >
+        <FilledButton size="lg" additionalClass="rounded-xl mb-2">
           Upload a file
-        </label>
-        <input className="hidden" type="file" id="file" />
+        </FilledButton>
+
         <p className="text-sm text-gray-tint-1">Only (PNG, JPG, JPEG) files</p>
       </div>
     </div>

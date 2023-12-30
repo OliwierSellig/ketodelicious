@@ -1,5 +1,7 @@
+import { IngredientProp } from "@/utils/utilTypes";
+
 interface IngredientsListProps {
-  list: { name: string; servingSize: { grams: number } }[];
+  list: IngredientProp[];
 }
 
 function IngredientsList({ list }: IngredientsListProps) {
@@ -18,7 +20,7 @@ function IngredientsList({ list }: IngredientsListProps) {
               {item.name}
             </span>
             <span className="absolute left-1/2 top-full z-20 -translate-x-1/2 transition-all duration-150 ease-linear">
-              {Math.ceil(item.servingSize.grams) || 0}g
+              {item.servingSize.grams ? Math.ceil(item.servingSize.grams) : 0}g
             </span>
           </li>
         ))}

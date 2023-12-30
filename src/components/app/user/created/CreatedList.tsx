@@ -1,15 +1,16 @@
-import { fetchRecipes } from "@/lib/recipes";
+"use client";
+
 import UserListContainer from "../UserListContainer";
+import { useUser } from "@/context/UserContext";
 
-async function CreatedList() {
-  const recipes = await fetchRecipes({ limit: 20 });
+function CreatedList() {
+  const { state: user } = useUser();
 
-  const recipeList = Array.isArray(recipes) ? recipes : [];
   return (
     <UserListContainer
       type="created"
       heading="Created Recipes"
-      list={recipeList}
+      list={user.created}
     />
   );
 }

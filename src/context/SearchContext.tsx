@@ -94,7 +94,7 @@ const initialState: stateProps = {
   maxNetCarbs: "",
   recipeList: [],
   searchIterator: 0,
-  isLoading: false,
+  isLoading: true,
 };
 function reducer(
   state: stateProps,
@@ -173,6 +173,7 @@ function SearchProvider({ children }: ChildrenProp) {
           type: REDUCER_ACTION_TYPE.SET_RECIPE_LIST,
           payload: Array.isArray(data) ? data : [],
         });
+
         modifyIterator("refresh");
         setLoading(false);
       } catch (err) {}

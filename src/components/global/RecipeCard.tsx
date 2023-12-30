@@ -6,6 +6,7 @@ import { useState } from "react";
 import Image from "next/image";
 import LoadingSpinner from "./LoadingSpinner";
 import { ImageSizesProps } from "@/utils/utilTypes";
+import previewDish from "../../../public/images/dish-1.jpg";
 
 interface RecipeCardProps {
   additionalClass?: string;
@@ -20,11 +21,11 @@ interface RecipeCardProps {
 
 function RecipeCard({
   additionalClass = "",
-  name = "Salmon bowl with zuchinni and tomatoes",
-  image = "../../images/dish-1.jpg",
-  prepareTime = 25,
-  calories = 476,
-  id = "",
+  name = "",
+  image,
+  prepareTime,
+  calories,
+  id,
   sizes = { defaultSize: "50vw" },
   tab = true,
 }: RecipeCardProps) {
@@ -53,7 +54,7 @@ function RecipeCard({
         >
           <Image
             alt={name}
-            src={image}
+            src={image || previewDish}
             fill
             className="object-cover"
             sizes={sizesString}
