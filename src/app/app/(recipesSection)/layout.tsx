@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: ChildrenProp) {
-  return <NavigationLayout>{children}</NavigationLayout>;
+  return <div>{children}</div>;
 }
