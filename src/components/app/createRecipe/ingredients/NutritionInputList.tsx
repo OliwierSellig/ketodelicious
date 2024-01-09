@@ -106,9 +106,9 @@ function NutritionInputList({ open }: NutritionInputListProps) {
             additionalClassLabel="xsm:text-lg"
           >
             <AmountInput
-              value={recipes.nutrition.totalFat}
+              value={recipes.nutrition.fat}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setNutrition("totalFat", e.target.value)
+                setNutrition("fat", e.target.value)
               }
               py={2}
               additionalClass="w-[300px] xl:w-[240px] lg:w-[200px] xxsm:w-[140px] xsm:w-[160px]"
