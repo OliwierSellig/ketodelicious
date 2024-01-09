@@ -7,25 +7,25 @@ const nextConfig = {
       { protocol: "https", hostname: "tinyurl.com", port: "", pathname: "/**" },
     ],
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/app",
-  //       destination: "/app/homeboard",
-  //       permanent: true,
-  //     },
-  //     {
-  //       source: "/app/recipes",
-  //       destination: "/app/homeboard",
-  //       permanent: true,
-  //     },
-  //     {
-  //       source: "/app/user",
-  //       destination: "/app/user/about",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/app",
+        destination: "/app/homeboard",
+        permanent: true,
+      },
+      {
+        source: "/app/recipes",
+        destination: "/app/homeboard",
+        permanent: true,
+      },
+      {
+        source: "/app/user",
+        destination: "/app/user/about",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withPlaiceholder(nextConfig);

@@ -99,19 +99,21 @@ function UserProvider({ children }: ChildrenProp) {
   // ---------- Getting Data From Local Storage ---------------------------
 
   useEffect(() => {
-    dispatch({
-      type: REDUCER_ACTION_TYPE.SET_BOOKMARKED,
-      payload: JSON.parse(localStorage.getItem("bookmarked") || ""),
-    });
-
-    dispatch({
-      type: REDUCER_ACTION_TYPE.SET_CREATED,
-      payload: JSON.parse(localStorage.getItem("created") || ""),
-    });
-    dispatch({
-      type: REDUCER_ACTION_TYPE.SET_ACTIVITIES,
-      payload: JSON.parse(localStorage.getItem("activities") || ""),
-    });
+    if (localStorage.getItem("bookmarked"))
+      dispatch({
+        type: REDUCER_ACTION_TYPE.SET_BOOKMARKED,
+        payload: JSON.parse(localStorage.getItem("bookmarked") || ""),
+      });
+    if (localStorage.getItem("created"))
+      dispatch({
+        type: REDUCER_ACTION_TYPE.SET_CREATED,
+        payload: JSON.parse(localStorage.getItem("created") || ""),
+      });
+    if (localStorage.getItem("activites"))
+      dispatch({
+        type: REDUCER_ACTION_TYPE.SET_ACTIVITIES,
+        payload: JSON.parse(localStorage.getItem("activities") || ""),
+      });
 
     dispatch({ type: REDUCER_ACTION_TYPE.SET_INITIAL_RENDER });
   }, []);
