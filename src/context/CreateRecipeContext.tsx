@@ -82,7 +82,7 @@ type NutrientType =
   | "sugar"
   | "fiber"
   | "protein"
-  | "totalFat"
+  | "fat"
   | "transFat";
 
 const enum REDUCER_ACTION_TYPE {
@@ -143,7 +143,7 @@ const initialState: stateProps = {
     sugar: "",
     protein: "",
     fiber: "",
-    totalFat: "",
+    fat: "",
     transFat: "",
   },
   ingredients: [],
@@ -269,8 +269,8 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
           return { ...state.nutrition, fiber: amount };
         case "protein":
           return { ...state.nutrition, protein: amount };
-        case "totalFat":
-          return { ...state.nutrition, totalFat: amount };
+        case "fat":
+          return { ...state.nutrition, fat: amount };
         case "transFat":
           return { ...state.nutrition, transFat: amount };
         default:
@@ -430,7 +430,7 @@ function CreateRecipeProvider({ children }: ChildrenProp) {
         sugar: parseFloat(state.nutrition.sugar || "-1"),
         fiber: parseFloat(state.nutrition.fiber || "-1"),
         protein: parseFloat(state.nutrition.protein || "-1"),
-        totalFat: parseFloat(state.nutrition.totalFat || "-1"),
+        fat: parseFloat(state.nutrition.fat || "-1"),
         transFat: parseFloat(state.nutrition.transFat || "-1"),
       },
       ingredients: state.ingredients,

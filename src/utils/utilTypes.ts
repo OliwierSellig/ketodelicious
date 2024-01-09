@@ -38,7 +38,7 @@ export type NutritionListProps = {
   sugar: number;
   fiber: number;
   protein: number;
-  totalFat: number;
+  fat: number;
   transFat: number;
 };
 
@@ -87,7 +87,7 @@ export type UserNutritionItem = {
   sugar?: string;
   fiber?: string;
   protein?: string;
-  totalFat?: string;
+  fat?: string;
   transFat?: string;
 };
 

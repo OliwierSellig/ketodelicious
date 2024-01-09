@@ -14,6 +14,8 @@ interface RecipeSliderProps {
 function RecipeSlider({ recipe }: RecipeSliderProps) {
   const [current, setCurrent] = useState<number>(1);
 
+  console.log(recipe.nutrients);
+
   function goPrev() {
     if (current === 0) {
       setCurrent(2);

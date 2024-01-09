@@ -33,7 +33,7 @@ function NutritionTable({ nutritionList }: NutritionTableProps) {
         {fixToSingle(nutritionList.protein, "g")}
       </NutritionRow>
       <NutritionRow value="Fat">
-        {fixToSingle(nutritionList.totalFat, "g")}
+        {fixToSingle(nutritionList.fat, "g")}
       </NutritionRow>
       <NutritionRow value="Trans Fat">
         {fixToSingle(nutritionList.transFat, "g")}
